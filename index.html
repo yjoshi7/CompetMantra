@@ -3,110 +3,1329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompeteMantra - Your Gateway to Success in Competitive Exams</title>
-    
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Header/Footer CSS -->
-    <link rel="stylesheet" href="main/header/header.css">
-    <link rel="stylesheet" href="main/footer/footer.css">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>CompeteMantra - Your Competitive Exam Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #002366;
+            --accent: #FFD700;
+            --white: #ffffff;
+            --light-gray-1: #f5f7fa;
+            --light-gray-2: #f9f9f9;
+            --light-gray-3: #f0f4f8;
+            --dark-gray-1: #333;
+            --dark-gray-2: #444;
+            --dark-gray-3: #555;
+            --dark-gray-4: #666;
+            --border-1: #eaeaea;
+            --border-2: #ddd;
+            --border-3: #f2f2f2;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: var(--dark-gray-1);
+            line-height: 1.6;
+            background-color: var(--light-gray-1);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        /* ===== Header Styles ===== */
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        /* Desktop Navigation */
+        .nav-desktop {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            position: relative;
+            margin-left: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link i {
+            margin-left: 0.3rem;
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--white);
+            min-width: 220px;
+            border-radius: 4px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        
+        .nav-item:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            padding: 0.7rem 1.2rem;
+            color: var(--dark-gray-1);
+            border-bottom: 1px solid var(--border-1);
+            transition: all 0.2s ease;
+        }
+        
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--light-gray-1);
+            color: var(--primary);
+            padding-left: 1.4rem;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--accent);
+        }
+        
+        .nav-mobile {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background-color: var(--white);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .nav-mobile.active {
+            right: 0;
+        }
+        
+        .mobile-nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .close-mobile-menu {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav-list {
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-nav-item {
+            border-bottom: 1px solid var(--border-1);
+        }
+        
+        .mobile-nav-link {
+            display: block;
+            padding: 1rem;
+            color: var(--dark-gray-1);
+        }
+        
+        .mobile-nav-link:hover {
+            background-color: var(--light-gray-1);
+            color: var(--primary);
+        }
+        
+        .mobile-dropdown-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+            background: none;
+            border: none;
+            color: var(--dark-gray-1);
+            text-align: left;
+            cursor: pointer;
+        }
+        
+        .mobile-dropdown-btn i {
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-dropdown-btn.active i {
+            transform: rotate(180deg);
+        }
+        
+        .mobile-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: var(--light-gray-1);
+        }
+        
+        .mobile-dropdown.active {
+            max-height: 500px;
+        }
+        
+        .mobile-dropdown-item {
+            display: block;
+            padding: 0.8rem 1rem 0.8rem 2rem;
+            color: var(--dark-gray-2);
+        }
+        
+        .mobile-dropdown-item:hover {
+            background-color: var(--light-gray-2);
+            color: var(--primary);
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* ===== Main Content Styles ===== */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--dark-gray-3);
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        
+        /* Announcement Marquee */
+        .announcement-bar {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.8rem 0;
+            overflow: hidden;
+        }
+        
+        .marquee {
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: marquee 20s linear infinite;
+        }
+        
+        .marquee-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .marquee-tag {
+            background-color: var(--accent);
+            color: var(--primary);
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-right: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .marquee-text {
+            font-weight: 500;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 35, 102, 0.9) 0%, rgba(0, 20, 61, 0.95) 100%), url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 30%);
+        }
+        
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero-title span {
+            color: var(--accent);
+            position: relative;
+        }
+        
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            animation: underlineExpand 1s ease 0.5s forwards;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+        }
+        
+        .hero-cta {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+        
+        /* Features Section */
+        .features {
+            background-color: var(--white);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background-color: var(--accent);
+            transition: height 0.3s ease;
+        }
+        
+        .feature-card:hover::before {
+            height: 100%;
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0, 35, 102, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .feature-desc {
+            color: var(--dark-gray-3);
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Exam Categories */
+        .categories {
+            background-color: var(--light-gray-1);
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .category-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .category-img {
+            height: 150px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+        
+        .category-content {
+            padding: 1.5rem;
+        }
+        
+        .category-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-count {
+            color: var(--dark-gray-3);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .category-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover .category-link i {
+            transform: translateX(3px);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background-color: var(--white);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background-color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--light-gray-1);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: var(--light-gray-1);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-answer-content {
+            padding: 1.5rem;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary) 0%, #00143d 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            padding: 2rem 1rem;
+            position: relative;
+        }
+        
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-item:last-child::after {
+            display: none;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        /* CTA Section */
+        .cta {
+            background-color: var(--light-gray-1);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            color: var(--dark-gray-3);
+            margin-bottom: 2rem;
+        }
+        
+        /* ===== Footer Styles ===== */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+            position: relative;
+        }
+        
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        /* Brand Section */
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .footer-logo span {
+            color: var(--accent);
+        }
+        
+        .footer-tagline {
+            color: var(--light-gray-1);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Navigation Section */
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-column {
+            margin: 0 1.5rem;
+        }
+        
+        .nav-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .footer-nav-list {
+            list-style: none;
+        }
+        
+        .footer-nav-item {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-nav-link {
+            color: var(--light-gray-1);
+            font-size: 0.95rem;
+        }
+        
+        .footer-nav-link:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        /* Social Section */
+        .footer-social {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .social-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--accent);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent);
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Bottom Bar */
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding: 1.5rem 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .copyright {
+            color: var(--light-gray-1);
+            font-size: 0.85rem;
+        }
+        
+        .back-to-top {
+            background-color: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* ===== Responsive Styles ===== */
+        @media (max-width: 1200px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .footer-social {
+                grid-column: span 2;
+                align-items: center;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            /* Header */
+            .nav-desktop {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            /* Footer */
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-social {
+                grid-column: span 1;
+                align-items: flex-start;
+            }
+            
+            .footer-nav {
+                justify-content: flex-start;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+            
+            .hero-title {
+                font-size: 2.4rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            /* Header */
+            .header-container {
+                padding: 0 1.5rem;
+            }
+            
+            /* Footer */
+            .footer-nav {
+                flex-wrap: wrap;
+            }
+            
+            .nav-column {
+                width: 45%;
+                margin-bottom: 1.5rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-item::after {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            .hero {
+                padding: 3rem 0;
+            }
+            
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Footer */
+            .nav-column {
+                width: 100%;
+            }
+            
+            .social-icons {
+                justify-content: flex-start;
+            }
+        }
+        
+        /* ===== Animations ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes underlineExpand {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .dropdown-item {
+            animation: fadeIn 0.3s ease forwards;
+        }
+        
+        .dropdown-item:nth-child(1) { animation-delay: 0.05s; }
+        .dropdown-item:nth-child(2) { animation-delay: 0.1s; }
+        .dropdown-item:nth-child(3) { animation-delay: 0.15s; }
+        .dropdown-item:nth-child(4) { animation-delay: 0.2s; }
+        .dropdown-item:nth-child(5) { animation-delay: 0.25s; }
+        .dropdown-item:nth-child(6) { animation-delay: 0.3s; }
+        .dropdown-item:nth-child(7) { animation-delay: 0.35s; }
+        .dropdown-item:nth-child(8) { animation-delay: 0.4s; }
+        
+        .footer-container > * {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        .footer-brand { animation-delay: 0.1s; }
+        .footer-nav { animation-delay: 0.2s; }
+        .footer-social { animation-delay: 0.3s; }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <header class="main-header" id="main-header">
-        <!-- Content loaded dynamically from main/header/header.html -->
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Compete<span>Mantra</span></a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Subjects
+                            <i>▼</i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">Banking Awareness</a>
+                            <a href="#" class="dropdown-item">Current Affairs</a>
+                            <a href="#" class="dropdown-item">Static GK</a>
+                            <a href="#" class="dropdown-item">Quantitative Aptitude</a>
+                            <a href="#" class="dropdown-item">Reasoning</a>
+                            <a href="#" class="dropdown-item">Physics</a>
+                            <a href="#" class="dropdown-item">Pure Math</a>
+                            <a href="#" class="dropdown-item">English</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            Exam
+                            <i>▼</i>
+                        </a>
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-item">Bank</a>
+                            <a href="#" class="dropdown-item">SSC</a>
+                            <a href="#" class="dropdown-item">Railway</a>
+                            <a href="#" class="dropdown-item">Others</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="#" class="mobile-nav-link">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <button class="mobile-dropdown-btn">
+                        Subjects
+                        <i>▼</i>
+                    </button>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="mobile-dropdown-item">Banking Awareness</a>
+                        <a href="#" class="mobile-dropdown-item">Current Affairs</a>
+                        <a href="#" class="mobile-dropdown-item">Static GK</a>
+                        <a href="#" class="mobile-dropdown-item">Quantitative Aptitude</a>
+                        <a href="#" class="mobile-dropdown-item">Reasoning</a>
+                        <a href="#" class="mobile-dropdown-item">Physics</a>
+                        <a href="#" class="mobile-dropdown-item">Pure Math</a>
+                        <a href="#" class="mobile-dropdown-item">English</a>
+                    </div>
+                </li>
+                <li class="mobile-nav-item">
+                    <button class="mobile-dropdown-btn">
+                        Exam
+                        <i>▼</i>
+                    </button>
+                    <div class="mobile-dropdown">
+                        <a href="#" class="mobile-dropdown-item">Bank</a>
+                        <a href="#" class="mobile-dropdown-item">SSC</a>
+                        <a href="#" class="mobile-dropdown-item">Railway</a>
+                        <a href="#" class="mobile-dropdown-item">Others</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
     </header>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <span class="marquee-tag">New</span>
+                    <span class="marquee-text">New Exams and Their Updates - UPSC 2024 notification released | SSC CGL 2024 application dates announced | IBPS PO 2024 syllabus updated</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Your Gateway to Success in Competitive Exams</h1>
-                <p>Join thousands of students who have cracked their dream exams with our expert-curated courses, real-time mock tests, and personalized guidance.</p>
-                <a href="#courses" class="btn">Explore Courses</a>
+        <div class="hero-container">
+            <h1 class="hero-title">Don't know what to prepare for a <span>specific exam?</span></h1>
+            <p class="hero-subtitle">Get complete guidance on exam patterns, syllabus, preparation strategies, and application processes for all major competitive exams in India.</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-accent">Explore Exams</a>
+                <a href="#" class="btn btn-outline">How to Apply</a>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features">
+    <section class="section features">
         <div class="container">
-            <h2>Why Choose CompeteMantra?</h2>
-            <div class="features-container">
+            <h2 class="section-title">Why Choose CompeteMantra</h2>
+            <p class="section-subtitle">We provide comprehensive resources and guidance to help you succeed in your competitive exam journey.</p>
+            
+            <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                    </div>
-                    <h3>Expert-Curated Courses</h3>
-                    <p>Learn from industry experts and top educators who have helped thousands of students succeed in competitive exams.</p>
+                    <div class="feature-icon">📚</div>
+                    <h3 class="feature-title">Comprehensive Study Material</h3>
+                    <p class="feature-desc">Access well-structured study materials covering all subjects and topics for your target exams.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Real-Time Mock Tests</h3>
-                    <p>Simulate actual exam conditions with our timed mock tests and detailed performance analysis.</p>
+                    <div class="feature-icon">📝</div>
+                    <h3 class="feature-title">Mock Tests & Practice</h3>
+                    <p class="feature-desc">Test your knowledge with our extensive collection of mock tests and previous year question papers.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
                 </div>
+                
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Progress Tracking</h3>
-                    <p>Monitor your improvement with detailed analytics and personalized recommendations.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-rupee-sign"></i>
-                    </div>
-                    <h3>Affordable Pricing</h3>
-                    <p>Quality education shouldn't break the bank. We offer premium content at student-friendly prices.</p>
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Performance Analytics</h3>
+                    <p class="feature-desc">Get detailed analysis of your performance to identify strengths and areas for improvement.</p>
+                    <a href="#" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="courses">
+    <!-- Exam Categories Section -->
+    <section class="section categories">
         <div class="container">
-            <h2>Our Popular Courses</h2>
-            <div class="courses-container">
-                <div class="course-card">
-                    <div class="course-img">
-                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Banking Exam Preparation">
+            <h2 class="section-title">Popular Exam Categories</h2>
+            <p class="section-subtitle">Browse through our comprehensive collection of exam preparation resources.</p>
+            
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img">🏦</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Banking Exams</h3>
+                        <p class="category-count">12+ Exams Covered</p>
+                        <a href="#" class="category-link">Explore <i>→</i></a>
                     </div>
-                    <div class="course-content">
-                        <h3>Banking Exam Mastery</h3>
-                        <p>Comprehensive preparation for IBPS PO, SBI PO, RBI Grade B, and other banking exams with 100+ mock tests.</p>
-                        <a href="#" class="btn course-btn">View Course</a>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">📜</div>
+                    <div class="category-content">
+                        <h3 class="category-title">SSC Exams</h3>
+                        <p class="category-count">8+ Exams Covered</p>
+                        <a href="#" class="category-link">Explore <i>→</i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">🚂</div>
+                    <div class="category-content">
+                        <h3 class="category-title">Railway Exams</h3>
+                        <p class="category-count">6+ Exams Covered</p>
+                        <a href="#" class="category-link">Explore <i>→</i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card">
+                    <div class="category-img">🎓</div>
+                    <div class="category-content">
+                        <h3 class="category-title">UPSC & State PSCs</h3>
+                        <p class="category-count">15+ Exams Covered</p>
+                        <a href="#" class="category-link">Explore <i>→</i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+    <!-- Stats Section -->
+    <section class="section stats">
         <div class="container">
-            <h2>What Our Students Say</h2>
-            <div class="testimonials-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>The mock tests at CompeteMantra were so similar to the actual IBPS PO exam that I felt completely prepared.</p>
+            <h2 class="section-title" style="color: var(--white);">Our Impact</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">Join thousands of successful candidates who achieved their dreams with our guidance.</p>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Exams Covered</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Practice Questions</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">Success Stories</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Find answers to common questions about exam preparation and our platform.</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I know which exam to prepare for?</span>
+                        <i>▼</i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-img">
-                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Priya Sharma">
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>We provide detailed information about all major competitive exams including eligibility criteria, exam patterns, and career prospects. You can use our exam selector tool or consult our career guidance section to identify the exams that best match your qualifications and aspirations.</p>
                         </div>
-                        <div class="author-info">
-                            <h4>Priya Sharma</h4>
-                            <p>Selected as SBI PO 2023</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I apply for my chosen exam?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>For each exam, we provide step-by-step application guides that walk you through the entire process. This includes registration, filling the application form, uploading documents, fee payment, and downloading the admit card. We also send timely notifications about application dates and deadlines.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What study materials are available?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Our platform offers comprehensive study materials including syllabus breakdowns, topic-wise notes, recommended books, video lectures, practice questions, and previous year papers. All materials are curated by subject matter experts and updated regularly to match the latest exam patterns.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do mock tests help in preparation?</span>
+                        <i>▼</i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Mock tests simulate the actual exam environment, helping you manage time effectively, identify strong and weak areas, and build exam temperament. Our mock tests come with detailed solutions and performance analytics to track your progress and improve your scores systematically.</p>
                         </div>
                     </div>
                 </div>
@@ -114,12 +1333,217 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="main-footer" id="main-footer">
-        <!-- Content loaded dynamically from main/footer/footer.html -->
+    <!-- CTA Section -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-container">
+                <div class="cta-card">
+                    <h2 class="cta-title">Ready to Start Your Exam Preparation?</h2>
+                    <p class="cta-text">Join thousands of aspirants who are achieving their dreams with our comprehensive exam preparation resources and guidance.</p>
+                    <a href="#" class="btn btn-primary">Get Started Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="#" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="social-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">f</a> <!-- Facebook -->
+                    <a href="#" class="social-icon">in</a> <!-- LinkedIn -->
+                    <a href="#" class="social-icon">t</a> <!-- Twitter -->
+                    <a href="#" class="social-icon">ig</a> <!-- Instagram -->
+                    <a href="#" class="social-icon">yt</a> <!-- YouTube -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
     </footer>
 
-    <!-- JavaScript Files -->
-    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const overlay = document.getElementById('overlay');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        closeMobileMenu.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        overlay.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Mobile Dropdown Toggle
+        const dropdownBtns = document.querySelectorAll('.mobile-dropdown-btn');
+        
+        dropdownBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const dropdown = btn.nextElementSibling;
+                const isActive = dropdown.classList.contains('active');
+                
+                // Close all dropdowns first
+                document.querySelectorAll('.mobile-dropdown').forEach(d => {
+                    d.classList.remove('active');
+                    d.previousElementSibling.querySelector('i').textContent = '▼';
+                });
+                
+                // Toggle current dropdown if it wasn't active
+                if (!isActive) {
+                    dropdown.classList.add('active');
+                    btn.querySelector('i').textContent = '▲';
+                }
+            });
+        });
+        
+        // FAQ Toggle
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items first
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open current if it wasn't active
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.opacity = '1';
+                backToTopBtn.style.visibility = 'visible';
+            } else {
+                backToTopBtn.style.opacity = '0';
+                backToTopBtn.style.visibility = 'hidden';
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Initialize button as hidden
+        backToTopBtn.style.opacity = '0';
+        backToTopBtn.style.visibility = 'hidden';
+        backToTopBtn.style.transition = 'all 0.3s ease';
+        
+        // Card hover effects
+        const cards = document.querySelectorAll('.feature-card, .category-card');
+        
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+                card.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.1)';
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
