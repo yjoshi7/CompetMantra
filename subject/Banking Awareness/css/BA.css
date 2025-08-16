@@ -462,9 +462,11 @@ tr:nth-child(even) {
 .final-lesson ul {
     margin: 1rem 0;
     padding-left: 1.5rem;
+    color: #FFD700;
 }
 
 .final-lesson li {
+    color: white;
     margin-bottom: 0.5rem;
 }
 
@@ -478,6 +480,10 @@ tr:nth-child(even) {
 .activity-box h5 {
     color: #FFD700;
     margin-bottom: 0.5rem;
+}
+
+.activity-box p {
+    color: white;
 }
 
 .moral-box {
@@ -495,6 +501,7 @@ tr:nth-child(even) {
 
 .moral-box p {
     font-style: italic;
+    color: white;
 }
 
 /* Navigation Buttons */
