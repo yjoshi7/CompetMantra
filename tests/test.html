@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Practice Portal | CompeteMantra</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Header and Footer CSS -->
+    <link rel="stylesheet" href="../main/header.css">
+    <link rel="stylesheet" href="../main/footer.css">
+    
+    <style>
+        :root {
+    --primary: #002366;
+    --accent: #FFD700;
+    --white: #ffffff;
+    --light-gray-1: #f5f7fa;
+    --light-gray-2: #f9f9f9;
+    --light-gray-3: #f0f4f8;
+    --medium-gray-1: #eaeaea;
+    --medium-gray-2: #ddd;
+    --medium-gray-3: #f2f2f2;
+    --dark-gray-1: #333;
+    --dark-gray-2: #444;
+    --dark-gray-3: #555;
+    --dark-gray-4: #666;
+    --blue-highlight: #0077cc;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-gray-3);
+    color: var(--dark-gray-1);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Page Header */
+.page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.page-header p {
+    color: var(--dark-gray-3);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Tabs Navigation */
+.tabs-nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--medium-gray-1);
+}
+
+.tab-btn {
+    padding: 0.8rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--dark-gray-2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tab-btn:hover {
+    color: var(--primary);
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--accent);
+    font-weight: 600;
+}
+
+/* Content Sections */
+.content-section {
+    display: none;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content-section.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Category Grid */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.category-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--medium-gray-1);
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.category-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.category-header {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.category-header:hover {
+    background-color: #001a4d;
+}
+
+.category-header i {
+    transition: var(--transition);
+}
+
+.category-header.active {
+    background-color: #001a4d;
+    box-shadow: inset 0 -2px 0 var(--accent);
+}
+
+.category-header.active i {
+    transform: rotate(180deg);
+}
+
+.category-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.category-content.active {
+    max-height: 2000px;
+}
+
+.exam-list {
+    padding: 1rem;
+}
+
+.exam-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--medium-gray-3);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+}
+
+.exam-item:last-child {
+    border-bottom: none;
+}
+
+.exam-item:hover {
+    color: var(--blue-highlight);
+    background-color: var(--light-gray-1);
+}
+
+.exam-item i {
+    color: var(--dark-gray-3);
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.test-list {
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.test-list.active {
+    max-height: 1000px;
+}
+
+.test-link {
+    display: block;
+    padding: 0.6rem 0.5rem;
+    color: var(--dark-gray-2);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.test-link:hover {
+    background-color: var(--light-gray-1);
+    color: var(--blue-highlight);
+    padding-left: 0.8rem;
+}
+
+.test-link i {
+    margin-right: 0.5rem;
+    color: var(--accent);
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--dark-gray-3);
+}
+
+.breadcrumbs a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs span {
+    margin: 0 0.5rem;
+    color: var(--dark-gray-3);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .tabs-nav {
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        padding: 0.6rem 1rem;
+        font-size: 1rem;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Desktop-specific optimizations */
+@media (min-width: 769px) {
+    .category-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        align-items: start;
+    }
+    
+    .category-content.active {
+        max-height: 1500px;
+    }
+    
+    .test-list.active {
+        max-height: 800px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject/subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject/subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <h1>Exam Practice Portal</h1>
+                <p>Access a comprehensive collection of mock tests, previous year papers, and chapter-wise tests to boost your exam preparation.</p>
+            </div>
+
+            <!-- Tabs Navigation -->
+            <div class="tabs-nav">
+                <button class="tab-btn active" data-tab="mock-test">Mock Test</button>
+                <button class="tab-btn" data-tab="previous-year">Previous Year Papers</button>
+                <button class="tab-btn" data-tab="chapter-wise">Chapter Wise Test</button>
+            </div>
+
+            <!-- Mock Test Section -->
+            <section id="mock-test" class="content-section active">
+                <h2>Mock Tests</h2>
+                <p>Practice with simulated exams that mimic the actual test environment.</p>
+                
+                <div class="breadcrumbs">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <span>Mock Tests</span>
+                </div>
+
+                <div class="category-grid">
+                    <!-- RRB -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>Railway Recruitment Board (RRB)</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="rrb-ntpc">
+                                    <span>NTPC</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="rrb-ntpc">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 3</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 4</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="rrb-alp">
+                                    <span>ALP</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="rrb-alp">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 3</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="rrb-constable">
+                                    <span>Constable</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="rrb-constable">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banks -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>Banking Exams</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="ibps-po">
+                                    <span>IBPS PO</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ibps-po">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 3</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="ibps-clerk">
+                                    <span>IBPS Clerk</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ibps-clerk">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="sbi-po">
+                                    <span>SBI PO</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="sbi-po">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 3</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 4</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SSC -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>Staff Selection Commission (SSC)</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="ssc-cgl">
+                                    <span>SSC CGL</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ssc-cgl">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="ssc-chsl">
+                                    <span>SSC CHSL</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ssc-chsl">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 3</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="ssc-mts">
+                                    <span>SSC MTS</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ssc-mts">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UPSC -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>UPSC Civil Services</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="upsc-prelims">
+                                    <span>Prelims</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="upsc-prelims">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 3</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="upsc-mains">
+                                    <span>Mains</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="upsc-mains">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NDA -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>NDA/NA</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="nda-maths">
+                                    <span>Mathematics</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="nda-maths">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="nda-gat">
+                                    <span>General Ability</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="nda-gat">
+                                    <a href="#" class="test-link"><i>✓</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>✓</i> Test 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Previous Year Papers Section -->
+            <section id="previous-year" class="content-section">
+                <h2>Previous Year Papers</h2>
+                <p>Access and practice with actual exam papers from previous years.</p>
+                
+                <div class="breadcrumbs">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <span>Previous Year Papers</span>
+                </div>
+
+                <div class="category-grid">
+                    <!-- RRB Previous Papers -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>RRB Previous Papers</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="rrb-pyp-ntpc">
+                                    <span>NTPC</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="rrb-pyp-ntpc">
+                                    <a href="#" class="test-link"><i>📄</i> 2022 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2021 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2020 Paper</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="rrb-pyp-alp">
+                                    <span>ALP</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="rrb-pyp-alp">
+                                    <a href="#" class="test-link"><i>📄</i> 2022 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2021 Paper</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banking Previous Papers -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>Banking Previous Papers</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="ibps-po-pyp">
+                                    <span>IBPS PO</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ibps-po-pyp">
+                                    <a href="#" class="test-link"><i>📄</i> 2022 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2021 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2020 Paper</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="sbi-po-pyp">
+                                    <span>SBI PO</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="sbi-po-pyp">
+                                    <a href="#" class="test-link"><i>📄</i> 2022 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2021 Paper</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SSC Previous Papers -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>SSC Previous Papers</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="ssc-cgl-pyp">
+                                    <span>SSC CGL</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ssc-cgl-pyp">
+                                    <a href="#" class="test-link"><i>📄</i> 2022 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2021 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2020 Paper</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="ssc-chsl-pyp">
+                                    <span>SSC CHSL</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="ssc-chsl-pyp">
+                                    <a href="#" class="test-link"><i>📄</i> 2022 Paper</a>
+                                    <a href="#" class="test-link"><i>📄</i> 2021 Paper</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Chapter Wise Test Section -->
+            <section id="chapter-wise" class="content-section">
+                <h2>Chapter Wise Tests</h2>
+                <p>Master each subject by practicing chapter-specific tests.</p>
+                
+                <div class="breadcrumbs">
+                    <a href="#">Home</a>
+                    <span>/</span>
+                    <span>Chapter Wise Tests</span>
+                </div>
+
+                <div class="category-grid">
+                    <!-- Banking Awareness -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>Banking Awareness</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="banking-history">
+                                    <span>Banking History</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="banking-history">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="financial-terms">
+                                    <span>Financial Terms</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="financial-terms">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 3</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pure Maths -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>Pure Maths</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="algebra">
+                                    <span>Algebra</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="algebra">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 3</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="trigonometry">
+                                    <span>Trigonometry</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="trigonometry">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="geometry">
+                                    <span>Geometry</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="geometry">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Physics -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>Physics</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="mechanics">
+                                    <span>Mechanics</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="mechanics">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="optics">
+                                    <span>Optics</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="optics">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- General Awareness -->
+                    <div class="category-card">
+                        <div class="category-header">
+                            <span>General Awareness</span>
+                            <i>▼</i>
+                        </div>
+                        <div class="category-content">
+                            <div class="exam-list">
+                                <div class="exam-item" data-exam="current-affairs">
+                                    <span>Current Affairs</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="current-affairs">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 3</a>
+                                </div>
+
+                                <div class="exam-item" data-exam="static-gk">
+                                    <span>Static GK</span>
+                                    <i>▶</i>
+                                </div>
+                                <div class="test-list" id="static-gk">
+                                    <a href="#" class="test-link"><i>📚</i> Test 1</a>
+                                    <a href="#" class="test-link"><i>📚</i> Test 2</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../main/header.js"></script>
+    <script src="../main/footer.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all components
+    setupTabs();
+    setupCategoryCards();
+    setupExamItems();
+    
+    // Handle window resize for responsive behavior
+    window.addEventListener('resize', handleResize);
+});
+
+// Tab Switching Functionality
+function setupTabs() {
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const contentSections = document.querySelectorAll('.content-section');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons and sections
+            tabBtns.forEach(b => b.classList.remove('active'));
+            contentSections.forEach(section => section.classList.remove('active'));
+
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            // Show corresponding content section
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+}
+
+// Category Card Toggle Functionality
+function setupCategoryCards() {
+    const categoryHeaders = document.querySelectorAll('.category-header');
+
+    categoryHeaders.forEach(header => {
+        header.addEventListener('click', (e) => {
+            // Don't interfere with exam item clicks
+            if (e.target.classList.contains('exam-item') || e.target.closest('.exam-item')) {
+                return;
+            }
+
+            const content = header.nextElementSibling;
+
+            // Close all other category contents first (only for desktop)
+            if (window.innerWidth >= 769) {
+                document.querySelectorAll('.category-content').forEach(c => {
+                    if (c !== content) {
+                        c.classList.remove('active');
+                        c.previousElementSibling.classList.remove('active');
+                    }
+                });
+            }
+
+            // Toggle current category
+            header.classList.toggle('active');
+            content.classList.toggle('active');
+        });
+    });
+}
+
+// Exam Item Toggle Functionality
+function setupExamItems() {
+    const examItems = document.querySelectorAll('.exam-item');
+
+    examItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent bubbling to category header
+            
+            const examId = item.getAttribute('data-exam');
+            const testList = document.getElementById(examId);
+
+            // For desktop, close other test lists in same category
+            if (window.innerWidth >= 769) {
+                const categoryContent = item.closest('.category-content');
+                if (categoryContent) {
+                    categoryContent.querySelectorAll('.test-list').forEach(list => {
+                        if (list !== testList) {
+                            list.classList.remove('active');
+                            resetArrowIcon(list);
+                        }
+                    });
+                }
+            }
+
+            // Toggle current test list
+            testList.classList.toggle('active');
+            toggleArrowIcon(item, testList.classList.contains('active'));
+        });
+    });
+}
+
+// Helper function to reset arrow icon
+function resetArrowIcon(testList) {
+    const prevItem = testList.previousElementSibling;
+    if (prevItem && prevItem.classList.contains('exam-item')) {
+        prevItem.querySelector('i').style.transform = 'rotate(0)';
+    }
+}
+
+// Helper function to toggle arrow icon
+function toggleArrowIcon(item, isActive) {
+    const icon = item.querySelector('i');
+    icon.style.transform = isActive ? 'rotate(90deg)' : 'rotate(0)';
+}
+
+// Handle window resize
+function handleResize() {
+    // Close all test lists when switching to mobile view
+    if (window.innerWidth < 769) {
+        document.querySelectorAll('.test-list').forEach(list => {
+            list.classList.remove('active');
+            resetArrowIcon(list);
+        });
+    }
+}
+</script>
+</body>
+</html>
