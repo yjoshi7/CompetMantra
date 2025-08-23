@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narasimham Committee II - Banking Awareness | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Narasimham Committee II Page */
+        .committee-overview {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid #002366;
+        }
+        
+        .timeline-container {
+            margin: 40px 0;
+        }
+        
+        .suggestion-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid #002366;
+            transition: all 0.3s ease;
+        }
+        
+        .suggestion-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .suggestion-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .suggestion-number {
+            background-color: #002366;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .suggestion-title {
+            color: #002366;
+            margin: 0;
+            font-size: 1.4rem;
+        }
+        
+        .suggestion-details {
+            margin-top: 20px;
+        }
+        
+        .impact-section {
+            background-color: #fffae6;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 3px solid #FFD700;
+        }
+        
+        .impact-section h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .impact-section h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .implementation-status {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            background-color: #f5f7fa;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .status-complete {
+            background-color: #28a745;
+        }
+        
+        .status-partial {
+            background-color: #FFD700;
+        }
+        
+        .status-pending {
+            background-color: #dc3545;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .point-card {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #002366;
+        }
+        
+        .point-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .point-card h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .key-points {
+                grid-template-columns: 1fr;
+            }
+            
+            .suggestion-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .suggestion-number {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li class="active"><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Narasimham Committee II (1998)</h1>
+                <p class="content-subtitle">Detailed analysis of recommendations 9-11 for banking sector reforms</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-history"></i> Committee Background</h3>
+                    <p>The Narasimham Committee II was formed in 1998 under the chairmanship of M. Narasimham, former RBI Governor, to review the progress of banking sector reforms and suggest further measures to strengthen the Indian financial system. The committee submitted its report in April 1998 with 11 key recommendations.</p>
+                    
+                    <div class="committee-overview">
+                        <h4><i class="fas fa-info-circle"></i> Committee Details</h4>
+                        <ul>
+                            <li><strong>Formed:</strong> 1998</li>
+                            <li><strong>Chairman:</strong> M. Narasimham (Former RBI Governor)</li>
+                            <li><strong>Focus:</strong> Further strengthening of financial institutions</li>
+                            <li><strong>Key Areas:</strong> Capital adequacy, asset quality, governance, systemic stability</li>
+                            <li><strong>Total Recommendations:</strong> 11</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Timeline Section -->
+                <section class="content-section timeline-container">
+                    <h3><i class="fas fa-stream"></i> Implementation Timeline</h3>
+                    <p>Key milestones in the implementation of Narasimham Committee II recommendations:</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">1998</div>
+                            <div class="timeline-content">
+                                <h5>Committee Report Submission</h5>
+                                <p>Narasimham Committee II submits its report with 11 recommendations for banking sector reforms</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">1999</div>
+                            <div class="timeline-content">
+                                <h5>Asset Reconstruction Company Proposal</h5>
+                                <p>Initial discussions on setting up ARCs based on Recommendation 9</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">2002</div>
+                            <div class="timeline-content">
+                                <h5>SARFAESI Act Enactment</h5>
+                                <p>Parliament passes the Securitisation and Reconstruction of Financial Assets and Enforcement of Security Interest Act</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">2003</div>
+                            <div class="timeline-content">
+                                <h5>First ARC Established</h5>
+                                <p>Asset Reconstruction Company (India) Limited (ARCIL) becomes the first ARC to commence operations</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">2004</div>
+                            <div class="timeline-content">
+                                <h5>New Bankruptcy Framework Discussions</h5>
+                                <p>Initial discussions on comprehensive bankruptcy law as suggested in Recommendation 11</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">2016</div>
+                            <div class="timeline-content">
+                                <h5>Insolvency and Bankruptcy Code</h5>
+                                <p>Parliament passes the Insolvency and Bankruptcy Code, implementing the spirit of Recommendation 11</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendation 9 Section -->
+                <section class="content-section">
+                    <div class="suggestion-card">
+                        <div class="suggestion-header">
+                            <div class="suggestion-number">9</div>
+                            <h3 class="suggestion-title">Asset Reconstruction Companies (ARCs)</h3>
+                        </div>
+                        
+                        <div class="suggestion-details">
+                            <p>The committee recommended the establishment of Asset Reconstruction Companies (ARCs) to take over non-performing assets (NPAs) from banks and financial institutions. These specialized entities would focus on recovery and resolution of stressed assets.</p>
+                            
+                            <div class="key-points">
+                                <div class="point-card">
+                                    <h4><i class="fas fa-bullseye"></i> Key Objectives</h4>
+                                    <ul>
+                                        <li>Clean up bank balance sheets by transferring NPAs</li>
+                                        <li>Specialize in recovery mechanisms</li>
+                                        <li>Enable banks to focus on core banking activities</li>
+                                        <li>Improve overall financial system efficiency</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h4><i class="fas fa-tools"></i> Implementation Mechanism</h4>
+                                    <ul>
+                                        <li>Legal framework for ARCs through SARFAESI Act, 2002</li>
+                                        <li>Power to acquire financial assets from banks</li>
+                                        <li>Authority to issue Security Receipts to qualified buyers</li>
+                                        <li>Enforcement powers without court intervention</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h4><i class="fas fa-chart-line"></i> Outcomes</h4>
+                                    <ul>
+                                        <li>Establishment of multiple ARCs in India</li>
+                                        <li>Recovery of significant amounts from NPAs</li>
+                                        <li>Improved NPA resolution mechanisms</li>
+                                        <li>Development of secondary market for distressed assets</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="impact-section">
+                                <h4><i class="fas fa-bolt"></i> Impact on Banking Sector</h4>
+                                <p>The creation of ARCs fundamentally changed how banks manage non-performing assets. It provided a specialized mechanism for recovery, reduced the burden on banks' balance sheets, and introduced professional asset reconstruction practices in India.</p>
+                                
+                                <div class="implementation-status">
+                                    <div class="status-indicator status-complete"></div>
+                                    <div>
+                                        <strong>Implementation Status:</strong> Fully implemented through SARFAESI Act, 2002
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendation 10 Section -->
+                <section class="content-section">
+                    <div class="suggestion-card">
+                        <div class="suggestion-header">
+                            <div class="suggestion-number">10</div>
+                            <h3 class="suggestion-title">Bank Ownership and Capital Adequacy</h3>
+                        </div>
+                        
+                        <div class="suggestion-details">
+                            <p>The committee recommended reducing government stake in public sector banks to 33% and increasing capital adequacy standards. This was aimed at improving governance, bringing in market discipline, and strengthening banks' capital base.</p>
+                            
+                            <div class="key-points">
+                                <div class="point-card">
+                                    <h4><i class="fas fa-balance-scale"></i> Capital Adequacy Enhancements</h4>
+                                    <ul>
+                                        <li>Increase capital to risk-weighted assets ratio (CRAR)</li>
+                                        <li>Gradual increase to international standards</li>
+                                        <li>Proper provisioning for NPAs and standard assets</li>
+                                        <li>Introduction of tier-based capital structure</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h4><i class="fas fa-university"></i> Ownership Reforms</h4>
+                                    <ul>
+                                        <li>Reduce government stake to 33% in PSBs</li>
+                                        <li>Greater autonomy in banking operations</li>
+                                        <li>Professionalization of bank boards</li>
+                                        <li>Improved corporate governance standards</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h4><i class="fas fa-chart-pie"></i> Implementation Progress</h4>
+                                    <ul>
+                                        <li>Partial reduction in government stake in some PSBs</li>
+                                        <li>CRAR standards aligned with Basel norms</li>
+                                        <li>Introduction of differentiated banking licenses</li>
+                                        <li>Improved disclosure and transparency norms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="impact-section">
+                                <h4><i class="fas fa-bolt"></i> Impact on Banking Sector</h4>
+                                <p>While the government stake reduction has been gradual, capital adequacy norms have been significantly strengthened. Indian banks now maintain higher capital buffers, and governance standards have improved, though complete disinvestment remains a work in progress.</p>
+                                
+                                <div class="implementation-status">
+                                    <div class="status-indicator status-partial"></div>
+                                    <div>
+                                        <strong>Implementation Status:</strong> Partially implemented - capital norms strengthened but government stake reduction incomplete
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recommendation 11 Section -->
+                <section class="content-section">
+                    <div class="suggestion-card">
+                        <div class="suggestion-header">
+                            <div class="suggestion-number">11</div>
+                            <h3 class="suggestion-title">Legal Reforms and Bankruptcy Framework</h3>
+                        </div>
+                        
+                        <div class="suggestion-details">
+                            <p>The committee emphasized the need for a strong legal framework for loan recovery and bankruptcy proceedings. It recommended changes to existing laws and creation of new mechanisms for faster resolution of stressed assets.</p>
+                            
+                            <div class="key-points">
+                                <div class="point-card">
+                                    <h4><i class="fas fa-gavel"></i> Legal Framework Changes</h4>
+                                    <ul>
+                                        <li>Reform of Debt Recovery Tribunals (DRTs)</li>
+                                        <li>Strengthening of SARFAESI Act provisions</li>
+                                        <li>Introduction of wilful default concept</li>
+                                        <li>Faster enforcement of security interests</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h4><i class="fas fa-landmark"></i> Bankruptcy Code Development</h4>
+                                    <ul>
+                                        <li>Comprehensive bankruptcy legislation</li>
+                                        <li>Time-bound resolution process</li>
+                                        <li>Insolvency professionals ecosystem</li>
+                                        <li>Information utilities for financial data</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h4><i class="fas fa-check-double"></i> Outcomes Achieved</h4>
+                                    <ul>
+                                        <li>Establishment of Insolvency and Bankruptcy Code, 2016</li>
+                                        <li>National Company Law Tribunal (NCLT) for resolution</li>
+                                        <li>Improved recovery rates through IBC</li>
+                                        <li>Cultural shift in credit discipline</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="impact-section">
+                                <h4><i class="fas fa-bolt"></i> Impact on Banking Sector</h4>
+                                <p>The implementation of a comprehensive bankruptcy framework through IBC has been transformative for the Indian financial system. It has significantly improved recovery rates, reduced resolution time, and changed borrower behavior through the threat of loss of control.</p>
+                                
+                                <div class="implementation-status">
+                                    <div class="status-indicator status-complete"></div>
+                                    <div>
+                                        <strong>Implementation Status:</strong> Fully implemented through Insolvency and Bankruptcy Code, 2016
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comparative Analysis Section -->
+                <section class="content-section comparison-section">
+                    <h3><i class="fas fa-chart-bar"></i> Comparative Analysis of Recommendations 9-11</h3>
+                    <p>Implementation status and impact assessment of the three key recommendations:</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Recommendation</th>
+                                <th>Primary Focus</th>
+                                <th>Implementation Mechanism</th>
+                                <th>Status</th>
+                                <th>Impact Rating</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#9: Asset Reconstruction Companies</td>
+                                <td>NPA Resolution</td>
+                                <td>SARFAESI Act, 2002</td>
+                                <td>Fully Implemented</td>
+                                <td>High</td>
+                            </tr>
+                            <tr>
+                                <td>#10: Bank Ownership & Capital</td>
+                                <td>Governance & Stability</td>
+                                <td>Gradual reforms</td>
+                                <td>Partially Implemented</td>
+                                <td>Medium</td>
+                            </tr>
+                            <tr>
+                                <td>#11: Legal Reforms</td>
+                                <td>Bankruptcy Framework</td>
+                                <td>IBC, 2016</td>
+                                <td>Fully Implemented</td>
+                                <td>Very High</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Overall Impact Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-trophy"></i> Overall Impact of Recommendations 9-11</h3>
+                    <p>The implementation of these three recommendations has significantly transformed India's banking sector:</p>
+                    
+                    <div class="key-points">
+                        <div class="point-card">
+                            <h4><i class="fas fa-shield-alt"></i> Financial Stability</h4>
+                            <ul>
+                                <li>Stronger capital buffers in banks</li>
+                                <li>Improved ability to absorb shocks</li>
+                                <li>Reduced systemic risk from NPAs</li>
+                                <li>Better risk management practices</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h4><i class="fas fa-hand-holding-usd"></i> Recovery Mechanisms</h4>
+                            <ul>
+                                <li>Specialized ARCs for NPA resolution</li>
+                                <li>Faster recovery through SARFAESI</li>
+                                <li>Time-bound resolution under IBC</li>
+                                <li>Improved recovery rates</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h4><i class="fas fa-balance-scale"></i> Governance & Discipline</h4>
+                            <ul>
+                                <li>Market discipline through reduced government stake</li>
+                                <li>Professional board composition</li>
+                                <li>Improved credit culture</li>
+                                <li>Reduced moral hazard</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="final-lesson">
+                        <h4><i class="fas fa-graduation-cap"></i> Key Takeaways</h4>
+                        <ul>
+                            <li>Narasimham Committee II laid the foundation for modern banking reforms</li>
+                            <li>Recommendations 9-11 addressed critical gaps in the financial system</li>
+                            <li>The IBC has been one of the most significant financial reforms in India</li>
+                            <li>Implementation of these recommendations strengthened India's banking sector significantly</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA25.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA27.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/narasimham-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/narasimham-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

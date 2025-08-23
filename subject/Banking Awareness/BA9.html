@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Regulations of Banks & NBFCs | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Regulations of Banks & NBFCs Page */
+        .regulatory-framework {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .framework-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .framework-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-top: 4px solid #002366;
+            transition: transform 0.3s ease;
+        }
+        
+        .framework-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        
+        .framework-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .framework-card h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .comparison-card h3 {
+            color: #002366;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #FFD700;
+        }
+        
+        .regulation-point {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .regulation-point:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .regulation-point h4 {
+            color: #002366;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .regulation-point h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .key-differences {
+            margin-top: 40px;
+        }
+        
+        .differences-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .differences-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .differences-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .differences-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .differences-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .regulatory-timeline {
+            margin-top: 40px;
+        }
+        
+        .timeline-milestone {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-milestone::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #FFD700;
+            border: 3px solid #002366;
+        }
+        
+        .timeline-milestone::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 27px;
+            bottom: -15px;
+            width: 2px;
+            background-color: #002366;
+        }
+        
+        .timeline-milestone:last-child::after {
+            display: none;
+        }
+        
+        .milestone-year {
+            font-weight: bold;
+            color: #002366;
+            margin-bottom: 5px;
+        }
+        
+        .compliance-section {
+            background-color: #f5f7fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+        
+        .compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .compliance-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            border-left: 3px solid #002366;
+        }
+        
+        .compliance-item h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .compliance-item h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .framework-container,
+            .comparison-grid,
+            .compliance-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .regulatory-framework {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li class="active"><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Regulations of Banks & NBFCs</h1>
+                <p class="content-subtitle">Understanding the regulatory framework governing financial institutions in India</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-balance-scale"></i> Regulatory Framework Overview</h3>
+                    <p>The Indian financial system is regulated by multiple authorities to ensure stability, protect consumer interests, and promote economic growth. Banks and Non-Banking Financial Companies (NBFCs) operate under different regulatory frameworks despite offering similar financial services.</p>
+                </section>
+
+                <!-- Regulatory Bodies Section -->
+                <section class="content-section regulatory-framework">
+                    <h3><i class="fas fa-landmark"></i> Key Regulatory Bodies</h3>
+                    <p>Various institutions oversee the functioning of banks and NBFCs in India:</p>
+                    
+                    <div class="framework-container">
+                        <div class="framework-card">
+                            <h4><i class="fas fa-building-columns"></i> Reserve Bank of India (RBI)</h4>
+                            <p>The central banking institution responsible for regulating banks, NBFCs, and payment systems. It formulates monetary policy and maintains financial stability.</p>
+                        </div>
+                        
+                        <div class="framework-card">
+                            <h4><i class="fas fa-scale-balanced"></i> Ministry of Finance</h4>
+                            <p>Responsible for banking legislation, policy direction, and appointments to public sector banks. It oversees the implementation of major financial sector reforms.</p>
+                        </div>
+                        
+                        <div class="framework-card">
+                            <h4><i class="fas fa-chart-line"></i> Securities and Exchange Board of India (SEBI)</h4>
+                            <p>Regulates capital markets and protects investor interests. It oversees merchant banking activities of both banks and NBFCs.</p>
+                        </div>
+                        
+                        <div class="framework-card">
+                            <h4><i class="fas fa-shield-alt"></i> Insurance Regulatory and Development Authority (IRDAI)</h4>
+                            <p>Regulates insurance companies and insurance-related activities of banks and NBFCs, including bancassurance partnerships.</p>
+                        </div>
+                        
+                        <div class="framework-card">
+                            <h4><i class="fas fa-hand-holding-usd"></i> National Housing Bank (NHB)</h4>
+                            <p>Regulates and supervises housing finance companies, which are a specialized category of NBFCs.</p>
+                        </div>
+                        
+                        <div class="framework-card">
+                            <h4><i class="fas fa-info-circle"></i> Credit Information Companies</h4>
+                            <p>Regulated by RBI, these companies (like CIBIL, Experian) maintain credit histories of borrowers for both banks and NBFCs.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bank Regulations Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-university"></i> Regulation of Banks</h3>
+                    <p>Banks in India operate under a comprehensive regulatory framework with strict compliance requirements:</p>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h3>Licensing Requirements</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-file-alt"></i> Banking Regulation Act, 1949</h4>
+                                <p>All banking companies must obtain a license from RBI under Section 22 of the Banking Regulation Act, 1949.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-money-bill-wave"></i> Minimum Capital Requirements</h4>
+                                <p>Scheduled commercial banks require minimum paid-up capital of ₹500 crores. Small Finance Banks require ₹200 crores.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-user-check"></i> Fit and Proper Criteria</h4>
+                                <p>Promoters and directors must meet RBI's "fit and proper" criteria based on integrity, reputation, and experience.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-card">
+                            <h3>Prudential Regulations</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-chart-pie"></i> Capital Adequacy</h4>
+                                <p>Banks must maintain minimum Capital to Risk-weighted Assets Ratio (CRAR) of 9% under Basel III norms (11.5% including capital conservation buffer).</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-percentage"></i> Statutory Reserves</h4>
+                                <p>Banks must maintain Cash Reserve Ratio (CRR) and Statutory Liquidity Ratio (SLR) as prescribed by RBI.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-exclamation-triangle"></i> NPA Classification</h4>
+                                <p>Strict asset classification norms: Standard (0-90 days), Sub-standard (90 days-12 months), Doubtful (12+ months), Loss assets.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h3>Governance & Compliance</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-clipboard-list"></i> Board Composition</h4>
+                                <p>Banks must have a balanced board with adequate representation of independent directors and specific committees (Audit, Risk, Nomination).</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-shield-alt"></i> Risk Management</h4>
+                                <p>Mandatory implementation of comprehensive risk management frameworks covering credit, market, operational, and liquidity risks.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-sync-alt"></i> Reporting Requirements</h4>
+                                <p>Banks must submit periodic returns to RBI covering financial position, asset quality, capital adequacy, and compliance status.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-card">
+                            <h3>Consumer Protection</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-user-shield"></i> Fair Practices Code</h4>
+                                <p>Banks must adopt transparent practices in lending, recovery, and customer service as per RBI guidelines.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-gavel"></i> Banking Ombudsman</h4>
+                                <p>Customers can approach Banking Ombudsman for grievance redressal regarding deficient services.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-lock"></i> Data Security</h4>
+                                <p>Banks must implement robust cybersecurity measures and data protection protocols as per RBI guidelines.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NBFC Regulations Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> Regulation of NBFCs</h3>
+                    <p>NBFCs are regulated under a different framework with varying requirements based on their size, activity, and systemic importance:</p>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h3>Registration & Classification</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-id-card"></i> Registration Requirements</h4>
+                                <p>NBFCs must register with RBI under Section 45-IA of RBI Act, 1934 with minimum net owned funds of ₹2 crores (₹10 crores for certain categories).</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-tags"></i> Classification System</h4>
+                                <p>NBFCs classified by:
+                                    <ul>
+                                        <li>Asset size (NBFCs, NBFCs-NDSI, NBFCs-D)</li>
+                                        <li>Activity (Investment, Loan, Infrastructure Finance, etc.)</li>
+                                        <li>Deposit taking ability (NBFC-D, NBFC-ND)</li>
+                                    </ul>
+                                </p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-layer-group"></i> Scale-Based Regulation</h4>
+                                <p>Four-layer regulatory structure: Base Layer, Middle Layer, Upper Layer, and Top Layer with increasing regulatory intensity.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-card">
+                            <h3>Prudential Norms</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-coins"></i> Capital Requirements</h4>
+                                <p>NBFCs must maintain minimum Tier I capital of 10% and CRAR of 15% (with some variations based on category).</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-file-invoice-dollar"></i> Asset Classification</h4>
+                                <p>NPA classification: Standard (0-90 days), Sub-standard (90 days-12 months), Doubtful (12+ months), Loss assets. Provisioning requirements apply.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-exclamation-circle"></i> Concentration Norms</h4>
+                                <p>Exposure limits for single borrower (25% of capital funds) and group borrowers (40% of capital funds) with some exceptions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <h3>Governance & Compliance</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-users"></i> Corporate Governance</h4>
+                                <p>NBFCs must constitute Board committees, appoint Chief Risk Officer, and follow fit and proper criteria for directors.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-laptop-code"></i> Technology Governance</h4>
+                                <p>Mandatory IT governance framework, cybersecurity policy, and appointment of Chief Information Security Officer for larger NBFCs.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-chart-bar"></i> Reporting Framework</h4>
+                                <p>Regular submission of returns to RBI including financial statements, asset classification, and compliance certificates.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-card">
+                            <h3>Deposit Acceptance</h3>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-hand-holding-usd"></i> Deposit Taking NBFCs</h4>
+                                <p>NBFCs-D require specific credit rating, minimum NOF, and can accept public deposits up to 1.5 times net owned funds.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-shield-alt"></i> Deposit Insurance</h4>
+                                <p>Deposits with NBFCs-D are not insured by DICGC, unlike bank deposits which are insured up to ₹5 lakhs.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-ban"></i> Restrictions</h4>
+                                <p>NBFCs cannot accept demand deposits and cannot offer interest rates higher than ceiling rates prescribed by RBI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Differences Section -->
+                <section class="content-section key-differences">
+                    <h3><i class="fas fa-not-equal"></i> Key Differences in Regulation</h3>
+                    <p>While banks and NBFCs offer similar financial services, their regulatory treatment differs significantly:</p>
+                    
+                    <table class="differences-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Banks</th>
+                                <th>NBFCs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Main Regulating Act</td>
+                                <td>Banking Regulation Act, 1949</td>
+                                <td>RBI Act, 1934</td>
+                            </tr>
+                            <tr>
+                                <td>Demand Deposits</td>
+                                <td>Can accept</td>
+                                <td>Cannot accept</td>
+                            </tr>
+                            <tr>
+                                <td>Payment System Membership</td>
+                                <td>Can be full members</td>
+                                <td>Limited access</td>
+                            </tr>
+                            <tr>
+                                <td>Deposit Insurance</td>
+                                <td>Covered by DICGC up to ₹5 lakh</td>
+                                <td>Not covered</td>
+                            </tr>
+                            <tr>
+                                <td>Maintenance of CRR</td>
+                                <td>Required (3-4%)</td>
+                                <td>Not required</td>
+                            </tr>
+                            <tr>
+                                <td>Maintenance of SLR</td>
+                                <td>Required (18%)</td>
+                                <td>Not required</td>
+                            </tr>
+                            <tr>
+                                <td>Foreign Investment</td>
+                                <td>Up to 74% automatic route</td>
+                                <td>Up to 100% automatic route</td>
+                            </tr>
+                            <tr>
+                                <td>Credit Creation</td>
+                                <td>Can create credit</td>
+                                <td>Cannot create credit</td>
+                            </tr>
+                            <tr>
+                                <td>Lending Restrictions</td>
+                                <td>Priority sector lending targets</td>
+                                <td>No such targets</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Regulatory Evolution Section -->
+                <section class="content-section regulatory-timeline">
+                    <h3><i class="fas fa-history"></i> Evolution of Regulatory Framework</h3>
+                    <p>The regulatory approach towards banks and NBFCs has evolved significantly over time:</p>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">1934</div>
+                        <div class="timeline-content">
+                            <h5>RBI Act Enactment</h5>
+                            <p>Establishment of Reserve Bank of India with central banking functions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">1949</div>
+                        <div class="timeline-content">
+                            <h5>Banking Regulation Act</h5>
+                            <p>Comprehensive legislation for regulation of banking companies in India.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">1963</div>
+                        <div class="timeline-content">
+                            <h5>First NBFC Directions</h5>
+                            <p>RBI issued first directions for NBFCs regarding acceptance of deposits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">1997</div>
+                        <div class="timeline-content">
+                            <h5>NBFC Comprehensive Regulation</h5>
+                            <p>RBI introduced comprehensive regulation for NBFCs including mandatory registration.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">2006</div>
+                        <div class="timeline-content">
+                            <h5>Banking Ombudsman Expansion</h5>
+                            <p>Banking Ombudsman Scheme extended to cover NBFCs with certain criteria.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">2014</div>
+                        <div class="timeline-content">
+                            <h5>Differentiated Banking</h5>
+                            <p>Introduction of Payments Banks and Small Finance Banks with specialized regulations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">2019</div>
+                        <div class="timeline-content">
+                            <h5>NBFC Liquidity Framework</h5>
+                            <p>Enhanced regulatory framework for NBFCs following IL&FS crisis, including liquidity risk management guidelines.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">2021</div>
+                        <div class="timeline-content">
+                            <h5>Scale-Based Regulation</h5>
+                            <p>Introduction of four-layer regulatory structure for NBFCs based on size, activity, and riskiness.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Compliance Framework Section -->
+                <section class="content-section compliance-section">
+                    <h3><i class="fas fa-clipboard-check"></i> Compliance Framework</h3>
+                    <p>Both banks and NBFCs must adhere to comprehensive compliance requirements:</p>
+                    
+                    <div class="compliance-grid">
+                        <div class="compliance-item">
+                            <h4><i class="fas fa-file-contract"></i> KYC/AML Guidelines</h4>
+                            <p>Strict customer identification procedures, transaction monitoring, and reporting of suspicious transactions to FIU-IND.</p>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <h4><i class="fas fa-shield-alt"></i> Cyber Security Framework</h4>
+                            <p>Implementation of robust cybersecurity measures, incident reporting, and regular security audits.</p>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <h4><i class="fas fa-user-lock"></i> Data Privacy</h4>
+                            <p>Compliance with data protection standards including RBI's data localization requirements for payment systems.</p>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <h4><i class="fas fa-balance-scale-right"></i> Fair Practices Code</h4>
+                            <p>Transparent lending practices, non-coercive recovery methods, and grievance redressal mechanisms.</p>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <h4><i class="fas fa-chart-line"></i> Financial Reporting</h4>
+                            <p>Timely submission of audited financial statements and various regulatory returns to RBI.</p>
+                        </div>
+                        
+                        <div class="compliance-item">
+                            <h4><i class="fas fa-gavel"></i> Regulatory Inspections</h4>
+                            <p>Regular on-site inspections by RBI with focus on governance, risk management, and compliance culture.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA7.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA10.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/regulations-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/regulations-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

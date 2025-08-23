@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Types of Accounts & Deposits | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Types of Accounts & Deposits Page */
+        .loan-visualization {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .hierarchy-container {
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 900px;
+        }
+        
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        .tree-node {
+            background-color: white;
+            border: 2px solid #002366;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 0 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #002366;
+            box-shadow: 0 2px 8px rgba(0,35,102,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tree-node:hover {
+            background-color: #f0f4f8;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,35,102,0.15);
+        }
+        
+        .tree-node.main {
+            background-color: #002366;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 25px;
+        }
+        
+        .tree-node.category {
+            background-color: #e6f0ff;
+            border-color: #0044cc;
+        }
+        
+        .tree-node.subcategory {
+            border-color: #FFD700;
+            background-color: #fffae6;
+        }
+        
+        .tree-connector {
+            position: absolute;
+            width: 2px;
+            background-color: #002366;
+            height: 15px;
+            bottom: -15px;
+            left: 50%;
+        }
+        
+        .loan-type-details {
+            margin-top: 40px;
+        }
+        
+        .loan-type-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #FFD700;
+        }
+        
+        .loan-type-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .loan-type-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .loan-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #002366;
+        }
+        
+        .feature-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .npa-classification {
+            background-color: #fffae6;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            border: 1px solid #FFD700;
+        }
+        
+        .npa-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .npa-level {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .npa-badge {
+            background-color: #002366;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: center;
+            margin-right: 15px;
+        }
+        
+        .npa-description {
+            flex: 1;
+            padding: 10px 15px;
+            background-color: white;
+            border-radius: 4px;
+            border-left: 3px solid #002366;
+        }
+        
+        .dicgc-info {
+            background-color: #e6f0ff;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #002366;
+        }
+        
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .key-point {
+            background-color: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        
+        .key-point h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .key-point h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .loan-features, .key-points {
+                grid-template-columns: 1fr;
+            }
+            
+            .tree-node {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                margin: 0 5px;
+            }
+            
+            .npa-level {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .npa-badge {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+                <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li class="active"><a href="BA6.html?topic=trends">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Types of Accounts & Deposits</h1>
+                <p class="content-subtitle">Understanding different banking products and their classifications</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-university"></i> Banking Products Overview</h3>
+                    <p>Banks offer various types of accounts and deposit products to cater to different customer needs. These products can be broadly classified into secured and unsecured categories, each with specific features, benefits, and risk profiles.</p>
+                </section>
+
+                <!-- Loan Types Visualization -->
+                <section class="content-section loan-visualization">
+                    <h3><i class="fas fa-sitemap"></i> Types of Loans Classification</h3>
+                    <p>Visual representation of how loans are categorized based on security and purpose:</p>
+                    
+                    <div class="hierarchy-container">
+                        <div class="tree">
+                            <!-- Level 1: Loans -->
+                            <div class="tree-level">
+                                <div class="tree-node main">
+                                    Types of Loans
+                                    <div class="tree-connector"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Level 2: Secured & Unsecured -->
+                            <div class="tree-level">
+                                <div class="tree-node category">
+                                    Secured Loans (With Collateral)
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node category">
+                                    Unsecured Loans (Without Collateral)
+                                    <div class="tree-connector"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Level 3: Secured Loan Types -->
+                            <div class="tree-level">
+                                <div class="tree-node subcategory">
+                                    Mortgage
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node subcategory">
+                                    Hypothecation
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node subcategory">
+                                    Pledge
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node" style="visibility: hidden;"></div> <!-- Spacer -->
+                                <div class="tree-node" style="visibility: hidden;"></div> <!-- Spacer -->
+                                <div class="tree-node" style="visibility: hidden;"></div> <!-- Spacer -->
+                            </div>
+                            
+                            <!-- Level 4: Secured Loan Examples -->
+                            <div class="tree-level">
+                                <div class="tree-node">
+                                    Housing Loans
+                                </div>
+                                <div class="tree-node">
+                                    Loan Against Property
+                                </div>
+                                <div class="tree-node">
+                                    Vehicle Loans
+                                </div>
+                                <div class="tree-node">
+                                    Gold Loans
+                                </div>
+                                <div class="tree-node">
+                                    Machinery Loans
+                                </div>
+                                <div class="tree-node">
+                                    Stock Financing
+                                </div>
+                            </div>
+                            
+                            <!-- Level 3: Unsecured Loan Types -->
+                            <div class="tree-level">
+                                <div class="tree-node subcategory">
+                                    Personal Loans
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node subcategory">
+                                    Short-term Loans
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node subcategory">
+                                    Education Loans
+                                    <div class="tree-connector"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Level 4: Unsecured Loan Examples -->
+                            <div class="tree-level">
+                                <div class="tree-node">
+                                    Home Renovation
+                                </div>
+                                <div class="tree-node">
+                                    Consumer Durables
+                                </div>
+                                <div class="tree-node">
+                                    Business Loans
+                                </div>
+                                <div class="tree-node">
+                                    Study Abroad (₹20L)
+                                </div>
+                                <div class="tree-node">
+                                    Study India (₹15L)
+                                </div>
+                                <div class="tree-node">
+                                    Agricultural Loans
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hierarchy-explanation">
+                        <h4><i class="fas fa-lightbulb"></i> Key Differences</h4>
+                        <ul>
+                            <li><strong>Secured Loans</strong> require collateral and typically have lower interest rates</li>
+                            <li><strong>Unsecured Loans</strong> don't require collateral but have higher interest rates</li>
+                            <li>Loan approval depends on credit history, income, and repayment capacity</li>
+                            <li>Different loans serve different purposes with specific terms and conditions</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Secured Loans Section -->
+                <section class="content-section loan-type-details">
+                    <h3><i class="fas fa-lock"></i> Secured Loans</h3>
+                    <p>Loans backed by collateral or security that the borrower pledges to the lender. If the borrower defaults, the lender can seize the collateral to recover the loan amount.</p>
+                    
+                    <div class="loan-type-card">
+                        <h3><i class="fas fa-home"></i> Mortgage Loans</h3>
+                        <p>Loans where immovable property is used as collateral without physically handing it over to the bank.</p>
+                        
+                        <div class="loan-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-info-circle"></i> Characteristics</h4>
+                                <ul>
+                                    <li>Collateral remains with borrower</li>
+                                    <li>Against immovable property</li>
+                                    <li>Long repayment tenure</li>
+                                    <li>Lower interest rates</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-list-alt"></i> Examples</h4>
+                                <ul>
+                                    <li>Housing Loans</li>
+                                    <li>Loans Against Property (LAP)</li>
+                                    <li>Commercial Real Estate Loans</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-file-contract"></i> Documentation</h4>
+                                <ul>
+                                    <li>Property title documents</li>
+                                    <li>Valuation reports</li>
+                                    <li>Legal verification</li>
+                                    <li>Mortgage registration</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-type-card">
+                        <h3><i class="fas fa-car"></i> Hypothecation Loans</h3>
+                        <p>Loans where movable assets are used as collateral while the borrower retains possession of the assets.</p>
+                        
+                        <div class="loan-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-info-circle"></i> Characteristics</h4>
+                                <ul>
+                                    <li>Collateral remains with borrower</li>
+                                    <li>Against movable property</li>
+                                    <li>Medium repayment tenure</li>
+                                    <li>Moderate interest rates</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-list-alt"></i> Examples</h4>
+                                <ul>
+                                    <li>Vehicle Loans (Car, Bike)</li>
+                                    <li>Machinery Loans</li>
+                                    <li>Equipment Financing</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-file-contract"></i> Documentation</h4>
+                                <ul>
+                                    <li>Asset purchase invoices</li>
+                                    <li>Insurance policies</li>
+                                    <li>Hypothecation agreement</li>
+                                    <li>RC book for vehicles</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="loan-type-card">
+                        <h3><i class="fas fa-gem"></i> Pledge Loans</h3>
+                        <p>Loans where physical possession of movable collateral is transferred to the lender until the loan is repaid.</p>
+                        
+                        <div class="loan-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-info-circle"></i> Characteristics</h4>
+                                <ul>
+                                    <li>Collateral handed over to bank</li>
+                                    <li>Against movable assets</li>
+                                    <li>Short to medium tenure</li>
+                                    <li>Lowest interest rates among secured loans</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-list-alt"></i> Examples</h4>
+                                <ul>
+                                    <li>Gold Loans</li>
+                                    <li>Jewelry Loans</li>
+                                    <li>Securities Pledge (Shares, Bonds)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-file-contract"></i> Documentation</h4>
+                                <ul>
+                                    <li>Asset ownership proof</li>
+                                    <li>Valuation certificate</li>
+                                    <li>Pledge agreement</li>
+                                    <li>Safe custody receipt</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-section">
+                            <h4><i class="fas fa-random"></i> Secured Loan Types Comparison</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Mortgage</th>
+                                        <th>Hypothecation</th>
+                                        <th>Pledge</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Collateral Type</td>
+                                        <td>Immovable Property</td>
+                                        <td>Movable Assets</td>
+                                        <td>Movable Assets</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Possession</td>
+                                        <td>With Borrower</td>
+                                        <td>With Borrower</td>
+                                        <td>With Lender</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest Rate</td>
+                                        <td>Low</td>
+                                        <td>Medium</td>
+                                        <td>Lowest</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tenure</td>
+                                        <td>Long (up to 30 years)</td>
+                                        <td>Medium (3-7 years)</td>
+                                        <td>Short (1-3 years)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Risk to Lender</td>
+                                        <td>Low</td>
+                                        <td>Medium</td>
+                                        <td>Low</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Unsecured Loans Section -->
+                <section class="content-section">
+                    <div class="loan-type-card">
+                        <h3><i class="fas fa-unlock"></i> Unsecured Loans</h3>
+                        <p>Loans provided without any collateral security, based solely on the borrower's creditworthiness and repayment capacity.</p>
+                        
+                        <div class="loan-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-user"></i> Personal Loans</h4>
+                                <ul>
+                                    <li>No collateral required</li>
+                                    <li>Based on credit score and income</li>
+                                    <li>Quick disbursal</li>
+                                    <li>Higher interest rates</li>
+                                    <li>Flexible end-use</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-business-time"></i> Short-term Business Loans</h4>
+                                <ul>
+                                    <li>Tenure up to 1 year</li>
+                                    <li>For working capital needs</li>
+                                    <li>Business vintage requirements</li>
+                                    <li>Cash flow based assessment</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-graduation-cap"></i> Education Loans</h4>
+                                <ul>
+                                    <li>For educational expenses</li>
+                                    <li>Up to ₹20 lakh for abroad studies</li>
+                                    <li>Up to ₹15 lakh for India studies</li>
+                                    <li>Moratorium period available</li>
+                                    <li>Lower interest rates for meritorious students</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-warehouse"></i> Consumer Durable Loans</h4>
+                                <ul>
+                                    <li>For white goods and electronics</li>
+                                    <li>Point-of-sale financing</li>
+                                    <li>Low documentation</li>
+                                    <li>Tenure up to 2 years</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-tractor"></i> Agricultural Loans</h4>
+                                <ul>
+                                    <li>For farming activities</li>
+                                    <li>Subsidized interest rates</li>
+                                    <li>Crop cycle based repayment</li>
+                                    <li>Government schemes available</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-house-damage"></i> Home Renovation Loans</h4>
+                                <ul>
+                                    <li>For home improvement</li>
+                                    <li>Based on property value</li>
+                                    <li>Tenure up to 7 years</li>
+                                    <li>Quicker than top-up loans</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-section">
+                            <h4><i class="fas fa-balance-scale"></i> Secured vs Unsecured Loans</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Secured Loans</th>
+                                        <th>Unsecured Loans</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Collateral Requirement</td>
+                                        <td>Yes</td>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest Rates</td>
+                                        <td>Lower</td>
+                                        <td>Higher</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loan Amount</td>
+                                        <td>Higher (based on collateral value)</td>
+                                        <td>Lower (based on income)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tenure</td>
+                                        <td>Longer</td>
+                                        <td>Shorter</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Processing Time</td>
+                                        <td>Longer (due to collateral verification)</td>
+                                        <td>Shorter</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Risk to Borrower</td>
+                                        <td>Risk of losing collateral</td>
+                                        <td>No asset risk</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NPA Section -->
+                <section class="content-section">
+                    <div class="npa-classification">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Non-Performing Assets (NPA)</h3>
+                        <p>When a borrower fails to make principal or interest payments for 90 days, the loan is classified as a Non-Performing Asset (NPA).</p>
+                        
+                        <div class="npa-visual">
+                            <div class="npa-level">
+                                <div class="npa-badge">Standard Asset</div>
+                                <div class="npa-description">
+                                    <strong>Regular payments</strong> - No delays in EMI payments
+                                </div>
+                            </div>
+                            
+                            <div class="npa-level">
+                                <div class="npa-badge">SMA-0</div>
+                                <div class="npa-description">
+                                    <strong>Special Mention Account - 0</strong> - Payments overdue for 0-30 days
+                                </div>
+                            </div>
+                            
+                            <div class="npa-level">
+                                <div class="npa-badge">SMA-1</div>
+                                <div class="npa-description">
+                                    <strong>Special Mention Account - 1</strong> - Payments overdue for 31-60 days
+                                </div>
+                            </div>
+                            
+                            <div class="npa-level">
+                                <div class="npa-badge">SMA-2</div>
+                                <div class="npa-description">
+                                    <strong>Special Mention Account - 2</strong> - Payments overdue for 61-90 days
+                                </div>
+                            </div>
+                            
+                            <div class="npa-level">
+                                <div class="npa-badge">NPA</div>
+                                <div class="npa-description">
+                                    <strong>Non-Performing Asset</strong> - Payments overdue for more than 90 days
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4>NPA Classification</h4>
+                        <div class="loan-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-clock"></i> Substandard Asset</h4>
+                                <ul>
+                                    <li>NPA for less than 12 months</li>
+                                    <li>Current net worth insufficient</li>
+                                    <li>Well-defined credit weaknesses</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-exclamation-circle"></i> Doubtful Asset</h4>
+                                <ul>
+                                    <li>NPA for more than 12 months</li>
+                                    <li>Collection in full questionable</li>
+                                    <li>High probability of loss</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-times-circle"></i> Loss Asset</h4>
+                                <ul>
+                                    <li>Considered uncollectible</li>
+                                    <li>Little recovery value</li>
+                                    <li>Remains on books until written off</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- EMI Section -->
+                <section class="content-section">
+                    <div class="loan-type-card">
+                        <h3><i class="fas fa-calculator"></i> EMI - Equated Monthly Installment</h3>
+                        <p>EMI is a fixed payment amount made by a borrower to a lender at a specified date each calendar month. EMIs are used to pay off both interest and principal each month.</p>
+                        
+                        <div class="loan-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-cog"></i> EMI Components</h4>
+                                <ul>
+                                    <li><strong>Principal:</strong> Original loan amount</li>
+                                    <li><strong>Interest:</strong> Cost of borrowing</li>
+                                    <li><strong>Tenure:</strong> Loan repayment period</li>
+                                    <li><strong>Interest Rate:</strong> Annual rate charged</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-formula"></i> EMI Calculation Formula</h4>
+                                <p>EMI = P × r × (1 + r)^n / ((1 + r)^n - 1)</p>
+                                <ul>
+                                    <li>P = Principal loan amount</li>
+                                    <li>r = Monthly interest rate</li>
+                                    <li>n = Loan tenure in months</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-lightbulb"></i> Factors Affecting EMI</h4>
+                                <ul>
+                                    <li>Loan amount</li>
+                                    <li>Interest rate</li>
+                                    <li>Loan tenure</li>
+                                    <li>Type of interest (fixed vs floating)</li>
+                                    <li>Processing fees and other charges</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DICGC Section -->
+                <section class="content-section">
+                    <div class="dicgc-info">
+                        <h3><i class="fas fa-shield-alt"></i> DICGC - Deposit Insurance and Credit Guarantee Corporation</h3>
+                        <p>DICGC protects bank depositors by insuring their deposits in the event of a bank failure.</p>
+                        
+                        <div class="key-points">
+                            <div class="key-point">
+                                <h4><i class="fas fa-calendar-day"></i> Establishment</h4>
+                                <p>Established on July 15, 1978, as a subsidiary of RBI</p>
+                            </div>
+                            
+                            <div class="key-point">
+                                <h4><i class="fas fa-hand-holding-usd"></i> Insurance Coverage</h4>
+                                <p>₹5 lakh per depositor per bank (including principal and interest)</p>
+                            </div>
+                            
+                            <div class="key-point">
+                                <h4><i class="fas fa-file-invoice"></i> Legal Basis</h4>
+                                <p>Operates under DICGC Act, 1961</p>
+                            </div>
+                            
+                            <div class="key-point">
+                                <h4><i class="fas fa-money-bill-wave"></i> Premium</h4>
+                                <p>12 paise per ₹100 per year (0.12% annually)</p>
+                            </div>
+                            
+                            <div class="key-point">
+                                <h4><i class="fas fa-university"></i> Merger History</h4>
+                                <p>Formed by merging Deposit Insurance Corporation (DIC) and Credit Guarantee Corporation of India (CGCI)</p>
+                            </div>
+                            
+                            <div class="key-point">
+                                <h4><i class="fas fa-coins"></i> Covered Deposits</h4>
+                                <ul>
+                                    <li>Savings accounts</li>
+                                    <li>Fixed deposits</li>
+                                    <li>Current accounts</li>
+                                    <li>Recurring deposits</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-card" style="margin-top: 20px;">
+                            <h4><i class="fas fa-exclamation-circle"></i> Not Covered by DICGC</h4>
+                            <ul>
+                                <li>Deposits of foreign governments</li>
+                                <li>Deposits of central/state governments</li>
+                                <li>Inter-bank deposits</li>
+                                <li>Deposits received outside India</li>
+                                <li>Amounts specifically exempted by DICGC</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA6.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA8.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/accounts-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

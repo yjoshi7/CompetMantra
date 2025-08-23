@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Inclusions and Schemes | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Financial Inclusions and Schemes Page */
+        .scheme-cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .scheme-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #002366;
+        }
+        
+        .scheme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .scheme-card-header {
+            background: #f5f7fa;
+            padding: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .scheme-card-header h3 {
+            color: #002366;
+            margin: 0;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .scheme-card-header h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .scheme-card-body {
+            padding: 20px;
+        }
+        
+        .scheme-features {
+            margin: 15px 0;
+        }
+        
+        .scheme-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        
+        .scheme-feature i {
+            color: #FFD700;
+            margin-right: 10px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .scheme-feature span {
+            color: #444;
+            line-height: 1.5;
+        }
+        
+        .scheme-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        
+        .status-active {
+            background-color: #e6f7ee;
+            color: #0a8c5f;
+        }
+        
+        .status-upcoming {
+            background-color: #e6f0ff;
+            color: #002366;
+        }
+        
+        .status-modified {
+            background-color: #fff5e6;
+            color: #cc7a00;
+        }
+        
+        .inclusion-pyramid {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .pyramid-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        .pyramid-level {
+            width: 80%;
+            padding: 20px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
+            border-left: 4px solid #002366;
+            transition: all 0.3s ease;
+        }
+        
+        .pyramid-level:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .pyramid-level::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #002366;
+        }
+        
+        .pyramid-level h4 {
+            color: #002366;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .pyramid-level h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+        }
+        
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-top: 3px solid #002366;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #002366;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .scheme-timeline {
+            margin: 40px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .scheme-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #002366, #FFD700);
+            border-radius: 3px;
+        }
+        
+        .timeline-milestone {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        
+        .timeline-milestone::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #FFD700;
+            border: 3px solid #002366;
+        }
+        
+        .milestone-year {
+            font-weight: 700;
+            color: #002366;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .milestone-content {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .scheme-cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .pyramid-level {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li class="active"><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Financial Inclusion & Schemes</h1>
+                <p class="content-subtitle">Empowering the unbanked and underbanked populations through inclusive financial initiatives</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-hand-holding-heart"></i> Understanding Financial Inclusion</h3>
+                    <p>Financial inclusion refers to the process of ensuring access to appropriate financial products and services needed by all sections of society, especially vulnerable groups, at an affordable cost in a fair and transparent manner by mainstream institutional players.</p>
+                    
+                    <div class="impact-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">80%+</div>
+                            <div class="stat-label">Adult Population with Bank Accounts</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">500M+</div>
+                            <div class="stat-label">Jan Dhan Accounts Opened</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">6.5L+</div>
+                            <div class="stat-label">Banking Access Points</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">Villages Covered by Banking</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Financial Inclusion Pyramid -->
+                <section class="content-section inclusion-pyramid">
+                    <h3><i class="fas fa-chart-pie"></i> Financial Inclusion Framework</h3>
+                    <p>The multi-layered approach to financial inclusion in India focuses on creating accessible banking infrastructure, providing suitable products, and ensuring financial literacy.</p>
+                    
+                    <div class="pyramid-container">
+                        <div class="pyramid-level">
+                            <h4><i class="fas fa-university"></i> Banking Infrastructure</h4>
+                            <p>Expanding physical and digital access points including branches, ATMs, BC outlets, and digital platforms to reach unserved areas.</p>
+                        </div>
+                        
+                        <div class="pyramid-level">
+                            <h4><i class="fas fa-id-card"></i> Basic Banking Accounts</h4>
+                            <p>No-frills accounts with minimal documentation requirements to bring the unbanked into the formal financial system.</p>
+                        </div>
+                        
+                        <div class="pyramid-level">
+                            <h4><i class="fas fa-hand-holding-usd"></i> Credit Facilities</h4>
+                            <p>Affordable credit through microfinance, self-help groups, and priority sector lending to support livelihood activities.</p>
+                        </div>
+                        
+                        <div class="pyramid-level">
+                            <h4><i class="fas fa-shield-alt"></i> Insurance & Pension</h4>
+                            <p>Social security schemes providing insurance coverage and pension benefits to vulnerable sections at subsidized premiums.</p>
+                        </div>
+                        
+                        <div class="pyramid-level">
+                            <h4><i class="fas fa-mobile-alt"></i> Digital Financial Services</h4>
+                            <p>Promoting digital payments, mobile banking, and fintech solutions to enhance convenience and reduce transaction costs.</p>
+                        </div>
+                        
+                        <div class="pyramid-level">
+                            <h4><i class="fas fa-graduation-cap"></i> Financial Literacy</h4>
+                            <p>Educating citizens about financial products, services, and concepts to make informed financial decisions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Financial Inclusion Schemes -->
+                <section class="content-section">
+                    <h3><i class="fas fa-tasks"></i> Major Financial Inclusion Schemes</h3>
+                    <p>The Government of India and RBI have launched several landmark schemes to promote financial inclusion across the country:</p>
+                    
+                    <div class="scheme-cards-container">
+                        <!-- Pradhan Mantri Jan Dhan Yojana -->
+                        <div class="scheme-card">
+                            <div class="scheme-card-header">
+                                <h3><i class="fas fa-piggy-bank"></i> Pradhan Mantri Jan Dhan Yojana (PMJDY)</h3>
+                                <span class="scheme-status status-active">Active</span>
+                            </div>
+                            <div class="scheme-card-body">
+                                <p>National Mission for Financial Inclusion to ensure access to financial services.</p>
+                                <div class="scheme-features">
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Zero-balance bank account</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>RuPay debit card with accident insurance</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Overdraft facility of ₹10,000</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Direct Benefit Transfer (DBT)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pradhan Mantri Mudra Yojana -->
+                        <div class="scheme-card">
+                            <div class="scheme-card-header">
+                                <h3><i class="fas fa-business-time"></i> Pradhan Mantri Mudra Yojana (PMMY)</h3>
+                                <span class="scheme-status status-active">Active</span>
+                            </div>
+                            <div class="scheme-card-body">
+                                <p>Provides loans up to ₹10 lakh to non-corporate, non-farm small/micro enterprises.</p>
+                                <div class="scheme-features">
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Shishu: Loans up to ₹50,000</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Kishore: Loans from ₹50,001 to ₹5 lakh</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Tarun: Loans from ₹5,00,001 to ₹10 lakh</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>No collateral required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Stand-Up India -->
+                        <div class="scheme-card">
+                            <div class="scheme-card-header">
+                                <h3><i class="fas fa-user-friends"></i> Stand-Up India Scheme</h3>
+                                <span class="scheme-status status-active">Active</span>
+                            </div>
+                            <div class="scheme-card-body">
+                                <p>Promotes entrepreneurship among SC/ST and women by providing bank loans.</p>
+                                <div class="scheme-features">
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Loan between ₹10 lakh to ₹1 crore</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Greenfield enterprise in manufacturing/services/trading</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>At least one SC/ST or woman borrower per bank branch</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Debit card for working capital</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pradhan Mantri Jeevan Jyoti Bima Yojana -->
+                        <div class="scheme-card">
+                            <div class="scheme-card-header">
+                                <h3><i class="fas fa-heartbeat"></i> PM Jeevan Jyoti Bima Yojana (PMJJBY)</h3>
+                                <span class="scheme-status status-active">Active</span>
+                            </div>
+                            <div class="scheme-card-body">
+                                <p>Affordable life insurance coverage for savings bank account holders.</p>
+                                <div class="scheme-features">
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Annual premium of ₹330</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Life cover of ₹2 lakh</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Age group: 18-50 years</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Risk coverage for death due to any cause</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Pradhan Mantri Suraksha Bima Yojana -->
+                        <div class="scheme-card">
+                            <div class="scheme-card-header">
+                                <h3><i class="fas fa-shield-alt"></i> PM Suraksha Bima Yojana (PMSBY)</h3>
+                                <span class="scheme-status status-active">Active</span>
+                            </div>
+                            <div class="scheme-card-body">
+                                <p>Accident insurance scheme offering coverage for death or disability.</p>
+                                <div class="scheme-features">
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Annual premium of ₹12</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Coverage of ₹2 lakh for accidental death</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>₹1 lakh for total permanent disability</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Age group: 18-70 years</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Atal Pension Yojana -->
+                        <div class="scheme-card">
+                            <div class="scheme-card-header">
+                                <h3><i class="fas fa-retweet"></i> Atal Pension Yojana (APY)</h3>
+                                <span class="scheme-status status-active">Active</span>
+                            </div>
+                            <div class="scheme-card-body">
+                                <p>Pension scheme focused on the unorganized sector workers.</p>
+                                <div class="scheme-features">
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Guaranteed minimum pension ₹1,000-5,000 monthly</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Government co-contribution for eligible subscribers</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Entry age: 18-40 years</span>
+                                    </div>
+                                    <div class="scheme-feature">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Auto-debit facility from savings account</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Timeline of Financial Inclusion -->
+                <section class="content-section">
+                    <h3><i class="fas fa-history"></i> Evolution of Financial Inclusion in India</h3>
+                    <p>The journey of financial inclusion in India has evolved through various phases with significant milestones:</p>
+                    
+                    <div class="scheme-timeline">
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">1950s-1960s</div>
+                            <div class="milestone-content">
+                                <h5>Nationalization of Banks</h5>
+                                <p>Social control over banks to extend credit to priority sectors and expand banking to rural areas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">1975</div>
+                            <div class="milestone-content">
+                                <h5>Establishment of Regional Rural Banks (RRBs)</h5>
+                                <p>Created to serve rural populations with basic banking and financial services.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">1982</div>
+                            <div class="milestone-content">
+                                <h5>National Bank for Agriculture and Rural Development (NABARD)</h5>
+                                <p>Setup as the apex development bank for facilitating credit flow to agriculture and rural development.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">2005</div>
+                            <div class="milestone-content">
+                                <h5>No-Frills Accounts Introduced</h5>
+                                <p>RBI advised banks to offer basic banking accounts with low or zero minimum balance.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">2006</div>
+                            <div class="milestone-content">
+                                <h5>Business Correspondent Model</h5>
+                                <p>Banking outlets through BCs to extend banking services to unbanked villages.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">2014</div>
+                            <div class="milestone-content">
+                                <h5>Pradhan Mantri Jan Dhan Yojana (PMJDY)</h5>
+                                <p>Flagship financial inclusion program launched to provide universal banking access.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">2015</div>
+                            <div class="milestone-content">
+                                <h5>Launch of PMJJBY, PMSBY, and APY</h5>
+                                <p>Social security schemes for insurance and pension coverage for the masses.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-milestone">
+                            <div class="milestone-year">2016</div>
+                            <div class="milestone-content">
+                                <h5>Demonetization and Digital Push</h5>
+                                <p>Accelerated adoption of digital payments and financial technology solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Role of Technology in Financial Inclusion -->
+                <section class="content-section">
+                    <h3><i class="fas fa-microchip"></i> Technology-Driven Financial Inclusion</h3>
+                    <p>Digital innovations have played a crucial role in advancing financial inclusion objectives:</p>
+                    
+                    <div class="bank-features">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-mobile"></i> Mobile Banking</h4>
+                            <ul>
+                                <li>USSD-based banking for feature phones</li>
+                                <li>Mobile banking apps for smartphones</li>
+                                <li>IVR-based banking services</li>
+                                <li>Text message alerts and updates</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-wifi"></i> Digital Payments Infrastructure</h4>
+                            <ul>
+                                <li>Unified Payments Interface (UPI)</li>
+                                <li>Aadhaar Enabled Payment System (AEPS)</li>
+                                <li>Bharat Bill Payment System (BBPS)</li>
+                                <li>National Electronic Funds Transfer (NEFT)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-id-card-alt"></i> Aadhaar-Based Services</h4>
+                            <ul>
+                                <li>Aadhaar seeding for DBT</li>
+                                <li>e-KYC for account opening</li>
+                                <li>Aadhaar Pay for merchants</li>
+                                <li>e-Sign for digital signatures</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Challenges and Future Directions -->
+                <section class="content-section">
+                    <div class="bank-type-card">
+                        <h3><i class="fas fa-road"></i> Challenges and Future Roadmap</h3>
+                        <p>Despite significant progress, several challenges remain in achieving complete financial inclusion:</p>
+                        
+                        <div class="bank-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Persistent Challenges</h4>
+                                <ul>
+                                    <li>Low financial literacy levels</li>
+                                    <li>Last-mile connectivity issues</li>
+                                    <li>Gender gap in financial access</li>
+                                    <li>Low usage of accounts despite ownership</li>
+                                    <li>Limited product suitability for diverse needs</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-bullseye"></i> Future Focus Areas</h4>
+                                <ul>
+                                    <li>Enhancing digital financial literacy</li>
+                                    <li>Developing customized products for different segments</li>
+                                    <li>Strengthening grievance redressal mechanisms</li>
+                                    <li>Promoting women's financial inclusion</li>
+                                    <li>Integrating fintech innovations with traditional banking</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-chart-line"></i> Emerging Trends</h4>
+                                <ul>
+                                    <li>Account aggregator framework for data sharing</li>
+                                    <li>Video KYC for remote onboarding</li>
+                                    <li>AI-powered credit scoring for thin-file customers</li>
+                                    <li>Voice-based interfaces for illiterate users</li>
+                                    <li>Blockchain for transparent benefit transfers</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA27.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA29.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/financial-inclusion-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/financial-inclusion-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

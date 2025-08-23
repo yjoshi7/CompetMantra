@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - BCSBI | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* BCSBI Specific Styles */
+        .bcsbi-hero {
+            background: linear-gradient(135deg, #002366 0%, #003399 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bcsbi-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><circle cx="50" cy="50" r="40" fill="%23FFD700"/></svg>');
+            background-repeat: repeat;
+            opacity: 0.1;
+        }
+        
+        .bcsbi-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .bcsbi-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .bcsbi-badge {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #002366;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .bcsbi-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .bcsbi-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #002366;
+        }
+        
+        .bcsbi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .bcsbi-card.gold {
+            border-top-color: #FFD700;
+        }
+        
+        .bcsbi-card-icon {
+            font-size: 2rem;
+            color: #002366;
+            margin-bottom: 1rem;
+        }
+        
+        .bcsbi-card.gold .bcsbi-card-icon {
+            color: #FFD700;
+        }
+        
+        .bcsbi-card h3 {
+            color: #002366;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .bcsbi-card.gold h3 {
+            color: #FFD700;
+        }
+        
+        .bcsbi-card p {
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .bcsbi-timeline {
+            position: relative;
+            padding: 2rem 0;
+            margin: 3rem 0;
+        }
+        
+        .bcsbi-timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: #002366;
+            transform: translateX(-50%);
+        }
+        
+        .bcsbi-timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+            width: 100%;
+        }
+        
+        .bcsbi-timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .bcsbi-timeline-content {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            width: calc(50% - 2rem);
+            position: relative;
+            border-left: 3px solid #002366;
+        }
+        
+        .bcsbi-timeline-item:nth-child(even) .bcsbi-timeline-content {
+            border-left: none;
+            border-right: 3px solid #002366;
+        }
+        
+        .bcsbi-timeline-year {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: 80px;
+            background: #002366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 2;
+        }
+        
+        .bcsbi-timeline-item:nth-child(odd) .bcsbi-timeline-year {
+            right: -40px;
+        }
+        
+        .bcsbi-timeline-item:nth-child(even) .bcsbi-timeline-year {
+            left: -40px;
+        }
+        
+        .bcsbi-timeline-content h3 {
+            color: #002366;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .bcsbi-charter-principles {
+            background: #f9f9f9;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .principle-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        
+        .principle-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: #002366;
+            color: #FFD700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .principle-content h4 {
+            color: #002366;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+        
+        .bcsbi-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .bcsbi-table th {
+            background-color: #002366;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+        }
+        
+        .bcsbi-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .bcsbi-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .bcsbi-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .bcsbi-impact {
+            background: linear-gradient(to right, #002366, #003399);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+        }
+        
+        .bcsbi-impact h2 {
+            color: #FFD700;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+        
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 992px) {
+            .bcsbi-timeline::before {
+                left: 30px;
+            }
+            
+            .bcsbi-timeline-item,
+            .bcsbi-timeline-item:nth-child(even) {
+                flex-direction: row;
+            }
+            
+            .bcsbi-timeline-content {
+                width: calc(100% - 100px);
+                margin-left: 80px;
+            }
+            
+            .bcsbi-timeline-item:nth-child(even) .bcsbi-timeline-content {
+                border-right: none;
+                border-left: 3px solid #002366;
+            }
+            
+            .bcsbi-timeline-year {
+                left: 0;
+                right: auto;
+            }
+            
+            .bcsbi-timeline-item:nth-child(even) .bcsbi-timeline-year {
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .bcsbi-card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .stat-item {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html?topic=trends">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li class="active"><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Banking Codes and Standards Board of India (BCSBI)</h1>
+                <p class="content-subtitle">Ensuring fair banking practices and protecting consumer rights</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Hero Section -->
+                <section class="bcsbi-hero">
+                    <span class="bcsbi-badge">Consumer Protection Initiative</span>
+                    <h1>Banking Codes and Standards Board of India</h1>
+                    <p>A voluntary industry body committed to enhancing transparency and disclosure in banking practices to protect consumer interests</p>
+                </section>
+
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-info-circle"></i> Introduction to BCSBI</h3>
+                    <p>The Banking Codes and Standards Board of India (BCSBI) is an independent and autonomous banking industry watchdog that protects consumers of banking services in India. It was established in 2006 by the Reserve Bank of India (RBI) to ensure that consumers of banking services receive what they are promised by banks.</p>
+                    
+                    <div class="bcsbi-card-grid">
+                        <div class="bcsbi-card">
+                            <div class="bcsbi-card-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <h3>Mission</h3>
+                            <p>To promote transparency and fair practices in banking services by developing comprehensive codes and standards for banks to follow, ensuring customers get the services they are promised.</p>
+                        </div>
+                        
+                        <div class="bcsbi-card gold">
+                            <div class="bcsbi-card-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <h3>Vision</h3>
+                            <p>To be the premier standards-setting body for the banking industry in India, fostering trust between banks and their customers through transparent and fair banking practices.</p>
+                        </div>
+                        
+                        <div class="bcsbi-card">
+                            <div class="bcsbi-card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Core Objective</h3>
+                            <p>To function as a voluntary autonomous watchdog ensuring that banking customers receive what banks promise them through their various products and services.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Historical Timeline -->
+                <section class="content-section">
+                    <h3><i class="fas fa-history"></i> Historical Evolution</h3>
+                    <p>The BCSBI was conceptualized as part of the RBI's efforts to strengthen the banking sector's consumer protection framework. Here's how it evolved:</p>
+                    
+                    <div class="bcsbi-timeline">
+                        <div class="bcsbi-timeline-item">
+                            <div class="bcsbi-timeline-content">
+                                <h3>Conceptualization</h3>
+                                <p>RBI's Advisory Committee on Banking Ombudsman Scheme recommended establishing an independent body to frame banking codes.</p>
+                            </div>
+                            <div class="bcsbi-timeline-year">2005</div>
+                        </div>
+                        
+                        <div class="bcsbi-timeline-item">
+                            <div class="bcsbi-timeline-content">
+                                <h3>Establishment</h3>
+                                <p>BCSBI was registered as a separate society under the Societies Registration Act, 1860 with the support and sponsorship of RBI.</p>
+                            </div>
+                            <div class="bcsbi-timeline-year">2006</div>
+                        </div>
+                        
+                        <div class="bcsbi-timeline-item">
+                            <div class="bcsbi-timeline-content">
+                                <h3>First Code Release</h3>
+                                <p>BCSBI released the first Code of Bank's Commitment to Customers, setting standards for banking services.</p>
+                            </div>
+                            <div class="bcsbi-timeline-year">2006</div>
+                        </div>
+                        
+                        <div class="bcsbi-timeline-item">
+                            <div class="bcsbi-timeline-content">
+                                <h3>Code Revision</h3>
+                                <p>The Code of Bank's Commitment to Customers was revised to make it more comprehensive and customer-friendly.</p>
+                            </div>
+                            <div class="bcsbi-timeline-year">2009</div>
+                        </div>
+                        
+                        <div class="bcsbi-timeline-item">
+                            <div class="bcsbi-timeline-content">
+                                <h3>Microfinance Code</h3>
+                                <p>BCSBI developed a separate Code of Conduct for Microfinance Institutions to protect vulnerable borrowers.</p>
+                            </div>
+                            <div class="bcsbi-timeline-year">2011</div>
+                        </div>
+                        
+                        <div class="bcsbi-timeline-item">
+                            <div class="bcsbi-timeline-content">
+                                <h3>Digital Banking Code</h3>
+                                <p>Introduced specific guidelines for digital banking services to address emerging challenges in electronic banking.</p>
+                            </div>
+                            <div class="bcsbi-timeline-year">2018</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Charter and Principles -->
+                <section class="content-section">
+                    <h3><i class="fas fa-file-contract"></i> The Code of Bank's Commitment to Customers</h3>
+                    <p>The cornerstone of BCSBI's work is the Code of Bank's Commitment to Customers, which sets minimum standards of banking practices that member banks must follow when dealing with individual customers.</p>
+                    
+                    <div class="bcsbi-charter-principles">
+                        <h4>Key Principles of the Code</h4>
+                        
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Transparency</h4>
+                                <p>Banks must provide all material information about their products and services in simple language to enable customers to make informed decisions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-gavel"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Fair Practices</h4>
+                                <p>Banks must deal with customers fairly and follow non-discriminatory practices in providing banking services.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Privacy and Confidentiality</h4>
+                                <p>Banks must treat all personal information of customers as private and confidential unless required by law to disclose it.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Grievance Redressal</h4>
+                                <p>Banks must have effective and transparent grievance redressal mechanisms to address customer complaints promptly.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="principle-item">
+                            <div class="principle-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="principle-content">
+                                <h4>Advertising and Marketing</h4>
+                                <p>Banks must ensure that all advertising and promotional materials are clear and not misleading.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Membership and Governance -->
+                <section class="content-section">
+                    <h3><i class="fas fa-sitemap"></i> Governance Structure</h3>
+                    <p>BCSBI operates as an independent autonomous body with a governance structure that ensures representation from various stakeholders in the banking industry.</p>
+                    
+                    <table class="bcsbi-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Description</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Governing Council</td>
+                                <td>Headed by a former RBI Deputy Governor with representatives from banks and consumer groups</td>
+                                <td>Overall supervision and policy direction</td>
+                            </tr>
+                            <tr>
+                                <td>Technical Committee</td>
+                                <td>Comprising experts from banking, law, and consumer rights</td>
+                                <td>Development and revision of codes and standards</td>
+                            </tr>
+                            <tr>
+                                <td>Secretariat</td>
+                                <td>Headed by a CEO with professional staff</td>
+                                <td>Day-to-day operations and implementation</td>
+                            </tr>
+                            <tr>
+                                <td>Monitoring Committee</td>
+                                <td>Independent experts and consumer representatives</td>
+                                <td>Monitoring compliance with codes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>Membership</h4>
+                    <p>BCSBI membership is open to all scheduled commercial banks, regional rural banks, and urban cooperative banks. As of 2023, over 120 banks are members of BCSBI, covering more than 90% of the banking business in India.</p>
+                </section>
+
+                <!-- Impact and Achievements -->
+                <section class="bcsbi-impact">
+                    <h2>BCSBI's Impact on Indian Banking</h2>
+                    <div class="impact-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">120+</div>
+                            <div class="stat-label">Member Banks</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Banking Coverage</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Major Codes Developed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Years of Service</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Functions -->
+                <section class="content-section">
+                    <h3><i class="fas fa-cogs"></i> Key Functions and Activities</h3>
+                    <p>BCSBI performs several critical functions to fulfill its mission of protecting banking consumers and enhancing transparency in banking operations.</p>
+                    
+                    <div class="bcsbi-card-grid">
+                        <div class="bcsbi-card">
+                            <div class="bcsbi-card-icon">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <h3>Code Development</h3>
+                            <p>Formulating comprehensive codes and standards for banking services in consultation with stakeholders including banks, consumers, and regulators.</p>
+                        </div>
+                        
+                        <div class="bcsbi-card gold">
+                            <div class="bcsbi-card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Monitoring Compliance</h3>
+                            <p>Regularly monitoring member banks' compliance with the codes through self-assessment, mystery shopping, and periodic audits.</p>
+                        </div>
+                        
+                        <div class="bcsbi-card">
+                            <div class="bcsbi-card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Training and Awareness</h3>
+                            <p>Conducting training programs for bank staff and creating consumer awareness about their rights and responsibilities.</p>
+                        </div>
+                        
+                        <div class="bcsbi-card gold">
+                            <div class="bcsbi-card-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <h3>Research and Development</h3>
+                            <p>Undertaking research on emerging issues in retail banking to develop appropriate standards and best practices.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Codes and Standards -->
+                <section class="content-section">
+                    <h3><i class="fas fa-book-open"></i> Major Codes and Standards</h3>
+                    <p>BCSBI has developed several important codes and standards that member banks are expected to implement. These codes cover various aspects of banking services.</p>
+                    
+                    <table class="bcsbi-table">
+                        <thead>
+                            <tr>
+                                <th>Code Name</th>
+                                <th>Year Introduced</th>
+                                <th>Coverage</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Code of Bank's Commitment to Customers</td>
+                                <td>2006 (Revised 2009, 2015, 2018)</td>
+                                <td>Comprehensive code covering all retail banking services</td>
+                                <td>Mandatory for all member banks</td>
+                            </tr>
+                            <tr>
+                                <td>Code for Credit Card Operations</td>
+                                <td>2007</td>
+                                <td>Specific guidelines for credit card issuance and operations</td>
+                                <td>Mandatory for all member banks</td>
+                            </tr>
+                            <tr>
+                                <td>Code of Conduct for Microfinance Institutions</td>
+                                <td>2011</td>
+                                <td>Fair practices code for microfinance lending</td>
+                                <td>Adopted by major MFIs</td>
+                            </tr>
+                            <tr>
+                                <td>Code for Digital Banking</td>
+                                <td>2018</td>
+                                <td>Guidelines for electronic banking services and digital transactions</td>
+                                <td>Mandatory for all member banks</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA11.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA13.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/bcsbi-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/bcsbi-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

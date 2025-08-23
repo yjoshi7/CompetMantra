@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recent Trends in Banking | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Recent Trends Page */
+        .trends-timeline {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-container {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: #002366;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 50%;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,35,102,0.1);
+            border-top: 4px solid #FFD700;
+            position: relative;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            top: -15px;
+            background-color: #002366;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-year {
+            right: -15px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-year {
+            left: -15px;
+        }
+        
+        .trend-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #002366;
+            transition: all 0.3s ease;
+        }
+        
+        .trend-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .trend-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .trend-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .trend-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-box {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .feature-box h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-box h4 i {
+            margin-right: 8px;
+            color: #002366;
+            font-size: 0.9em;
+        }
+        
+        .stats-section {
+            margin-top: 40px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #002366;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #002366;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .future-outlook {
+            background-color: #002366;
+            color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        .future-outlook h3 {
+            color: #FFD700;
+            margin-top: 0;
+        }
+        
+        .future-outlook ul {
+            color: white;
+        }
+        
+        .future-outlook li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            border-left: 2px solid #FFD700;
+        }
+        
+        @media (max-width: 992px) {
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 20px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-year,
+            .timeline-item:nth-child(even) .timeline-year {
+                left: -45px;
+                right: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .trend-features,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-content {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li class="active"><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Recent Trends in Banking</h1>
+                <p class="content-subtitle">Exploring the latest developments shaping the future of banking</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> Banking Evolution in the Digital Age</h3>
+                    <p>The banking sector is undergoing a massive transformation driven by technological innovation, changing customer expectations, and regulatory developments. Traditional banking models are being disrupted by fintech companies, digital-only banks, and innovative financial solutions.</p>
+                    <p>Banks are no longer just physical institutions but have evolved into technology companies that provide financial services. This shift has accelerated in recent years, with the COVID-19 pandemic acting as a catalyst for digital adoption across the banking sector.</p>
+                </section>
+
+                <!-- Timeline of Recent Trends -->
+                <section class="content-section trends-timeline">
+                    <h3><i class="fas fa-history"></i> Evolution of Banking Trends (2015-Present)</h3>
+                    <p>Key milestones in the development of modern banking trends:</p>
+                    
+                    <div class="timeline-container">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2015</span>
+                                <h4>UPI Launch</h4>
+                                <p>Unified Payments Interface launched by NPCI, revolutionizing digital payments in India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2016</span>
+                                <h4>Demonetization</h4>
+                                <p>Accelerated digital payment adoption with increased focus on cashless transactions</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2017</span>
+                                <h4>RBI's PCA Framework</h4>
+                                <p>Prompt Corrective Action framework introduced for stronger banking regulation</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2018</span>
+                                <h4>Account Aggregators</h4>
+                                <p>RBI approved account aggregator framework for secure financial data sharing</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2019</span>
+                                <h4>Neo-banking Emergence</h4>
+                                <p>Digital-only banks began gaining traction with personalized banking experiences</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2020</span>
+                                <h4>COVID-19 Impact</h4>
+                                <p>Pandemic accelerated digital transformation and contactless banking adoption</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2021</span>
+                                <h4>Digital Currency Exploration</h4>
+                                <p>RBI announced plans for Central Bank Digital Currency (CBDC) pilot</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2022</span>
+                                <h4>BNPL Expansion</h4>
+                                <p>Buy Now Pay Later services gained significant market share in retail banking</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <span class="timeline-year">2023</span>
+                                <h4>AI Integration</h4>
+                                <p>Widespread adoption of AI and machine learning for personalized banking services</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Digital Transformation Section -->
+                <section class="content-section">
+                    <div class="trend-card">
+                        <h3><i class="fas fa-digital-tachograph"></i> Digital Transformation</h3>
+                        <p>Banks are rapidly digitizing their operations, moving from traditional brick-and-mortar models to digital-first approaches. This transformation encompasses customer-facing services, internal processes, and back-office operations.</p>
+                        
+                        <div class="trend-features">
+                            <div class="feature-box">
+                                <h4><i class="fas fa-mobile-alt"></i> Mobile Banking</h4>
+                                <ul>
+                                    <li>Feature-rich banking apps with biometric authentication</li>
+                                    <li>Personalized financial management tools</li>
+                                    <li>Seamless integration with payment systems</li>
+                                    <li>24/7 banking services accessibility</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-box">
+                                <h4><i class="fas fa-cloud"></i> Cloud Adoption</h4>
+                                <ul>
+                                    <li>Migration from legacy systems to cloud infrastructure</li>
+                                    <li>Enhanced scalability and cost efficiency</li>
+                                    <li>Improved disaster recovery capabilities</li>
+                                    <li>API-driven architecture for integration</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-box">
+                                <h4><i class="fas fa-robot"></i> Process Automation</h4>
+                                <ul>
+                                    <li>Robotic Process Automation (RPA) for repetitive tasks</li>
+                                    <li>AI-powered customer service chatbots</li>
+                                    <li>Automated compliance and reporting systems</li>
+                                    <li>Straight-through processing for loans and accounts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fintech Collaboration Section -->
+                <section class="content-section">
+                    <div class="trend-card">
+                        <h3><i class="fas fa-handshake"></i> Fintech Collaboration</h3>
+                        <p>Traditional banks are increasingly partnering with fintech companies to leverage innovation while maintaining regulatory compliance and customer trust. This collaboration is creating a new ecosystem of financial services.</p>
+                        
+                        <div class="stats-section">
+                            <h4><i class="fas fa-chart-pie"></i> Key Statistics</h4>
+                            <div class="stats-grid">
+                                <div class="stat-card">
+                                    <i class="fas fa-rupee-sign fa-2x" style="color: #002366;"></i>
+                                    <div class="stat-number">$50B+</div>
+                                    <div class="stat-label">Global fintech investment (2022)</div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <i class="fas fa-percentage fa-2x" style="color: #002366;"></i>
+                                    <div class="stat-number">75%</div>
+                                    <div class="stat-label">Banks partnering with fintechs</div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <i class="fas fa-users fa-2x" style="color: #002366;"></i>
+                                    <div class="stat-number">2.5B+</div>
+                                    <div class="stat-label">Digital banking users worldwide</div>
+                                </div>
+                                
+                                <div class="stat-card">
+                                    <i class="fas fa-rocket fa-2x" style="color: #002366;"></i>
+                                    <div class="stat-number">64%</div>
+                                    <div class="stat-label">Growth in neobank adoption (2020-2023)</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-section">
+                            <h4><i class="fas fa-balance-scale"></i> Traditional Banks vs. Neobanks</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Traditional Banks</th>
+                                        <th>Neobanks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Physical Branches</td>
+                                        <td>Extensive network</td>
+                                        <td>Digital-only</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Account Opening</td>
+                                        <td>In-person or online with documentation</td>
+                                        <td>Fully digital, minutes to complete</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fee Structure</td>
+                                        <td>Various fees for services</td>
+                                        <<td>Low or no fees</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Technology Stack</td>
+                                        <td>Legacy systems with digital layers</td>
+                                        <td>Cloud-native, API-first</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Personalization</td>
+                                        <td>Limited by legacy systems</td>
+                                        <td>AI-driven hyper-personalization</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Emerging Technologies Section -->
+                <section class="content-section">
+                    <div class="trend-card">
+                        <h3><i class="fas fa-microchip"></i> Emerging Technologies</h3>
+                        <p>Cutting-edge technologies are reshaping banking operations, customer experiences, and security frameworks. Banks are investing heavily in these technologies to stay competitive and meet evolving customer expectations.</p>
+                        
+                        <div class="trend-features">
+                            <div class="feature-box">
+                                <h4><i class="fas fa-brain"></i> Artificial Intelligence</h4>
+                                <ul>
+                                    <li>Fraud detection and prevention systems</li>
+                                    <li>Personalized financial recommendations</li>
+                                    <li>Voice-enabled banking assistants</li>
+                                    <li>Predictive analytics for risk management</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-box">
+                                <h4><i class="fas fa-link"></i> Blockchain</h4>
+                                <ul>
+                                    <li>Cross-border payment settlements</li>
+                                    <li>Trade finance digitization</li>
+                                    <li>Digital identity verification</li>
+                                    <li>Smart contracts for loan agreements</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-box">
+                                <h4><i class="fas fa-database"></i> Big Data & Analytics</h4>
+                                <ul>
+                                    <li>360-degree customer view</li>
+                                    <li>Real-time credit scoring</li>
+                                    <li>Customer lifetime value prediction</li>
+                                    <li>Personalized marketing campaigns</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-box">
+                                <h4><i class="fas fa-shield-alt"></i> Cybersecurity</h4>
+                                <ul>
+                                    <li>Biometric authentication systems</li>
+                                    <li>Behavioral analytics for threat detection</li>
+                                    <li>Zero-trust security architecture</li>
+                                    <li>Quantum-resistant cryptography</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Regulatory Developments Section -->
+                <section class="content-section">
+                    <div class="trend-card">
+                        <h3><i class="fas fa-gavel"></i> Regulatory Developments</h3>
+                        <p>Regulatory bodies worldwide are adapting to the changing banking landscape with new frameworks that encourage innovation while ensuring stability, security, and consumer protection.</p>
+                        
+                        <div class="trend-features">
+                            <div class="feature-box">
+                                <h4><i class="fas fa-university"></i> RBI Initiatives</h4>
+                                <ul>
+                                    <li>Regulatory Sandbox for fintech innovations</li>
+                                    <li>Digital Lending Guidelines (2022)</li>
+                                    <li>Tokenization guidelines for card transactions</li>
+                                    <li>Framework for regulatory technology (RegTech)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-box">
+                                <h4><i class="fas fa-globe"></i> Global Trends</h4>
+                                <ul>
+                                    <li>Open Banking regulations (PSD2 in Europe)</li>
+                                    <li>Digital Asset frameworks</li>
+                                    <li>Climate risk stress testing</li>
+                                    <li>Enhanced cybersecurity requirements</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-box">
+                                <h4><i class="fas fa-user-shield"></i> Consumer Protection</h4>
+                                <ul>
+                                    <li>Digital privacy regulations</li>
+                                    <li>Disclosure requirements for digital lending</li>
+                                    <li>Grievance redressal mechanisms</li>
+                                    <li>Financial literacy initiatives</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Future Outlook Section -->
+                <section class="content-section">
+                    <div class="future-outlook">
+                        <h3><i class="fas fa-crystal-ball"></i> Future Outlook</h3>
+                        <p>The banking industry will continue to evolve rapidly, with several key trends shaping its future direction:</p>
+                        
+                        <ul>
+                            <li><strong><strong style="color: orange;">Hyper-Personalization:</strong> <i style="color: whitesmoke;">AI-driven customized financial products and services tailored to individual needs and behaviors</i></li>
+                            <li><strong><strong style="color: orange;">Embedded Finance:</strong> <i style="color: whitesmoke;">Financial services integrated seamlessly into non-financial platforms and customer journeys</i></li>
+                            <li><strong style="color: orange;">Central Bank Digital Currencies (CBDCs):</strong> <i style="color: whitesmoke;">Digital versions of fiat currency that could transform payment systems and monetary policy</i></li>
+                            <li><strong><strong style="color: orange;">Sustainable Banking:</strong> <i style="color: whitesmoke;">Integration of ESG (Environmental, Social, Governance) factors into banking operations and lending decisions</i></li>
+                            <li><strong><strong style="color: orange;">Quantum Computing:</strong> <i style="color: whitesmoke;">Potential to revolutionize encryption, risk modeling, and trading algorithms</i></li>
+                            <li><strong><strong style="color: orange;">Decentralized Finance (DeFi):</strong>  <i style="color: whitesmoke;">Blockchain-based financial ecosystems operating without traditional intermediaries </i></li>
+                        </ul>
+                        
+                        <p>Banks that successfully navigate these trends while maintaining security, compliance, and customer trust will thrive in the evolving financial landscape.</p>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA28.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA29.html" class="nav-button next-button">
+                        Back to Subjects <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/trends-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/trends-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

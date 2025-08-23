@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Capital Market | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Capital Market Page */
+        .market-overview {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .market-structure {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .market-segment {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #002366;
+        }
+        
+        .market-segment h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .market-segment h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .instrument-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .instrument-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+        
+        .instrument-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .instrument-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .instrument-card h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .regulatory-framework {
+            margin-top: 40px;
+        }
+        
+        .regulator-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #002366;
+        }
+        
+        .regulator-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .regulator-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .process-flow {
+            background-color: #f5f7fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .flow-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            position: relative;
+            margin: 30px 0;
+        }
+        
+        .flow-step {
+            width: 100px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #002366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 1.5rem;
+        }
+        
+        .step-arrow {
+            position: absolute;
+            top: 30px;
+            left: 80px;
+            right: 80px;
+            height: 2px;
+            background: #002366;
+            z-index: 1;
+        }
+        
+        .step-arrow::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 10px solid #002366;
+        }
+        
+        @media (max-width: 768px) {
+            .instrument-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .flow-step {
+                margin-bottom: 30px;
+                width: auto;
+            }
+            
+            .step-arrow {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li class="active"><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Capital Market in India</h1>
+                <p class="content-subtitle">Understanding the market for long-term funds and securities</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> Capital Market Overview</h3>
+                    <p>The capital market is a financial market for buying and selling long-term debt or equity-backed securities. It channels savings and investments between suppliers of capital (such as retail investors and institutional investors) and those who need capital (like businesses, governments, and individuals).</p>
+                </section>
+
+                <!-- Market Structure -->
+                <section class="content-section market-overview">
+                    <h3><i class="fas fa-sitemap"></i> Structure of Indian Capital Market</h3>
+                    <p>The Indian capital market is broadly divided into two main segments:</p>
+                    
+                    <div class="market-structure">
+                        <div class="market-segment">
+                            <h4><i class="fas fa-building"></i> Primary Market</h4>
+                            <p>Also known as the new issues market, it deals with the issuance of new securities by companies, governments, or public institutions to raise fresh capital.</p>
+                            <ul>
+                                <li>Initial Public Offerings (IPOs)</li>
+                                <li>Follow-on Public Offers (FPOs)</li>
+                                <li>Rights Issues</li>
+                                <li>Private Placements</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="market-segment">
+                            <h4><i class="fas fa-exchange-alt"></i> Secondary Market</h4>
+                            <p>Also known as the stock market, it provides a platform for trading of existing securities among investors.</p>
+                            <ul>
+                                <li>Stock Exchanges (NSE, BSE)</li>
+                                <li>Equity Trading</li>
+                                <li>Debt Trading</li>
+                                <li>Derivatives Trading</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Instruments Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-file-contract"></i> Capital Market Instruments</h3>
+                    <p>Various financial instruments are traded in the capital market to meet different investment needs and risk profiles:</p>
+                    
+                    <div class="instrument-grid">
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-chart-bar"></i> Equity Shares</h4>
+                            <p>Represent ownership in a company and entitle holders to dividends and voting rights.</p>
+                            <ul>
+                                <li>Common stock</li>
+                                <li>Preferred stock</li>
+                                <li>Bonus shares</li>
+                                <li>Sweat equity shares</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-file-invoice-dollar"></i> Debt Instruments</h4>
+                            <p>Fixed income instruments representing loans made by investors to borrowers.</p>
+                            <ul>
+                                <li>Corporate bonds</li>
+                                <li>Government securities</li>
+                                <li>Debentures</li>
+                                <li>Zero-coupon bonds</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-cogs"></i> Derivatives</h4>
+                            <p>Financial contracts whose value is derived from an underlying asset.</p>
+                            <ul>
+                                <li>Futures contracts</li>
+                                <li>Options</li>
+                                <li>Warrants</li>
+                                <li>Swaps</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-hand-holding-usd"></i> Mutual Funds</h4>
+                            <p>Pooled investment vehicles that collect money from many investors to invest in securities.</p>
+                            <ul>
+                                <li>Equity funds</li>
+                                <li>Debt funds</li>
+                                <li>Hybrid funds</li>
+                                <li>Index funds</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Regulatory Framework -->
+                <section class="content-section regulatory-framework">
+                    <h3><i class="fas fa-balance-scale"></i> Regulatory Framework</h3>
+                    <p>The Indian capital market is regulated by various authorities to ensure transparency, protect investors, and promote market development:</p>
+                    
+                    <div class="regulator-card">
+                        <h3><i class="fas fa-shield-alt"></i> Securities and Exchange Board of India (SEBI)</h3>
+                        <p>The primary regulator for the securities market in India, established in 1992 and given statutory powers through the SEBI Act, 1992.</p>
+                        
+                        <h4>Key Functions:</h4>
+                        <ul>
+                            <li>Protecting the interests of investors in securities</li>
+                            <li>Promoting the development of the securities market</li>
+                            <li>Regulating the business in stock exchanges and other securities markets</li>
+                            <li>Registering and regulating various market intermediaries</li>
+                            <li>Prohibiting fraudulent and unfair trade practices</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="regulator-card">
+                        <h3><i class="fas fa-landmark"></i> Reserve Bank of India (RBI)</h3>
+                        <p>Regulates the government securities market and foreign exchange market, playing a complementary role in capital market regulation.</p>
+                        
+                        <h4>Key Roles:</h4>
+                        <ul>
+                            <li>Regulator of government securities market</li>
+                            <li>Manager of public debt</li>
+                            <li>Regulator of foreign exchange under FEMA</li>
+                            <li>Overseer of payment and settlement systems</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Market Participants -->
+                <section class="content-section">
+                    <h3><i class="fas fa-users"></i> Key Market Participants</h3>
+                    <p>The capital market ecosystem consists of various intermediaries and participants:</p>
+                    
+                    <div class="comparison-section">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Participant</th>
+                                    <th>Role</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Stock Exchanges</td>
+                                    <td>Provide platform for trading securities</td>
+                                    <td>NSE, BSE</td>
+                                </tr>
+                                <tr>
+                                    <td>Depositories</td>
+                                    <td>Hold securities in electronic form</td>
+                                    <td>NSDL, CDSL</td>
+                                </tr>
+                                <tr>
+                                    <td>Brokers</td>
+                                    <td>Execute trades on behalf of clients</td>
+                                    <td>Zerodha, ICICI Direct</td>
+                                </tr>
+                                <tr>
+                                    <td>Investment Bankers</td>
+                                    <td>Assist in raising capital</td>
+                                    <td>Goldman Sachs, JM Financial</td>
+                                </tr>
+                                <tr>
+                                    <td>Mutual Funds</td>
+                                    <td>Pool funds for investment</td>
+                                    <td>HDFC MF, SBI MF</td>
+                                </tr>
+                                <tr>
+                                    <td>Foreign Institutional Investors</td>
+                                    <td>Invest in Indian securities</td>
+                                    <td>BlackRock, Vanguard</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- IPO Process -->
+                <section class="content-section process-flow">
+                    <h3><i class="fas fa-project-diagram"></i> IPO Process Flow</h3>
+                    <p>The journey of a company going public involves several key steps:</p>
+                    
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <p>Due Diligence</p>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <p>Draft Red Herring Prospectus (DRHP)</p>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <p>SEBI Approval</p>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-ad"></i>
+                            </div>
+                            <p>Marketing & Roadshows</p>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-money-check-alt"></i>
+                            </div>
+                            <p>Price Band & Bidding</p>
+                        </div>
+                        
+                        <div class="flow-step">
+                            <div class="step-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <p>Allotment & Listing</p>
+                        </div>
+                        
+                        <div class="step-arrow"></div>
+                    </div>
+                </section>
+
+                <!-- Recent Developments -->
+                <section class="content-section">
+                    <h3><i class="fas fa-rocket"></i> Recent Developments</h3>
+                    <p>The Indian capital market has witnessed significant reforms and innovations in recent years:</p>
+                    
+                    <div class="topic-card">
+                        <h5>Key Developments:</h5>
+                        <ul>
+                            <li>Introduction of Direct Plan in Mutual Funds (2013)</li>
+                            <li>Launch of REITs and InvITs (2014)</li>
+                            <li>Implementation of T+1 settlement cycle (2023)</li>
+                            <li>Introduction of Social Stock Exchange (2023)</li>
+                            <li>Growing adoption of ESG investing</li>
+                            <li>Rise of retail participation through digital platforms</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA15.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA17.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/capital-market-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/capital-market-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

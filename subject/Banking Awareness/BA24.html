@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - NPCI Tools | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for NPCI Tools Page */
+        .npci-intro {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid #002366;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .tool-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .tool-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .tool-features {
+            margin-top: 15px;
+        }
+        
+        .tool-features ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        .tool-features li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            color: #444;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .feature-highlight {
+            background-color: #fffae6;
+            border-left: 4px solid #FFD700;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .feature-highlight h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-highlight h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li class="active"><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>NPCI Tools <span class="topic-tag">Digital Payments</span></h1>
+                <p class="content-subtitle">Understanding National Payments Corporation of India and its payment systems</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-building"></i> About NPCI</h3>
+                    <div class="npci-intro">
+                        <p>The <strong>National Payments Corporation of India (NPCI)</strong> is an umbrella organization for operating retail payments and settlement systems in India. It was established with the guidance and support of the Reserve Bank of India (RBI) and Indian Banks' Association (IBA).</p>
+                        
+                        <div class="feature-highlight">
+                            <h4><i class="fas fa-info-circle"></i> Key Facts</h4>
+                            <ul>
+                                <li>Founded by 10 banks as a initiative of RBI</li>
+                                <li>Registered under Section 25 of the Companies Act, 1956 (now Section 8 of Companies Act 2013)</li>
+                                <li>Headquarters in Mumbai, Maharashtra</li>
+                                <li>Governed by the Payments and Settlement Systems Act, 2007</li>
+                                <li>Objective: To encourage digital payments in India</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- NPCI Tools Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-tools"></i> NPCI Payment Systems & Tools</h3>
+                    <p>NPCI has developed various payment systems that form the backbone of India's digital payment infrastructure:</p>
+                    
+                    <div class="tools-grid">
+                        <!-- UPI -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-mobile-alt"></i> UPI</h3>
+                            <p><strong>Unified Payments Interface</strong> - Instant real-time payment system facilitating inter-bank transactions.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Launched in 2016</li>
+                                    <li>24x7 availability</li>
+                                    <li>Instant money transfer</li>
+                                    <li>Examples: Google Pay, PhonePe, Paytm</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- BHIM -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-money-bill-wave"></i> BHIM</h3>
+                            <p><strong>Bharat Interface for Money</strong> - UPI-based payment app developed by NPCI.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Government-backed UPI app</li>
+                                    <li>Simple and secure interface</li>
+                                    <li>Supports multiple languages</li>
+                                    <li>Direct bank-to-bank transfers</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- BBPS -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-receipt"></i> BBPS</h3>
+                            <p><strong>Bharat Bill Payment System</strong> - Integrated bill payment system offering interoperable bill payment service.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>One-stop solution for all bill payments</li>
+                                    <li>Covers electricity, water, gas, telecom, etc.</li>
+                                    <li>Standardized customer experience</li>
+                                    <li>Instant confirmation of payments</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- NFS -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-credit-card"></i> NFS</h3>
+                            <p><strong>National Financial Switch</strong> - Largest network of shared ATMs in India.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>ATM network connectivity</li>
+                                    <li>Maintains ATM software</li>
+                                    <li>Originally developed by NTRO (2008)</li>
+                                    <li>Now managed by NPCI</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- NACH -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-exchange-alt"></i> NACH</h3>
+                            <p><strong>National Automated Clearing House</strong> - Web-based solution for bulk transactions.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Successor to ECS (Electronic Clearing System)</li>
+                                    <li>Faster processing than ECS</li>
+                                    <li>Used for EMIs, pensions, insurance premiums</li>
+                                    <li>Supports auto-debit facilities</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- AEPS -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-fingerprint"></i> AEPS</h3>
+                            <p><strong>Aadhaar Enabled Payment System</strong> - Bank-led model allowing online transactions at PoS terminals.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Aadhaar and biometric authentication</li>
+                                    <li>Works with micro-ATMs</li>
+                                    <li>Balance inquiry, cash withdrawal, deposit</li>
+                                    <li>Financial inclusion initiative</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- APBS -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-hand-holding-usd"></i> APBS</h3>
+                            <p><strong>Aadhaar Payment Bridge System</strong> - System for routing DBT (Direct Benefit Transfer) payments.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Aadhaar-based payment system</li>
+                                    <li>Used for government subsidy transfers</li>
+                                    <li>Supports NREGS payments, pensions</li>
+                                    <li>Eliminates intermediaries in benefit transfer</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- NUUP -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-mobile"></i> NUUP</h3>
+                            <p><strong>National Unified USSD Platform</strong> - Mobile banking service without internet.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Works on *99# USSD code</li>
+                                    <li>No internet required</li>
+                                    <li>First introduced by BSNL in 2010</li>
+                                    <li>First NPCI tool launched</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- CTS -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-file-invoice"></i> CTS</h3>
+                            <p><strong>Cheque Truncation System</strong> - Process of stopping physical movement of cheques.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Digital image-based cheque processing</li>
+                                    <li>Reduces clearance time</li>
+                                    <li>Enhances security</li>
+                                    <li>Eliminates physical movement of cheques</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- NETC -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-truck-moving"></i> NETC</h3>
+                            <p><strong>National Electronic Toll Collection</strong> - Electronic toll collection system.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>FASTag-based toll payment</li>
+                                    <li>Seamless travel on national highways</li>
+                                    <li>₹3000 pass for 200 rides (cars with white plates)</li>
+                                    <li>Reduces congestion at toll plazas</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- RuPay -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-credit-card"></i> RuPay</h3>
+                            <p><strong>Indian domestic card payment network</strong> - Similar to Visa and Mastercard.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>Domestic card scheme</li>
+                                    <li>Lower processing fees</li>
+                                    <li>QR code payment support</li>
+                                    <li>Promotes financial inclusion</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- IMPS -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-bolt"></i> IMPS</h3>
+                            <p><strong>Immediate Payment Service</strong> - Instant interbank electronic fund transfer.</p>
+                            <div class="tool-features">
+                                <h4>Key Features:</h4>
+                                <ul>
+                                    <li>24x7 instant money transfer</li>
+                                    <li>Available through mobile and internet banking</li>
+                                    <li>Real-time fund transfer</li>
+                                    <li>NPCI's first immediate payment service</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- UPI Variants Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-code-branch"></i> UPI Variants</h3>
+                    <p>UPI has evolved with specialized variants to cater to different user needs:</p>
+                    
+                    <div class="tools-grid">
+                        <!-- UPI Lite -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-bolt"></i> UPI Lite</h3>
+                            <p>Launched in 2023 for small-value transactions without PIN authentication.</p>
+                            <div class="tool-features">
+                                <h4>Features:</h4>
+                                <ul>
+                                    <li>₹5000 maximum wallet limit</li>
+                                    <li>No PIN required for transactions</li>
+                                    <li>Works without internet</li>
+                                    <li>₹2000 maximum per transaction</li>
+                                    <li>Initially couldn't return money to bank (now resolved)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- UPI Circle -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-users"></i> UPI Circle</h3>
+                            <p>Feature for group payments and shared expenses through main account holder.</p>
+                            <div class="tool-features">
+                                <h4>Features:</h4>
+                                <ul>
+                                    <li>Simplified group payments</li>
+                                    <li>Shared expense management</li>
+                                    <li>Centralized through main account</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- UPI 123 -->
+                        <div class="tool-card">
+                            <h3><i class="fas fa-keyboard"></i> UPI 123</h3>
+                            <p>UPI service for feature phones without internet connection.</p>
+                            <div class="tool-features">
+                                <h4>Features:</h4>
+                                <ul>
+                                    <li>Designed for keypad phones</li>
+                                    <li>Balance inquiry</li>
+                                    <li>Transaction capabilities</li>
+                                    <li>No internet or PIN required</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comparison Section -->
+                <section class="content-section comparison-section">
+                    <h3><i class="fas fa-balance-scale"></i> NACH vs ECS Comparison</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>NACH</th>
+                                <th>ECS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Processing Time</td>
+                                <td>Faster processing</td>
+                                <td>Slower processing</td>
+                            </tr>
+                            <tr>
+                                <td>Technology</td>
+                                <td>Web-based solution</td>
+                                <td>Older electronic system</td>
+                            </tr>
+                            <tr>
+                                <td>Coverage</td>
+                                <td>Nationwide</td>
+                                <td>Limited to specific regions</td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>Advanced version</td>
+                                <td>Older version</td>
+                            </tr>
+                            <tr>
+                                <td>Usage</td>
+                                <td>EMIs, pensions, insurance premiums, autopay</td>
+                                <td>Similar but being phased out</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- AEPS vs APBS Section -->
+                <section class="content-section comparison-section">
+                    <h3><i class="fas fa-compress-arrows-alt"></i> AEPS vs APBS Comparison</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>AEPS</th>
+                                <th>APBS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Authentication</td>
+                                <td>Aadhaar & Biometric</td>
+                                <td>Aadhaar & Biometric</td>
+                            </tr>
+                            <tr>
+                                <td>Primary Use</td>
+                                <td>Point of Sale transactions</td>
+                                <td>Direct Benefit Transfer</td>
+                            </tr>
+                            <tr>
+                                <td>Services</td>
+                                <td>Balance inquiry, deposits, withdrawals</td>
+                                <td>Government scheme disbursements</td>
+                            </tr>
+                            <tr>
+                                <td>Target Users</td>
+                                <td>General banking customers</td>
+                                <td>Government subsidy beneficiaries</td>
+                            </tr>
+                            <tr>
+                                <td>Examples</td>
+                                <td>Micro-ATM transactions</td>
+                                <td>NREGS payments, pensions, subsidies</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA23.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA25.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/npci-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/npci-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

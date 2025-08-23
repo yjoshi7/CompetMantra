@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Types of Banks | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Types of Banks Page */
+        .bank-hierarchy {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .hierarchy-container {
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+        
+        .tree {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 900px;
+        }
+        
+        .tree-level {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        .tree-node {
+            background-color: white;
+            border: 2px solid #002366;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 0 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #002366;
+            box-shadow: 0 2px 8px rgba(0,35,102,0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .tree-node:hover {
+            background-color: #f0f4f8;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,35,102,0.15);
+        }
+        
+        .tree-node.rbi {
+            background-color: #002366;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 25px;
+        }
+        
+        .tree-node.main-category {
+            background-color: #e6f0ff;
+            border-color: #0044cc;
+        }
+        
+        .tree-node.sub-category {
+            border-color: #FFD700;
+            background-color: #fffae6;
+        }
+        
+        .tree-connector {
+            position: absolute;
+            width: 2px;
+            background-color: #002366;
+            height: 15px;
+            bottom: -15px;
+            left: 50%;
+        }
+        
+        .tree-horizontal-connector {
+            position: absolute;
+            height: 2px;
+            background-color: #002366;
+            top: 50%;
+        }
+        
+        .bank-type-details {
+            margin-top: 40px;
+        }
+        
+        .bank-type-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #FFD700;
+        }
+        
+        .bank-type-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .bank-type-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .bank-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #002366;
+        }
+        
+        .feature-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        /* Merging of Banks Timeline */
+        .timeline-container {
+            margin: 2rem 0;
+        }
+        
+        .era {
+            margin-bottom: 3rem;
+        }
+        
+        .era h4 {
+            background-color: #002366;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            font-size: 1.1rem;
+        }
+        
+        .era h4::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #002366;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            background-color: #FFD700;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 30px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #FFD700;
+            border: 3px solid #002366;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #002366;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .timeline-content {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h5 {
+            margin-top: 0;
+            color: #002366;
+            font-size: 1.2rem;
+        }
+        
+        /* Bank Cards Styles */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .bank-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .bank-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bank-icon {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .bank-card h4 {
+            margin: 0 0 0.5rem;
+            color: #002366;
+        }
+        
+        .bank-card p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .bank-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .tree-node {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                margin: 0 5px;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li class="active"><a href="BA3.html?topic=trends">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Types of Banks in India</h1>
+                <p class="content-subtitle">Understanding the banking structure regulated by RBI</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-university"></i> Banking Structure Overview</h3>
+                    <p>The Reserve Bank of India (RBI) classifies banks into different categories based on their functions, ownership, and regulatory requirements. This classification helps in maintaining financial stability and ensuring specialized services for different sectors of the economy.</p>
+                </section>
+
+                <!-- Hierarchy Visualization -->
+                <section class="content-section bank-hierarchy">
+                    <h3><i class="fas fa-sitemap"></i> Banking Structure Hierarchy</h3>
+                    <p>Visual representation of how banks are categorized under RBI's regulatory framework:</p>
+                    
+                    <div class="hierarchy-container">
+                        <div class="tree">
+                            <!-- Level 1: RBI -->
+                            <div class="tree-level">
+                                <div class="tree-node rbi">
+                                    Reserve Bank of India (RBI)
+                                    <div class="tree-connector"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Level 2: Scheduled & Non-Scheduled -->
+                            <div class="tree-level">
+                                <div class="tree-node main-category">
+                                    Scheduled Banks
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node main-category">
+                                    Non-Scheduled Banks
+                                    <div class="tree-connector"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Level 3: Commercial & Co-operative under Scheduled -->
+                            <div class="tree-level">
+                                <div class="tree-node sub-category">
+                                    Commercial Banks
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node sub-category">
+                                    Co-operative Banks
+                                    <div class="tree-connector"></div>
+                                </div>
+                                <div class="tree-node" style="visibility: hidden;"></div> <!-- Spacer -->
+                            </div>
+                            
+                            <!-- Level 4: Commercial Bank Types -->
+                            <div class="tree-level">
+                                <div class="tree-node">
+                                    Public Sector Banks
+                                </div>
+                                <div class="tree-node">
+                                    Private Sector Banks
+                                </div>
+                                <div class="tree-node">
+                                    Regional Rural Banks
+                                </div>
+                                <div class="tree-node">
+                                    Foreign Banks
+                                </div>
+                                <div class="tree-node">
+                                    Payment Banks
+                                </div>
+                                <div class="tree-node">
+                                    Small Finance Banks
+                                </div>
+                            </div>
+                            
+                            <!-- Level 4: Co-operative Bank Types -->
+                            <div class="tree-level">
+                                <div class="tree-node">
+                                    State Co-operative Banks
+                                </div>
+                                <div class="tree-node">
+                                    Urban Co-operative Banks
+                                </div>
+                                <div class="tree-node">
+                                    Rural Co-operative Banks
+                                </div>
+                                <div class="tree-node">
+                                    Primary Agricultural Credit Societies
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hierarchy-explanation">
+                        <h4><i class="fas fa-lightbulb"></i> Key Points About This Structure</h4>
+                        <ul>
+                            <li><strong>Scheduled Banks</strong> are included in RBI's second schedule and must maintain a minimum capital requirement</li>
+                            <li><strong>Non-Scheduled Banks</strong> are not listed in RBI's second schedule and have different capital requirements</li>
+                            <li><strong>Commercial Banks</strong> focus on profit and serve all customer segments</li>
+                            <li><strong>Co-operative Banks</strong> serve specific communities with focus on agriculture and rural development</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Scheduled Banks Section -->
+                <section class="content-section bank-type-details">
+                    <h3><i class="fas fa-list-check"></i> Scheduled Banks</h3>
+                    <p>Banks included in the Second Schedule of the RBI Act, 1934 with paid-up capital and reserves of at least ₹5 lakhs.</p>
+                    
+                    <div class="bank-features">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-check-circle"></i> Characteristics</h4>
+                            <ul>
+                                <li>Included in RBI's Second Schedule</li>
+                                <li>Eligible for loans from RBI at bank rate</li>
+                                <li>Become members of clearing house</li>
+                                <li>Subject to CRR and SLR requirements</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-percentage"></i> Requirements</h4>
+                            <ul>
+                                <li>Minimum paid-up capital: ₹5 lakhs</li>
+                                <li>Must satisfy RBI about operations</li>
+                                <li>Must not conduct business detrimental to depositors</li>
+                                <li>Must comply with RBI regulations</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-star"></i> Privileges</h4>
+                            <ul>
+                                <li>Access to RBI refinance facilities</li>
+                                <li>Membership in clearing houses</li>
+                                <li>Right to currency chest facility</li>
+                                <li>Inclusion in deposit insurance</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-section">
+                        <h4><i class="fas fa-balance-scale"></i> Scheduled vs Non-Scheduled Banks</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Scheduled Banks</th>
+                                    <th>Non-Scheduled Banks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Inclusion in RBI Act</td>
+                                    <td>Listed in Second Schedule</td>
+                                    <td>Not listed</td>
+                                </tr>
+                                <tr>
+                                    <td>Capital Requirement</td>
+                                    <td>₹5 lakhs minimum</td>
+                                    <td>No fixed requirement</td>
+                                </tr>
+                                <tr>
+                                    <td>RBI Facilities</td>
+                                    <td>Eligible for loans/refinance</td>
+                                    <td>Not eligible</td>
+                                </tr>
+                                <tr>
+                                    <td>Clearing House</td>
+                                    <td>Can become member</td>
+                                    <td>Cannot become member</td>
+                                </tr>
+                                <tr>
+                                    <td>Regulation</td>
+                                    <td>Strict RBI supervision</td>
+                                    <td>Less stringent</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Commercial Banks Section -->
+                <section class="content-section">
+                    <div class="bank-type-card">
+                        <h3><i class="fas fa-building"></i> Commercial Banks</h3>
+                        <p>Profit-oriented banks that accept deposits and provide loans to individuals and businesses. They form the core of India's banking system.</p>
+                        
+                        <div class="bank-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-landmark"></i> Public Sector Banks (PSBs)</h4>
+                                <ul>
+                                    <li>Majority stake held by government</li>
+                                    <li>Examples: SBI, PNB, Bank of Baroda</li>
+                                    <li>Focus on social banking</li>
+                                    <li>28 PSBs in India (after mergers)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-briefcase"></i> Private Sector Banks</h4>
+                                <ul>
+                                    <li>Majority stake held by private entities</li>
+                                    <li>Examples: HDFC, ICICI, Axis Bank</li>
+                                    <li>More tech-savvy and customer-focused</li>
+                                    <li>22 private banks in India</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-tractor"></i> Regional Rural Banks (RRBs)</h4>
+                                <ul>
+                                    <li>Established under RRB Act 1976</li>
+                                    <li>Jointly owned by Central Govt, State Govt & Sponsor Bank</li>
+                                    <li>Focus on rural and agricultural credit</li>
+                                    <li>43 RRBs operating in India</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-globe"></i> Foreign Banks</h4>
+                                <ul>
+                                    <li>Headquartered in foreign country</li>
+                                    <li>Examples: Citibank, Standard Chartered</li>
+                                    <li>Operate as branches in India</li>
+                                    <li>46 foreign banks in India</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-mobile-alt"></i> Payment Banks</h4>
+                                <ul>
+                                    <li>Can accept deposits (up to ₹2 lakh)</li>
+                                    <li>Cannot issue loans or credit cards</li>
+                                    <li>Examples: Paytm Payments Bank, Airtel Payments Bank</li>
+                                    <li>6 payment banks operational</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-piggy-bank"></i> Small Finance Banks</h4>
+                                <ul>
+                                    <li>Target unserved and underserved sections</li>
+                                    <li>Examples: Ujjivan SFB, Equitas SFB</li>
+                                    <li>75% loans to priority sectors</li>
+                                    <li>10 small finance banks operational</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Co-operative Banks Section -->
+                <section class="content-section">
+                    <div class="bank-type-card">
+                        <h3><i class="fas fa-handshake"></i> Co-operative Banks</h3>
+                        <p>Customer-owned financial institutions that operate on cooperative principles with focus on local communities and agriculture.</p>
+                        
+                        <div class="bank-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-city"></i> Urban Co-operative Banks</h4>
+                                <ul>
+                                    <li>Registered under State Co-operative Societies Act</li>
+                                    <li>Operate in urban and semi-urban areas</li>
+                                    <li>Examples: Saraswat Co-op Bank, Cosmos Bank</li>
+                                    <li>Regulated by RBI and State Govt</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-tree"></i> Rural Co-operative Banks</h4>
+                                <ul>
+                                    <li>Three-tier structure: State, District, Village level</li>
+                                    <li>Focus on agricultural credit</li>
+                                    <li>Examples: State Co-op Banks, District Central Co-op Banks</li>
+                                    <li>Regulated by NABARD and State Govt</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-users"></i> Primary Agricultural Credit Societies (PACS)</h4>
+                                <ul>
+                                    <li>Grassroot level institutions</li>
+                                    <li>Direct interface with farmers</li>
+                                    <li>Over 95,000 PACS in India</li>
+                                    <li>Provide short-term crop loans</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-section">
+                            <h4><i class="fas fa-random"></i> Commercial vs Co-operative Banks</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Commercial Banks</th>
+                                        <th>Co-operative Banks</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Ownership</td>
+                                        <td>Shareholders</td>
+                                        <td>Members/Customers</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Regulation</td>
+                                        <td>RBI</td>
+                                        <td>RBI + State Govt + NABARD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Area of Operation</td>
+                                        <td>Nationwide/International</td>
+                                        <td>Local/State level</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Primary Focus</td>
+                                    <td>Profit</td>
+                                    <td>Service to members</td>
+                                </tr>
+                                <tr>
+                                    <td>Borrowing Power</td>
+                                    <td>From RBI/Market</td>
+                                    <td>From higher co-op banks</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Merging of Banks Section -->
+            <section class="content-section">
+                <div class="bank-type-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Merging of Banks in India</h3>
+                    <p>The consolidation of Public Sector Banks (PSBs) in India began in 2017 to create stronger and more efficient banking entities with better operational efficiency and risk management capabilities.</p>
+                    
+                    <div class="timeline-container">
+                        <div class="era">
+                            <h4>Bank Mergers Timeline</h4>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2017</div>
+                                    <div class="timeline-content">
+                                        <h5>Initial Consolidation</h5>
+                                        <p>Merging process started with 27 PSBs reduced to 18 PSBs</p>
+                                        <p><strong>Major merger:</strong> State Bank of Bikaner and Jaipur (SBBJ) + State Bank of Hyderabad (SBH) + State Bank of Mysore (SBM) + State Bank of Patiala (SBP) + State Bank of Travancore (SBT) + Bharatiya Mahila Bank → Merged into SBI</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2019</div>
+                                    <div class="timeline-content">
+                                        <h5>Second Phase</h5>
+                                        <p><strong>Dena Bank + Vijaya Bank → Merged with Bank of Baroda</strong></p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2020 (April 1st)</div>
+                                    <div class="timeline-content">
+                                        <h5>Major Restructuring</h5>
+                                        <p>10 public sector banks merged to form 4 large banks:</p>
+                                        <ul>
+                                            <li><strong>Punjab National Bank</strong> - Oriental Bank of Commerce and United Bank of India</li>
+                                            <li><strong>Canara Bank</strong> - Syndicate Bank</li>
+                                            <li><strong>Union Bank of India</strong> - Corporation Bank + Andhra Bank</li>
+                                            <li><strong>Indian Bank</strong> - Allahabad Bank</li>
+                                        </ul>
+                                        <p>After this merger, only 12 PSBs remained: 7 large banks and 5 small banks</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bank-features">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-anchor"></i> Anchor Banks</h4>
+                            <p>Banks that merged other banks into themselves:</p>
+                            <ul>
+                                <li>Canara Bank</li>
+                                <li>Union Bank of India</li>
+                                <li>Punjab National Bank</li>
+                                <li>Indian Bank</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-compress-alt"></i> Amalgamating Banks</h4>
+                            <p>Banks that were merged into other banks:</p>
+                            <ul>
+                                <li>Oriental Bank of Commerce</li>
+                                <li>United Bank of India</li>
+                                <li>Syndicate Bank</li>
+                                <li>Corporation Bank</li>
+                                <li>Andhra Bank</li>
+                                <li>Allahabad Bank</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-trophy"></i> Largest PSBs After Merger</h4>
+                            <ol>
+                                <li>State Bank of India (SBI)</li>
+                                <li>Punjab National Bank</li>
+                                <li>Bank of Baroda</li>
+                                <li>Canara Bank</li>
+                                <li>Union Bank of India</li>
+                                <li>Bank of India</li>
+                                <li>Indian Bank</li>
+                            </ol>
+                        </div>
+                    </div>
+                    
+                    <h4><i class="fas fa-question-circle"></i> Reasons for Merging Banks</h4>
+                    <ul>
+                        <li>To create stronger and more resilient banks</li>
+                        <li>To improve operational efficiency and reduce costs</li>
+                        <li>To enhance risk management capabilities</li>
+                        <li>To expand geographical presence and customer base</li>
+                        <li>To strengthen capital base and lending capacity</li>
+                        <li>To improve competitiveness in the global banking sector</li>
+                    </ul>
+                    
+                    <h4><i class="fas fa-chart-line"></i> Benefits of Bank Mergers</h4>
+                    <ul>
+                        <li>Economies of scale leading to cost reduction</li>
+                        <li>Improved operational efficiency</li>
+                        <li>Enhanced ability to fund large infrastructure projects</li>
+                        <li>Better risk management through diversified portfolios</li>
+                        <li>Stronger capital base and improved financial stability</li>
+                        <li>Expanded geographical reach and customer base</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Bank CEOs and Headquarters Section -->
+            <section class="content-section">
+                <div class="bank-type-card">
+                    <h3><i class="fas fa-user-tie"></i> Bank CEOs and Headquarters</h3>
+                    
+                    <h4><i class="fas fa-users"></i> Public Sector Bank CEOs</h4>
+                    <div class="cards-container">
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-landmark"></i></div>
+                            <h4>State Bank of India</h4>
+                            <p>Challa Sreenivasulu Setty</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-university"></i></div>
+                            <h4>Bank of Baroda</h4>
+                            <p>Debadatta Chand</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-building"></i></div>
+                            <h4>Canara Bank</h4>
+                            <p>K Satyanarayana Raju</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-landmark"></i></div>
+                            <h4>Punjab National Bank</h4>
+                            <p>Ashok Chandra</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-university"></i></div>
+                            <h4>Union Bank of India</h4>
+                            <p>A. Manimekhalai</p>
+                        </div>
+                    </div>
+                    
+                    <h4><i class="fas fa-briefcase"></i> Private Sector Bank CEOs</h4>
+                    <div class="cards-container">
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>HDFC Bank</h4>
+                            <p>Sashidhar Jagdishan</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-chart-bar"></i></div>
+                            <h4>ICICI Bank</h4>
+                            <p>Sandeep Bakhshi</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-chart-pie"></i></div>
+                            <h4>Axis Bank</h4>
+                            <p>Amitabh Chaudhry</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-coins"></i></div>
+                            <h4>Kotak Mahindra Bank</h4>
+                            <p>Ashok Vaswani</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                            <h4>IndusInd Bank</h4>
+                            <p>Rajiv Anand (effective August 6, 2025)</p>
+                        </div>
+                        
+                        <div class="bank-card">
+                            <div class="bank-icon"><i class="fas fa-money-check-alt"></i></div>
+                            <h4>Federal Bank</h4>
+                            <p>Krishnan Manian</p>
+                        </div>
+                    </div>
+                    
+                    <h4><i class="fas fa-map-marker-alt"></i> Bank Headquarters</h4>
+                    <div class="bank-features">
+                        <div class="feature-card">
+                            <h4><i class="fas fa-map-pin"></i> Banks with "of India" in Name</h4>
+                            <p>Headquarters in Mumbai:</p>
+                            <ul>
+                                <li>State Bank of India</li>
+                                <li>Central Bank of India</li>
+                                <li>Bank of India</li>
+                                <li>Union Bank of India</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-map-pin"></i> Banks Starting with "Indian"</h4>
+                            <p>Headquarters in Chennai:</p>
+                            <ul>
+                                <li>Indian Overseas Bank</li>
+                                <li>Indian Bank</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <h4><i class="fas fa-map-pin"></i> Other Important Banks</h4>
+                            <ul>
+                                <li>Bank of Baroda → Vadodara</li>
+                                <li>UCO Bank → Kolkata</li>
+                                <li>Bank of Maharashtra → Pune</li>
+                                <li>Punjab National Bank → Delhi</li>
+                                <li>Punjab & Sind Bank → Delhi</li>
+                                <li>Canara Bank → Bangalore</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation Buttons -->
+            <div class="content-navigation">
+                <a href="BA2.html" class="nav-button prev-button">
+                    <i class="fas fa-arrow-left"></i> Previous Topic
+                </a>
+                <a href="BA4.html" class="nav-button next-button">
+                    Next Topic <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Language Videos Section -->
+            <section class="language-videos">
+                <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                <div class="video-links">
+                    <a href="https://youtube.com/types-hindi" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Hindi Explanation
+                    </a>
+                    <a href="https://youtube.com/types-bengali" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Bengali Explanation
+                    </a>
+                    <a href="https://youtube.com/types-marathi" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Marathi Explanation
+                    </a>
+                    <a href="https://youtube.com/types-telugu" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Telugu Explanation
+                    </a>
+                    <a href="https://youtube.com/types-tamil" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Tamil Explanation
+                    </a>
+                    <a href="https://youtube.com/types-gujarati" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Gujarati Explanation
+                    </a>
+                    <a href="https://youtube.com/types-urdu" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Urdu Explanation
+                    </a>
+                    <a href="https://youtube.com/types-kannada" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Kannada Explanation
+                    </a>
+                    <a href="https://youtube.com/types-odia" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Odia Explanation
+                    </a>
+                    <a href="https://youtube.com/types-malayalam" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Malayalam Explanation
+                    </a>
+                    <a href="https://youtube.com/types-punjabi" class="video-link" target="_blank">
+                        <i class="fas fa-play-circle"></i> Punjabi Explanation
+                    </a>
+                </div>
+            </section>
+        </article>
+    </section>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <!-- Brand Section -->
+        <div class="footer-brand">
+            <div class="footer-logo">Compete<span>Mantra</span></div>
+            <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+        </div>
+        
+        <!-- Navigation Section -->
+        <div class="footer-nav">
+            <div class="nav-column">
+                <h3 class="nav-title">Explore</h3>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-column">
+                <h3 class="nav-title">Resources</h3>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="nav-column">
+                <h3 class="nav-title">Legal</h3>
+                <ul class="footer-nav-list">
+                    <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                    <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Social Section -->
+        <div class="footer-social">
+            <h3 class="nav-title">Follow Us</h3>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+        <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+        <button class="back-to-top" id="backToTop">
+            <span>Back to Top</span>
+            <span>↑</span>
+        </button>
+    </div>
+</footer>
+</body>
+</html>

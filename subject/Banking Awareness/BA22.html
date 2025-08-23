@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Credit Information and Scoring | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Credit Information and Scoring Page */
+        .credit-score-visual {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .score-meter {
+            width: 300px;
+            height: 150px;
+            margin: 0 auto 30px;
+            position: relative;
+            background: linear-gradient(90deg, #ff4d4d 0%, #FFD700 50%, #4CAF50 100%);
+            border-radius: 150px 150px 0 0;
+            overflow: hidden;
+        }
+        
+        .score-needle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform-origin: bottom center;
+            transform: translateX(-50%) rotate(0deg);
+            width: 4px;
+            height: 120px;
+            background-color: #002366;
+            transition: transform 1.5s ease;
+            z-index: 2;
+        }
+        
+        .score-markers {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .score-marker {
+            position: absolute;
+            bottom: 0;
+            height: 10px;
+            width: 2px;
+            background-color: rgba(0,0,0,0.5);
+            transform-origin: bottom center;
+        }
+        
+        .score-labels {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            margin: 10px auto 0;
+            padding: 0 15px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .credit-factors {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .factor-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #002366;
+            transition: transform 0.3s ease;
+        }
+        
+        .factor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .factor-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .factor-card h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .factor-weight {
+            height: 8px;
+            background-color: #eaeaea;
+            border-radius: 4px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .factor-progress {
+            height: 100%;
+            background-color: #FFD700;
+            border-radius: 4px;
+        }
+        
+        .credit-bureau-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .bureau-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+            transition: all 0.3s ease;
+        }
+        
+        .bureau-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-color: #FFD700;
+        }
+        
+        .bureau-icon {
+            font-size: 2.5rem;
+            color: #002366;
+            margin-bottom: 15px;
+        }
+        
+        .bureau-card h4 {
+            color: #002366;
+            margin: 0 0 10px;
+        }
+        
+        .bureau-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .improvement-tips {
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .tip-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .tip-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .tip-icon {
+            color: #FFD700;
+            font-size: 1.2rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .tip-content h5 {
+            color: #002366;
+            margin: 0 0 5px;
+        }
+        
+        .tip-content p {
+            margin: 0;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .score-comparison {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .score-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .score-poor {
+            background-color: #ff4d4d;
+        }
+        
+        .score-fair {
+            background-color: #FFD700;
+        }
+        
+        .score-good {
+            background-color: #4CAF50;
+        }
+        
+        @media (max-width: 768px) {
+            .credit-factors, .credit-bureau-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .score-meter {
+                width: 250px;
+            }
+            
+            .score-labels {
+                width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li class="active"><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Credit Information and Scoring</h1>
+                <p class="content-subtitle">Understanding credit reporting systems and how credit scores work in India</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> Credit Information Overview</h3>
+                    <p>Credit information systems play a crucial role in the financial ecosystem by collecting, analyzing, and disseminating information about the creditworthiness of individuals and businesses. In India, this system is regulated by the Reserve Bank of India (RBI) and primarily managed through Credit Information Companies (CICs).</p>
+                </section>
+
+                <!-- Credit Score Visualization -->
+                <section class="content-section credit-score-visual">
+                    <h3><i class="fas fa-credit-card"></i> Understanding Credit Scores</h3>
+                    <p>Credit scores are numerical representations of an individual's creditworthiness, ranging from 300 to 900 in India:</p>
+                    
+                    <div class="score-meter">
+                        <div class="score-needle" id="scoreNeedle"></div>
+                        <div class="score-markers">
+                            <!-- Markers will be added via JavaScript -->
+                        </div>
+                    </div>
+                    
+                    <div class="score-labels">
+                        <span>300</span>
+                        <span>600</span>
+                        <span>900</span>
+                    </div>
+                    
+                    <div class="score-ranges">
+                        <p><span class="score-indicator score-poor"></span> <strong>300-649:</strong> Poor - High risk for lenders</p>
+                        <p><span class="score-indicator score-fair"></span> <strong>650-749:</strong> Fair - Moderate risk</p>
+                        <p><span class="score-indicator score-good"></span> <strong>750-900:</strong> Good - Low risk, better loan terms</p>
+                    </div>
+                </section>
+
+                <!-- Credit Factors Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-cogs"></i> Factors Affecting Credit Score</h3>
+                    <p>Your credit score is calculated based on several factors, each with different weightage:</p>
+                    
+                    <div class="credit-factors">
+                        <div class="factor-card">
+                            <h4><i class="fas fa-money-bill-wave"></i> Payment History (35%)</h4>
+                            <p>Your track record of making payments on time for credit cards, loans, and other debts.</p>
+                            <div class="factor-weight">
+                                <div class="factor-progress" style="width: 35%;"></div>
+                            </div>
+                            <ul>
+                                <li>On-time payments improve score</li>
+                                <li>Late payments negatively impact</li>
+                                <li>Defaults severely damage score</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="factor-card">
+                            <h4><i class="fas fa-credit-card"></i> Credit Utilization (30%)</h4>
+                            <p>The amount of credit you're using compared to your total available credit limits.</p>
+                            <div class="factor-weight">
+                                <div class="factor-progress" style="width: 30%;"></div>
+                            </div>
+                            <ul>
+                                <li>Keep utilization below 30%</li>
+                                <li>High utilization indicates risk</li>
+                                <li>Multiple maxed-out cards hurt score</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="factor-card">
+                            <h4><i class="fas fa-history"></i> Credit History Length (15%)</h4>
+                            <p>The length of time you've had credit accounts and how long they've been active.</p>
+                            <div class="factor-weight">
+                                <div class="factor-progress" style="width: 15%;"></div>
+                            </div>
+                            <ul>
+                                <li>Longer history is better</li>
+                                <li>Shows experience managing credit</li>
+                                <li>Don't close old accounts unnecessarily</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="factor-card">
+                            <h4><i class="fas fa-blender-phone"></i> Credit Mix (10%)</h4>
+                            <p>The variety of credit products you have (credit cards, mortgage, auto loans, etc.).</p>
+                            <div class="factor-weight">
+                                <div class="factor-progress" style="width: 10%;"></div>
+                            </div>
+                            <ul>
+                                <li>Diverse credit types can help</li>
+                                <li>Shows ability to manage different credit</li>
+                                <li>Don't open accounts just for mix</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="factor-card">
+                            <h4><i class="fas fa-search"></i> New Credit (10%)</h4>
+                            <p>Recent credit inquiries and newly opened accounts in your credit report.</p>
+                            <div class="factor-weight">
+                                <div class="factor-progress" style="width: 10%;"></div>
+                            </div>
+                            <ul>
+                                <li>Multiple hard inquiries hurt score</li>
+                                <li>Rate shopping within short period is okay</li>
+                                <li>New accounts lower average account age</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Credit Bureaus Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-database"></i> Credit Information Companies in India</h3>
+                    <p>India has four RBI-approved Credit Information Companies that collect and maintain credit information of individuals and businesses:</p>
+                    
+                    <div class="credit-bureau-cards">
+                        <div class="bureau-card">
+                            <div class="bureau-icon">
+                                <i class="fas fa-file-invoice"></i>
+                            </div>
+                            <h4>CIBIL</h4>
+                            <p>TransUnion CIBIL is the oldest and most widely used credit bureau in India, established in 2000.</p>
+                        </div>
+                        
+                        <div class="bureau-card">
+                            <div class="bureau-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h4>Equifax</h4>
+                            <p>Equifax Credit Information Services Pvt. Ltd. is a global company with strong presence in India.</p>
+                        </div>
+                        
+                        <div class="bureau-card">
+                            <div class="bureau-icon">
+                                <i class="fas fa-calculator"></i>
+                            </div>
+                            <h4>Experian</h4>
+                            <p>Experian Credit Information Company of India Pvt. Ltd. offers comprehensive credit reports and scores.</p>
+                        </div>
+                        
+                        <div class="bureau-card">
+                            <div class="bureau-icon">
+                                <i class="fas fa-address-card"></i>
+                            </div>
+                            <h4>CRIF High Mark</h4>
+                            <p>CRIF High Mark is specialized in microfinance and commercial bureau services alongside consumer credit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-section">
+                        <h4><i class="fas fa-balance-scale"></i> Credit Bureau Comparison</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>CIBIL</th>
+                                    <th>Equifax</th>
+                                    <th>Experian</th>
+                                    <th>CRIF High Mark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Establishment</td>
+                                    <td>2000</td>
+                                    <td>2010</td>
+                                    <td>2010</td>
+                                    <td>2007</td>
+                                </tr>
+                                <tr>
+                                    <td>Score Range</td>
+                                    <td>300-900</td>
+                                    <td>300-900</td>
+                                    <td>300-900</td>
+                                    <td>300-900</td>
+                                </tr>
+                                <tr>
+                                    <td>Report Access Cost</td>
+                                    <td>₹550-₹1200</td>
+                                    <td>₹400-₹1000</td>
+                                    <td>₹500-₹1100</td>
+                                    <td>₹450-₹1000</td>
+                                </tr>
+                                <tr>
+                                    <td>Specialization</td>
+                                    <td>Comprehensive</td>
+                                    <td>Global standards</td>
+                                    <td>Detailed analysis</td>
+                                    <td>Microfinance</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Credit Improvement Section -->
+                <section class="content-section">
+                    <div class="improvement-tips">
+                        <h3><i class="fas fa-hands-helping"></i> Improving Your Credit Score</h3>
+                        <p>Follow these practical tips to build and maintain a healthy credit score:</p>
+                        
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h5>Pay Bills on Time</h5>
+                                <p>Set up automatic payments or reminders to ensure you never miss due dates for credit cards, loans, and utilities.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h5>Keep Credit Utilization Low</h5>
+                                <p>Aim to use less than 30% of your available credit limit across all cards. Pay down balances before statements generate.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h5>Maintain Old Accounts</h5>
+                                <p>Keep older credit accounts open to maintain a longer credit history, even if you don't use them frequently.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h5>Limit New Credit Applications</h5>
+                                <p>Avoid applying for multiple credit products within a short period as each application causes a hard inquiry.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tip-item">
+                            <div class="tip-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="tip-content">
+                                <h5>Regularly Monitor Your Report</h5>
+                                <p>Check your credit report at least annually for errors or fraudulent activities and dispute inaccuracies promptly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Legal Framework Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-gavel"></i> Regulatory Framework</h3>
+                    <p>The credit information industry in India is governed by several key regulations:</p>
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-year">2005</div>
+                            <div class="timeline-content">
+                                <h5>Credit Information Companies (Regulation) Act</h5>
+                                <p>Provided the legal framework for the establishment and regulation of Credit Information Companies in India.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">2006</div>
+                            <div class="timeline-content">
+                                <h5>RBI Guidelines for CICs</h5>
+                                <p>The Reserve Bank of India issued detailed guidelines for the operation of Credit Information Companies.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-year">2016</div>
+                            <div class="timeline-content">
+                                <h5>Insolvency and Bankruptcy Code</h5>
+                                <p>Introduced provisions affecting credit reporting and resolution of stressed assets.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA21.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA23.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/credit-info-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/credit-info-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Credit score meter animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const scoreNeedle = document.getElementById('scoreNeedle');
+            
+            // Animate the needle to show a "good" credit score (750)
+            setTimeout(() => {
+                // 750 is approximately at 135 degrees on our 180-degree arc
+                scoreNeedle.style.transform = 'translateX(-50%) rotate(135deg)';
+            }, 500);
+            
+            // Add markers to the credit score meter
+            const markersContainer = document.querySelector('.score-markers');
+            for (let i = 0; i <= 12; i++) {
+                const marker = document.createElement('div');
+                marker.className = 'score-marker';
+                marker.style.transform = `rotate(${i * 15}deg)`;
+                markersContainer.appendChild(marker);
+            }
+        });
+    </script>
+</body>
+</html>

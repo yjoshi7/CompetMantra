@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Types of Accounts & Deposits | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Accounts & Deposits Page */
+        .account-visualization {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 4px solid #FFD700;
+        }
+        
+        .account-flow {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .account-flow-line {
+            position: absolute;
+            height: 2px;
+            background-color: #002366;
+            width: 80%;
+            top: 50%;
+            z-index: 1;
+        }
+        
+        .account-flow-item {
+            background-color: white;
+            border: 2px solid #002366;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin: 0 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: #002366;
+            box-shadow: 0 2px 8px rgba(0,35,102,0.1);
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .account-flow-item:hover {
+            background-color: #f0f4f8;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,35,102,0.15);
+        }
+        
+        .account-flow-item.deposit {
+            background-color: #e6f0ff;
+            border-color: #0044cc;
+        }
+        
+        .account-flow-item.loan {
+            background-color: #fffae6;
+            border-color: #FFD700;
+        }
+        
+        .account-type-section {
+            margin-top: 3rem;
+        }
+        
+        .account-type-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+        
+        .account-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .account-type-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #f0f4f8;
+            padding-bottom: 0.8rem;
+        }
+        
+        .account-type-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .account-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #002366;
+        }
+        
+        .feature-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .nri-account-types {
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .nri-account-types h4 {
+            color: #002366;
+            margin-top: 0;
+        }
+        
+        .account-benefits {
+            background-color: #002366;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 3rem;
+        }
+        
+        .account-benefits h3 {
+            color: #FFD700;
+            margin-top: 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .benefit-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border-left: 3px solid #FFD700;
+        }
+        
+        .benefit-item h4 {
+            color: #FFD700;
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .account-features, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .account-flow {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .account-flow-item {
+                margin: 0.5rem 0;
+                width: 80%;
+            }
+            
+            .account-flow-line {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li class="active"><a href="BA5.html?topic=trends">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Types of Accounts & Deposits</h1>
+                <p class="content-subtitle">Understanding different banking accounts and deposit options available in India</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-piggy-bank"></i> Banking Accounts & Deposits Overview</h3>
+                    <p>Bank accounts and deposits form the foundation of banking services, allowing individuals and businesses to safely store money, earn interest, and access various financial services. In banking terms, deposits represent liabilities for banks (as they owe this money to customers) while loans represent assets (as they generate income for the bank).</p>
+                </section>
+
+                <!-- Account Flow Visualization -->
+                <section class="content-section account-visualization">
+                    <h3><i class="fas fa-exchange-alt"></i> The Banking Flow: Deposits to Loans</h3>
+                    <p>Visual representation of how customer deposits become the source for bank loans:</p>
+                    
+                    <div class="account-flow">
+                        <div class="account-flow-line"></div>
+                        <div class="account-flow-item deposit">
+                            <i class="fas fa-hand-holding-usd"></i><br>
+                            Customer Deposits
+                            <div class="feature-card">
+                                <p>Bank's Liability (They owe this money back to customers)</p>
+                            </div>
+                        </div>
+                        <div class="account-flow-item">
+                            <i class="fas fa-university"></i><br>
+                            Bank Operations
+                            <div class="feature-card">
+                                <p>Maintains reserves (CRR/SLR) and lends the rest</p>
+                            </div>
+                        </div>
+                        <div class="account-flow-item loan">
+                            <i class="fas fa-home"></i><br>
+                            Loans to Customers
+                            <div class="feature-card">
+                                <p>Bank's Asset (Generates income through interest)</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hierarchy-explanation">
+                        <h4><i class="fas fa-lightbulb"></i> Key Points About This Flow</h4>
+                        <ul>
+                            <li><strong>Deposits are safe</strong>: Insured up to ₹5 lakhs by DICGC</li>
+                            <li><strong>Interest earned</strong>: Deposits earn interest while loans cost interest</li>
+                            <li><strong>Fractional reserve banking</strong>: Banks keep only a fraction of deposits as reserves</li>
+                            <li><strong>Liquidity transformation</strong>: Short-term deposits fund long-term loans</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Types of Bank Accounts Section -->
+                <section class="content-section account-type-section">
+                    <h3><i class="fas fa-wallet"></i> Types of Bank Accounts</h3>
+                    <p>Banks offer various account types to cater to different customer needs, from daily transactions to long-term savings.</p>
+                    
+                    <div class="account-type-card">
+                        <h3><i class="fas fa-money-bill-wave"></i> 1. Demand Deposit Accounts</h3>
+                        <p>Accounts where money can be withdrawn at any time without prior notice to the bank.</p>
+                        
+                        <div class="account-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-piggy-bank"></i> Savings Account</h4>
+                                <ul>
+                                    <li>Designed for personal savings</li>
+                                    <li>Interest rates: 2.5-7% p.a.</li>
+                                    <li>Minimum balance requirements vary</li>
+                                    <li>Limited number of free transactions</li>
+                                    <li>ATM/debit card provided</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-business-time"></i> Current Account</h4>
+                                <ul>
+                                    <li>For businesses and frequent transactions</li>
+                                    <li>No interest earned on balance</li>
+                                    <li>No limit on transactions</li>
+                                    <li>Higher minimum balance requirements</li>
+                                    <li>Overdraft facility available</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-section">
+                            <h4><i class="fas fa-balance-scale"></i> Savings vs Current Account</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Savings Account</th>
+                                        <th>Current Account</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Purpose</td>
+                                        <td>Personal savings</td>
+                                        <td>Business transactions</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest</td>
+                                        <td>2.5-7% p.a.</td>
+                                        <td>Usually none</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Transactions</td>
+                                        <td>Limited free transactions</td>
+                                        <td>Unlimited transactions</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimum Balance</td>
+                                        <td>₹500-₹10,000</td>
+                                        <td>₹5,000-₹1,00,000+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Overdraft</td>
+                                        <td>Not available</td>
+                                        <td>Available</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="account-type-card">
+                        <h3><i class="fas fa-calendar-alt"></i> 2. Term/Time Period Accounts</h3>
+                        <p>Accounts where money is deposited for a fixed period at higher interest rates than savings accounts.</p>
+                        
+                        <div class="account-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-lock"></i> Fixed Deposit (FD)</h4>
+                                <ul>
+                                    <li>Fixed amount for fixed tenure (7 days-10 years)</li>
+                                    <li>Higher interest rates (4-8% p.a.)</li>
+                                    <li>Premature withdrawal penalties</li>
+                                    <li>Taxable interest (TDS if interest > ₹40,000/₹50,000)</li>
+                                    <li>Loan against FD available</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-calendar-plus"></i> Recurring Deposit (RD)</h4>
+                                <ul>
+                                    <li>Fixed monthly deposits for fixed tenure</li>
+                                    <li>Interest rates similar to FDs</li>
+                                    <li>Tenure usually 6 months-10 years</li>
+                                    <li>Premature closure penalties</li>
+                                    <li>Good for disciplined savings</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="comparison-section">
+                            <h4><i class="fas fa-random"></i> FD vs RD Accounts</h4>
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Fixed Deposit</th>
+                                        <th>Recurring Deposit</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Deposit Type</td>
+                                        <td>Lump sum</td>
+                                        <td>Monthly installments</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Interest Calculation</td>
+                                        <td>On entire amount</td>
+                                        <td>On monthly balances</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minimum Amount</td>
+                                        <td>₹1,000-₹10,000</td>
+                                        <td>₹100-₹1,000/month</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flexibility</td>
+                                        <td>Fixed amount</td>
+                                        <td>Fixed monthly payments</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Best For</td>
+                                        <td>Lump sum investment</td>
+                                        <td>Regular savings habit</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Types of Deposits Section -->
+                <section class="content-section">
+                    <div class="account-type-card">
+                        <h3><i class="fas fa-rupee-sign"></i> Types of Deposits in Indian Banks</h3>
+                        <p>Beyond basic accounts, banks offer specialized deposit products catering to specific customer needs.</p>
+                        
+                        <div class="account-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-user-tie"></i> Salary Account</h4>
+                                <ul>
+                                    <li>Opened by employers for employees</li>
+                                    <li>Zero balance maintenance</li>
+                                    <li>Salary credited directly</li>
+                                    <li>Special benefits like free drafts, higher ATM limits</li>
+                                    <li>Converts to normal savings if salary stops</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-chart-line"></i> Demat Account</h4>
+                                <ul>
+                                    <li>For holding shares & securities electronically</li>
+                                    <li>Mandatory for stock market trading</li>
+                                    <li>Linked with trading account</li>
+                                    <li>Annual maintenance charges apply</li>
+                                    <li>DP (Depository Participant) maintains it</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-bed"></i> Dormant Account</h4>
+                                <ul>
+                                    <li>Inactive for 2+ years</li>
+                                    <li>No customer-initiated transactions</li>
+                                    <li>Bank may charge penalties</li>
+                                    <li>Can be reactivated with KYC</li>
+                                    <li>After 10 years, transferred to DEAF fund</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-passport"></i> NRI Accounts</h4>
+                                <div class="nri-account-types">
+                                    <h4><i class="fas fa-globe-asia"></i> NRE Account</h4>
+                                    <ul>
+                                        <li>Foreign income deposited in INR</li>
+                                        <li>Tax-free in India</li>
+                                        <li>Repatriable (can send back abroad)</li>
+                                    </ul>
+                                    
+                                    <h4><i class="fas fa-rupee-sign"></i> NRO Account</h4>
+                                    <ul>
+                                        <li>For Indian income of NRIs</li>
+                                        <li>Taxable in India</li>
+                                        <li>Limited repatriation</li>
+                                    </ul>
+                                    
+                                    <h4><i class="fas fa-dollar-sign"></i> FCNR Account</h4>
+                                    <ul>
+                                        <li>Fixed deposits in foreign currency</li>
+                                        <li>No exchange rate risk</li>
+                                        <li>Repatriable</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Account Benefits Section -->
+                <section class="account-benefits">
+                    <h3><i class="fas fa-star"></i> Benefits of Different Account Types</h3>
+                    <p>Choosing the right account type can help maximize benefits based on your financial needs and goals.</p>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <h4><i class="fas fa-shield-alt"></i> Safety & Security</h4>
+                            <p>Bank accounts are much safer than keeping cash at home, with deposit insurance up to ₹5 lakhs per customer per bank.</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <h4><i class="fas fa-percentage"></i> Interest Earnings</h4>
+                            <p>Savings and deposit accounts help your money grow through interest, combating inflation.</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <h4><i class="fas fa-bolt"></i> Convenience</h4>
+                            <p>24/7 access through ATMs, internet banking, and mobile apps for seamless transactions.</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <h4><i class="fas fa-file-invoice-dollar"></i> Financial Discipline</h4>
+                            <p>Recurring deposits and systematic plans help build regular savings habits.</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <h4><i class="fas fa-hand-holding-usd"></i> Credit Opportunities</h4>
+                            <p>Maintaining accounts improves banking relationship, helping secure loans when needed.</p>
+                        </div>
+                        
+                        <div class="benefit-item">
+                            <h4><i class="fas fa-receipt"></i> Transaction Records</h4>
+                            <p>Bank statements serve as financial records for tax purposes and loan applications.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Practical Tips Section -->
+                <section class="content-section">
+                    <div class="account-type-card">
+                        <h3><i class="fas fa-lightbulb"></i> Choosing the Right Account: Practical Tips</h3>
+                        
+                        <div class="account-features">
+                            <div class="feature-card">
+                                <h4><i class="fas fa-user"></i> For Salaried Individuals</h4>
+                                <ul>
+                                    <li>Salary account + savings account combo</li>
+                                    <li>FD/RD for short-term goals</li>
+                                    <li>Demat account if investing in stocks</li>
+                                    <li>Automated transfers to savings</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-briefcase"></i> For Business Owners</h4>
+                                <ul>
+                                    <li>Current account for transactions</li>
+                                    <li>Separate savings for personal use</li>
+                                    <li>FDs for tax planning</li>
+                                    <li>Higher limit accounts for large transactions</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-child"></i> For Students/Seniors</h4>
+                                <ul>
+                                    <li>Zero-balance student accounts</li>
+                                    <li>Senior citizen accounts with higher interest</li>
+                                    <li>Joint accounts for easy access</li>
+                                    <li>Nomination facility important</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-card">
+                                <h4><i class="fas fa-plane-departure"></i> For NRIs</h4>
+                                <ul>
+                                    <li>NRE for foreign income (tax-free)</li>
+                                    <li>NRO for Indian income</li>
+                                    <li>FCNR for foreign currency deposits</li>
+                                    <li>Consider repatriation needs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="final-lesson">
+                            <h4>Final Lesson: Account Selection Strategy</h4>
+                            <ul>
+                                <li><strong>Assess your needs</strong>: Daily banking, savings, or investments?</li>
+                                <li><strong>Compare features</strong>: Interest rates, fees, minimum balance</li>
+                                <li><strong>Consider convenience</strong>: Branch network, digital features</li>
+                                <li><strong>Plan for the future</strong>: Scalability for growing needs</li>
+                            </ul>
+                            
+                            <div class="activity-box">
+                                <h5>Activity:</h5>
+                                <p>Analyze your current banking needs - which account types would best serve your financial goals?</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA4.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA6.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/accounts-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/accounts-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

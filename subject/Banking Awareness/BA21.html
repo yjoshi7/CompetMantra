@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Basel Norms (I, II, III) | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Basel Norms Page */
+        .norms-timeline {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .timeline-progress {
+            height: 4px;
+            background-color: #eaeaea;
+            position: relative;
+            margin: 40px 0 60px;
+        }
+        
+        .progress-fill {
+            position: absolute;
+            height: 100%;
+            background-color: #FFD700;
+            width: 0;
+            transition: width 1s ease;
+        }
+        
+        .timeline-milestones {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+        
+        .milestone {
+            position: relative;
+            text-align: center;
+            width: 30%;
+        }
+        
+        .milestone-marker {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border: 3px solid #002366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .milestone-marker.active {
+            background-color: #002366;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .milestone-marker i {
+            font-size: 1.2rem;
+        }
+        
+        .milestone-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-top: 15px;
+            position: relative;
+        }
+        
+        .milestone-content::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid white;
+        }
+        
+        .milestone-title {
+            color: #002366;
+            margin-top: 0;
+            font-size: 1.2rem;
+        }
+        
+        .milestone-year {
+            background-color: #FFD700;
+            color: #002366;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        
+        .pillars-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .pillar-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid #002366;
+            transition: transform 0.3s ease;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .pillar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #f0f4f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: #002366;
+            font-size: 1.2rem;
+        }
+        
+        .pillar-title {
+            color: #002366;
+            margin: 0;
+            font-size: 1.3rem;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .norm-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .norm-header {
+            background-color: #002366;
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .norm-body {
+            padding: 20px;
+        }
+        
+        .norm-feature {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .norm-feature:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .feature-title {
+            color: #002366;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-title i {
+            margin-right: 8px;
+            color: #FFD700;
+        }
+        
+        .capital-ratios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .ratio-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .ratio-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #002366;
+            margin: 10px 0;
+        }
+        
+        .ratio-label {
+            color: #555;
+            font-size: 0.9rem;
+        }
+        
+        .implementation-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .implementation-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .implementation-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .implementation-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .implementation-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-milestones {
+                flex-direction: column;
+            }
+            
+            .milestone {
+                width: 100%;
+                margin-bottom: 40px;
+            }
+            
+            .pillars-container,
+            .comparison-grid,
+            .capital-ratios {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li class="active"><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Basel Norms (I, II, III)</h1>
+                <p class="content-subtitle">International regulatory framework for banks to mitigate financial and operational risks</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-globe"></i> Understanding Basel Accords</h3>
+                    <p>The Basel Accords are a set of recommendations on banking laws and regulations issued by the Basel Committee on Banking Supervision (BCBS). They provide a framework for risk management and promote stability in the international financial system.</p>
+                    
+                    <div class="norms-timeline">
+                        <h4><i class="fas fa-history"></i> Evolution of Basel Framework</h4>
+                        <div class="timeline-progress">
+                            <div class="progress-fill" style="width: 100%;"></div>
+                        </div>
+                        
+                        <div class="timeline-milestones">
+                            <div class="milestone">
+                                <div class="milestone-marker active">
+                                    <i class="fas fa-1"></i>
+                                </div>
+                                <span class="milestone-year">1988</span>
+                                <div class="milestone-content">
+                                    <h4 class="milestone-title">Basel I</h4>
+                                    <p>Focused on credit risk and minimum capital requirements</p>
+                                </div>
+                            </div>
+                            
+                            <div class="milestone">
+                                <div class="milestone-marker active">
+                                    <i class="fas fa-2"></i>
+                                </div>
+                                <span class="milestone-year">2004</span>
+                                <div class="milestone-content">
+                                    <h4 class="milestone-title">Basel II</h4>
+                                    <p>Three pillars approach covering wider risks</p>
+                                </div>
+                            </div>
+                            
+                            <div class="milestone">
+                                <div class="milestone-marker active">
+                                    <i class="fas fa-3"></i>
+                                </div>
+                                <span class="milestone-year">2010-2017</span>
+                                <div class="milestone-content">
+                                    <h4 class="milestone-title">Basel III</h4>
+                                    <p>Enhanced regulation post 2008 financial crisis</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Basel I Section -->
+                <section class="content-section">
+                    <div class="norm-card">
+                        <div class="norm-header">
+                            <h3 style="color: white;"><i class="fas fa-landmark"></i> Basel I (1988)</h3>
+                        </div>
+                        <div class="norm-body">
+                            <p>The first Basel Accord, introduced in 1988, focused primarily on credit risk and established a minimum capital requirement of 8% of risk-weighted assets.</p>
+                            
+                            <div class="norm-feature">
+                                <h4 class="feature-title"><i class="fas fa-bullseye"></i> Key Focus</h4>
+                                <p>Credit risk mitigation through minimum capital requirements</p>
+                            </div>
+                            
+                            <div class="norm-feature">
+                                <h4 class="feature-title"><i class="fas fa-calculator"></i> Capital Calculation</h4>
+                                <p>Minimum Capital to Risk-weighted Assets Ratio (CRAR) of 8%</p>
+                            </div>
+                            
+                            <div class="norm-feature">
+                                <h4 class="feature-title"><i class="fas fa-balance-scale"></i> Risk Weights</h4>
+                                <p>Assets classified into five risk categories (0%, 10%, 20%, 50%, 100%)</p>
+                            </div>
+                            
+                            <div class="norm-feature">
+                                <h4 class="feature-title"><i class="fas fa-exclamation-triangle"></i> Limitations</h4>
+                                <p>Ignored operational risk, over-simplified credit risk, encouraged regulatory arbitrage</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Basel II Section -->
+                <section class="content-section">
+                    <div class="norm-card">
+                        <div class="norm-header">
+                            <h3 style="color: white;"><i class="fas fa-building"></i> Basel II (2004)</h3>
+                        </div>
+                        <div class="norm-body">
+                            <p>Introduced in 2004, Basel II built upon Basel I with a three-pillar approach that addressed additional risk types and encouraged better risk management practices.</p>
+                            
+                            <div class="pillars-container">
+                                <div class="pillar-card">
+                                    <div class="pillar-header">
+                                        <div class="pillar-icon">
+                                            <i class="fas fa-shield-alt"></i>
+                                        </div>
+                                        <h4 class="pillar-title">Pillar 1: Minimum Capital Requirements</h4>
+                                    </div>
+                                    <p>Enhanced calculation of credit, market, and operational risk capital requirements</p>
+                                    <ul>
+                                        <li>Standardized Approach</li>
+                                        <li>Foundation IRB Approach</li>
+                                        <li>Advanced IRB Approach</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="pillar-card">
+                                    <div class="pillar-header">
+                                        <div class="pillar-icon">
+                                            <i class="fas fa-eye"></i>
+                                        </div>
+                                        <h4 class="pillar-title">Pillar 2: Supervisory Review</h4>
+                                    </div>
+                                    <p>Regulators ensure banks have adequate capital to cover all risks</p>
+                                    <ul>
+                                        <li>Internal Capital Adequacy Assessment Process (ICAAP)</li>
+                                        <li>Supervisory review and evaluation</li>
+                                        <li>Intervention when needed</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="pillar-card">
+                                    <div class="pillar-header">
+                                        <div class="pillar-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <h4 class="pillar-title">Pillar 3: Market Discipline</h4>
+                                    </div>
+                                    <p>Enhanced disclosure requirements to promote transparency</p>
+                                    <ul>
+                                        <li>Capital structure disclosure</li>
+                                        <li>Risk exposure assessment</li>
+                                        <li>Capital adequacy information</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Basel III Section -->
+                <section class="content-section">
+                    <div class="norm-card">
+                        <div class="norm-header">
+                            <h3 style="color: white;"><i class="fas fa-lock"></i> Basel III (2010-2017)</h3>
+                        </div>
+                        <div class="norm-body">
+                            <p>Developed in response to the deficiencies in financial regulation revealed by the 2008 financial crisis, Basel III strengthens bank capital requirements and introduces new regulatory requirements on bank liquidity and leverage.</p>
+                            
+                            <div class="capital-ratios">
+                                <div class="ratio-card">
+                                    <div class="ratio-value">4.5%</div>
+                                    <div class="ratio-label">Common Equity Tier 1 (CET1) Capital Ratio</div>
+                                </div>
+                                
+                                <div class="ratio-card">
+                                    <div class="ratio-value">6.0%</div>
+                                    <div class="ratio-label">Tier 1 Capital Ratio</div>
+                                </div>
+                                
+                                <div class="ratio-card">
+                                    <div class="ratio-value">8.0%</div>
+                                    <div class="ratio-label">Total Capital Ratio</div>
+                                </div>
+                                
+                                <div class="ratio-card">
+                                    <div class="ratio-value">2.5%</div>
+                                    <div class="ratio-label">Capital Conservation Buffer</div>
+                                </div>
+                            </div>
+                            
+                            <div class="norm-feature">
+                                <h4 class="feature-title"><i class="fas fa-tint"></i> Liquidity Requirements</h4>
+                                <p>Introduced Liquidity Coverage Ratio (LCR) and Net Stable Funding Ratio (NSFR) to ensure short-term and long-term liquidity</p>
+                            </div>
+                            
+                            <div class="norm-feature">
+                                <h4 class="feature-title"><i class="fas fa-compress-alt"></i> Leverage Ratio</h4>
+                                <p>Non-risk-based leverage ratio of 3% to restrict excessive leverage in the banking system</p>
+                            </div>
+                            
+                            <div class="norm-feature">
+                                <h4 class="feature-title"><i class="fas fa-exchange-alt"></i> Countercyclical Buffer</h4>
+                                <p>0-2.5% buffer that can be implemented during periods of high credit growth</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comparison Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-balance-scale"></i> Comparison of Basel Norms</h3>
+                    
+                    <div class="comparison-grid">
+                        <div class="norm-card">
+                            <div class="norm-header">
+                                <h4>Basel I</h4>
+                            </div>
+                            <div class="norm-body">
+                                <ul>
+                                    <li>Introduced in 1988</li>
+                                    <li>Focused only on credit risk</li>
+                                    <li>Minimum capital requirement: 8%</li>
+                                    <li>Simple risk weighting</li>
+                                    <li>No supervisory review</li>
+                                    <li>No market discipline</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="norm-card">
+                            <div class="norm-header">
+                                <h4>Basel II</h4>
+                            </div>
+                            <div class="norm-body">
+                                <ul>
+                                    <li>Introduced in 2004</li>
+                                    <li>Covered credit, market, operational risks</li>
+                                    <li>Three pillar approach</li>
+                                    <li>Advanced risk measurement</li>
+                                    <li>Supervisory review process</li>
+                                    <li>Market discipline through disclosure</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="norm-card">
+                            <div class="norm-header">
+                                <h4>Basel III</h4>
+                            </div>
+                            <div class="norm-body">
+                                <ul>
+                                    <li>Introduced in 2010-2017</li>
+                                    <li>Enhanced capital requirements</li>
+                                    <li>Leverage ratio introduced</li>
+                                    <li>Liquidity requirements (LCR, NSFR)</li>
+                                    <li>Capital conservation buffer</li>
+                                    <li>Countercyclical buffer</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Implementation in India Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-flag"></i> Implementation in India</h3>
+                    <p>The Reserve Bank of India (RBI) has implemented Basel norms in a phased manner, considering the specific needs of the Indian banking system.</p>
+                    
+                    <table class="implementation-table">
+                        <thead>
+                            <tr>
+                                <th>Basel Norm</th>
+                                <th>Implementation Timeline</th>
+                                <th>Key Features Implemented</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Basel I</td>
+                                <td>1992-1993</td>
+                                <td>Minimum 8% CRAR for banks</td>
+                            </tr>
+                            <tr>
+                                <td>Basel II</td>
+                                <td>2007-2009</td>
+                                <td>Three pillars approach, standardized approach for risk measurement</td>
+                            </tr>
+                            <tr>
+                                <td>Basel III</td>
+                                <td>2013-2019</td>
+                                <td>Higher capital ratios, capital conservation buffer, leverage ratio, LCR, NSFR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="final-lesson">
+                        <h4><i class="fas fa-lightbulb"></i> Key Takeaways for Indian Banking System</h4>
+                        <ul>
+                            <li>Public sector banks faced challenges in meeting capital requirements</li>
+                            <li>RBI introduced differentiated banking structure to address implementation issues</li>
+                            <li>Indian banks generally maintained higher capital ratios than Basel minimums</li>
+                            <li>Implementation helped Indian banks remain resilient during global financial crises</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA19.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA22.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/basel-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/basel-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Monetary Policy Tools | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Monetary Policy Tools Page */
+        .policy-tools-overview {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #002366;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        
+        .tool-card.quantitative {
+            border-top-color: #002366;
+        }
+        
+        .tool-card.qualitative {
+            border-top-color: #FFD700;
+        }
+        
+        .tool-icon {
+            font-size: 2.2rem;
+            color: #002366;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f0f4f8;
+        }
+        
+        .qualitative .tool-icon {
+            color: #FFD700;
+            background-color: #fffae6;
+        }
+        
+        .tool-card h3 {
+            color: #002366;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .qualitative h3 {
+            color: #FFD700;
+        }
+        
+        .tool-card p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .tool-impact {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            background-color: #f5f7fa;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+        
+        .tool-impact i {
+            margin-right: 8px;
+            color: #002366;
+        }
+        
+        .qualitative .tool-impact i {
+            color: #FFD700;
+        }
+        
+        .policy-mechanism {
+            margin-top: 40px;
+        }
+        
+        .mechanism-visual {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .mechanism-flow {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+        }
+        
+        .flow-step {
+            background: white;
+            border: 2px solid #002366;
+            border-radius: 8px;
+            padding: 15px 20px;
+            text-align: center;
+            width: 160px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,35,102,0.1);
+        }
+        
+        .flow-step:not(:last-child)::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #002366;
+        }
+        
+        .flow-step-icon {
+            font-size: 1.8rem;
+            color: #002366;
+            margin-bottom: 10px;
+        }
+        
+        .flow-step-title {
+            font-weight: 600;
+            color: #002366;
+            margin-bottom: 5px;
+        }
+        
+        .policy-objectives {
+            background-color: #002366;
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .policy-objectives h3 {
+            color: #FFD700;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .policy-objectives h3 i {
+            margin-right: 10px;
+        }
+        
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .objective-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid #FFD700;
+        }
+        
+        .objective-item h4 {
+            color: #FFD700;
+            margin-top: 0;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .objective-item h4 i {
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+        
+        .policy-comparison {
+            margin-top: 40px;
+        }
+        
+        .comparison-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .comparison-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border: 1px solid #eaeaea;
+        }
+        
+        .comparison-card h4 {
+            color: #002366;
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #FFD700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .comparison-card h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .comparison-list {
+            margin-top: 15px;
+        }
+        
+        .comparison-item {
+            display: flex;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed #eaeaea;
+        }
+        
+        .comparison-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .comparison-icon {
+            margin-right: 10px;
+            color: #002366;
+            font-size: 1.1rem;
+            min-width: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mechanism-flow {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .flow-step:not(:last-child)::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -25px;
+                transform: translateX(50%);
+            }
+            
+            .comparison-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .objectives-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li class="active"><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Monetary Policy Tools</h1>
+                <p class="content-subtitle">Understanding how RBI regulates money supply and economic growth</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-tools"></i> What are Monetary Policy Tools?</h3>
+                    <p>Monetary policy tools are instruments used by the Reserve Bank of India (RBI) to control the money supply, manage inflation, stabilize currency exchange rates, and promote economic growth. These tools help the central bank influence the availability and cost of credit in the economy.</p>
+                </section>
+
+                <!-- Policy Tools Overview -->
+                <section class="content-section policy-tools-overview">
+                    <h3><i class="fas fa-cogs"></i> Categories of Monetary Policy Tools</h3>
+                    <p>RBI uses various tools that can be broadly categorized into quantitative and qualitative instruments, each serving different purposes in regulating the economy:</p>
+                    
+                    <div class="tools-grid">
+                        <!-- Quantitative Tools -->
+                        <div class="tool-card quantitative">
+                            <div class="tool-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Quantitative Tools</h3>
+                            <p>These tools affect the overall supply of money and credit in the economy. They have a general effect and are impersonal in nature.</p>
+                            <div class="tool-impact">
+                                <i class="fas fa-bullseye"></i>
+                                <span>Affect overall money supply</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card quantitative">
+                            <div class="tool-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <h3>Reserve Ratios</h3>
+                            <p>CRR (Cash Reserve Ratio) and SLR (Statutory Liquidity Ratio) determine the reserves banks must maintain with RBI and in specified assets.</p>
+                            <div class="tool-impact">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Control lending capacity</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card quantitative">
+                            <div class="tool-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3>Policy Rates</h3>
+                            <p>Repo rate, reverse repo rate, and bank rate influence the cost of borrowing and determine interest rates in the economy.</p>
+                            <div class="tool-impact">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span>Influence interest rates</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Qualitative Tools -->
+                        <div class="tool-card qualitative">
+                            <div class="tool-icon">
+                                <i class="fas fa-balance-scale-right"></i>
+                            </div>
+                            <h3>Qualitative Tools</h3>
+                            <p>These tools are selective and affect specific sectors of the economy. They direct credit flow to priority sectors.</p>
+                            <div class="tool-impact">
+                                <i class="fas fa-bullseye"></i>
+                                <span>Target specific sectors</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card qualitative">
+                            <div class="tool-icon">
+                                <i class="fas fa-tasks"></i>
+                            </div>
+                            <h3>Margin Requirements</h3>
+                            <p>RBI can prescribe the margin against certain types of loans to control speculative activities in the economy.</p>
+                            <div class="tool-impact">
+                                <i class="fas fa-compress-arrows-alt"></i>
+                                <span>Control speculative credit</span>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card qualitative">
+                            <div class="tool-icon">
+                                <i class="fas fa-comment-dollar"></i>
+                            </div>
+                            <h3>Moral Suasion</h3>
+                            <p>RBI uses persuasion and requests to encourage banks to follow its policy directions without formal regulation.</p>
+                            <div class="tool-impact">
+                                <i class="fas fa-handshake"></i>
+                                <span>Persuade rather than force</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quantitative Tools Detailed Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-calculator"></i> Quantitative Tools in Detail</h3>
+                    
+                    <div class="policy-mechanism">
+                        <h4><i class="fas fa-project-diagram"></i> How Quantitative Tools Work</h4>
+                        <p>Quantitative tools directly influence the amount of money available in the banking system, which affects interest rates and ultimately economic activity:</p>
+                        
+                        <div class="mechanism-visual">
+                            <div class="mechanism-flow">
+                                <div class="flow-step">
+                                    <div class="flow-step-icon">
+                                        <i class="fas fa-toolbox"></i>
+                                    </div>
+                                    <div class="flow-step-title">RBI Uses Tools</div>
+                                    <div class="flow-step-desc">Changes rates/ratios</div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="flow-step-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="flow-step-title">Bank Reserves</div>
+                                    <div class="flow-step-desc">Affected</div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="flow-step-icon">
+                                        <i class="fas fa-hand-holding-usd"></i>
+                                    </div>
+                                    <div class="flow-step-title">Lending Capacity</div>
+                                    <div class="flow-step-desc">Expands/contracts</div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="flow-step-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </div>
+                                    <div class="flow-step-title">Interest Rates</div>
+                                    <div class="flow-step-desc">Change</div>
+                                </div>
+                                
+                                <div class="flow-step">
+                                    <div class="flow-step-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="flow-step-title">Economic Activity</div>
+                                    <div class="flow-step-desc">Stimulated/slowed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="comparison-section">
+                        <h4><i class="fas fa-balance-scale"></i> Key Quantitative Instruments</h4>
+                        <div class="comparison-cards">
+                            <div class="comparison-card">
+                                <h4><i class="fas fa-money-bill-wave"></i> Repo Rate</h4>
+                                <div class="comparison-list">
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-info-circle"></i></div>
+                                        <div>Rate at which RBI lends to commercial banks</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-up"></i></div>
+                                        <div>Increase → decreases money supply</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-down"></i></div>
+                                        <div>Decrease → increases money supply</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-bullseye"></i></div>
+                                        <div>Primary tool for inflation control</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-card">
+                                <h4><i class="fas fa-coins"></i> Reverse Repo Rate</h4>
+                                <div class="comparison-list">
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-info-circle"></i></div>
+                                        <div>Rate at which RBI borrows from commercial banks</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-up"></i></div>
+                                        <div>Increase → encourages banks to park funds with RBI</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-down"></i></div>
+                                        <div>Decrease → discourages parking funds with RBI</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-bullseye"></i></div>
+                                        <div>Manages liquidity in banking system</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-card">
+                                <h4><i class="fas fa-piggy-bank"></i> Cash Reserve Ratio (CRR)</h4>
+                                <div class="comparison-list">
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-info-circle"></i></div>
+                                        <div>Percentage of deposits banks must keep with RBI</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-up"></i></div>
+                                        <div>Increase → reduces lending capacity</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-down"></i></div>
+                                        <div>Decrease → increases lending capacity</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-bullseye"></i></div>
+                                        <div>No interest paid on CRR balances</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="comparison-card">
+                                <h4><i class="fas fa-chart-pie"></i> Statutory Liquidity Ratio (SLR)</h4>
+                                <div class="comparison-list">
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-info-circle"></i></div>
+                                        <div>Percentage of deposits banks must maintain in liquid assets</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-up"></i></div>
+                                        <div>Increase → reduces funds available for lending</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-arrow-down"></i></div>
+                                        <div>Decrease → increases funds available for lending</div>
+                                    </div>
+                                    <div class="comparison-item">
+                                        <div class="comparison-icon"><i class="fas fa-bullseye"></i></div>
+                                        <div>Assets include cash, gold, government securities</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Policy Objectives -->
+                <section class="policy-objectives">
+                    <h3><i class="fas fa-bullseye"></i> Objectives of Monetary Policy</h3>
+                    <p>RBI's monetary policy aims to achieve multiple economic goals through careful calibration of its policy tools:</p>
+                    
+                    <div class="objectives-grid">
+                        <div class="objective-item">
+                            <h4><i class="fas fa-fire"></i> Price Stability</h4>
+                            <p>Control inflation and maintain stable prices to preserve the purchasing power of the currency.</p>
+                        </div>
+                        
+                        <div class="objective-item">
+                            <h4><i class="fas fa-industry"></i> Economic Growth</h4>
+                            <p>Promote adequate credit flow to productive sectors to support sustainable economic expansion.</p>
+                        </div>
+                        
+                        <div class="objective-item">
+                            <h4><i class="fas fa-chart-line"></i> Exchange Rate Stability</h4>
+                            <p>Manage volatility in foreign exchange markets to maintain confidence in the domestic currency.</p>
+                        </div>
+                        
+                        <div class="objective-item">
+                            <h4><i class="fas fa-hand-holding-heart"></i> Financial Stability</h4>
+                            <p>Ensure the smooth functioning of financial institutions and markets to prevent systemic risks.</p>
+                        </div>
+                        
+                        <div class="objective-item">
+                            <h4><i class="fas fa-user-friends"></i> Employment Generation</h4>
+                            <p>Support economic conditions that create job opportunities and reduce unemployment.</p>
+                        </div>
+                        
+                        <div class="objective-item">
+                            <h4><i class="fas fa-balance-scale"></i> Interest Rate Management</h4>
+                            <p>Influence the structure of interest rates to balance savings and investment in the economy.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Policy Transmission Mechanism -->
+                <section class="content-section">
+                    <h3><i class="fas fa-random"></i> Monetary Policy Transmission</h3>
+                    <p>Monetary policy transmission is the process through which policy rate changes affect the economy, particularly inflation and growth. An effective transmission mechanism is crucial for monetary policy to achieve its objectives.</p>
+                    
+                    <div class="timeline-container">
+                        <div class="era">
+                            <h4>Channels of Monetary Policy Transmission</h4>
+                            
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-year">Interest Rate Channel</div>
+                                    <div class="timeline-content">
+                                        <h5>Most direct transmission path</h5>
+                                        <p>Policy rate changes → bank lending rates → borrowing costs → consumption and investment decisions</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">Credit Channel</div>
+                                    <div class="timeline-content">
+                                        <h5>Affects availability rather than cost</h5>
+                                        <p>Policy changes → bank lending capacity → credit availability → economic activity</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">Exchange Rate Channel</div>
+                                    <div class="timeline-content">
+                                        <h5>For open economies</h5>
+                                        <p>Interest rate changes → capital flows → exchange rate → export/import competitiveness</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">Asset Price Channel</div>
+                                    <div class="timeline-content">
+                                        <h5>Wealth and investment effects</h5>
+                                        <p>Policy changes → asset prices (stocks, real estate) → household wealth → consumption</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">Expectations Channel</div>
+                                    <div class="timeline-content">
+                                        <h5>Psychological impact</h5>
+                                        <p>Policy signals → inflation expectations → wage/price setting behavior → actual inflation</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA13.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA15.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/monetary-policy-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/monetary-policy-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

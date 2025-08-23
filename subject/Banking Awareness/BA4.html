@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Banking Infrastructure | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Banking Infrastructure Page */
+        .infra-section {
+            margin-bottom: 3rem;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border-left: 4px solid #002366;
+        }
+        
+        .infra-section h3 {
+            color: #002366;
+            margin-top: 0;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #FFD700;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .infra-section h3 i {
+            color: #FFD700;
+        }
+        
+        .infra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .infra-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,35,102,0.1);
+            transition: all 0.3s ease;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .infra-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,35,102,0.15);
+        }
+        
+        .infra-card h4 {
+            color: #002366;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .infra-card h4 i {
+            color: #FFD700;
+        }
+        
+        .infra-card p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .infra-card ul {
+            margin: 0.5rem 0 0 1rem;
+            padding-left: 1rem;
+        }
+        
+        .infra-card li {
+            margin-bottom: 0.5rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .tech-diagram {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .tech-flow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tech-layer {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .tech-box {
+            background: #002366;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 6px;
+            margin: 0.5rem;
+            text-align: center;
+            font-weight: 500;
+            position: relative;
+            min-width: 200px;
+        }
+        
+        .tech-box.primary {
+            background: #002366;
+        }
+        
+        .tech-box.secondary {
+            background: #003366;
+        }
+        
+        .tech-box.accent {
+            background: #FFD700;
+            color: #002366;
+        }
+        
+        .tech-connector {
+            width: 2px;
+            height: 20px;
+            background: #002366;
+            margin: 0 auto;
+        }
+        
+        .regulatory-framework {
+            background: #002366;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+        }
+        
+        .regulatory-framework h3 {
+            color: #FFD700;
+            border-bottom-color: #FFD700;
+        }
+        
+        .framework-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .framework-item h4 {
+            color: #FFD700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .framework-item p {
+            margin-left: 2rem;
+            color: #f0f4f8;
+        }
+        
+        @media (max-width: 768px) {
+            .infra-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-box {
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li class="active"><a href="BA4.html?topic=trends">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Banking Infrastructure in India <span class="topic-tag">Not Important </span>
+                <p class="content-subtitle">The physical and digital backbone of India's financial system</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-landmark"></i> Understanding Banking Infrastructure</h3>
+                    <p>Banking infrastructure refers to the comprehensive framework of physical facilities, technological systems, regulatory mechanisms, and interbank networks that enable financial institutions to operate efficiently and serve customers effectively. This infrastructure forms the backbone of India's financial ecosystem, facilitating transactions, ensuring security, and promoting financial inclusion.</p>
+                </section>
+
+                <!-- Physical Infrastructure Section -->
+                <section class="infra-section">
+                    <h3><i class="fas fa-building"></i> 1. Physical Infrastructure</h3>
+                    <p>The tangible components that form the face of banking services across the country:</p>
+                    
+                    <div class="infra-grid">
+                        <div class="infra-card">
+                            <h4><i class="fas fa-university"></i> Bank Branches</h4>
+                            <p>Physical locations where customers can conduct various banking transactions and access services.</p>
+                            <ul>
+                                <li>Over 150,000 branches across India</li>
+                                <li>Provide personalized services and complex transactions</li>
+                                <li>Act as primary customer touchpoints</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-money-bill-wave"></i> ATMs (Automated Teller Machines)</h4>
+                            <p>Self-service terminals enabling cash withdrawals, deposits, and basic transactions 24/7.</p>
+                            <ul>
+                                <li>Over 250,000 ATMs in India</li>
+                                <li>White-label ATMs operated by non-bank entities</li>
+                                <li>Enable cash recycling for efficiency</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-coins"></i> Cash Deposit Machines (CDMs)</h4>
+                            <p>Automated machines allowing cash deposits without teller assistance.</p>
+                            <ul>
+                                <li>Accept cash and instantly credit accounts</li>
+                                <li>Reduce branch queues and operational costs</li>
+                                <li>Often available 24/7 in branch premises</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-credit-card"></i> Point of Sale (PoS) Terminals</h4>
+                            <p>Electronic devices used by merchants to process card-based payments.</p>
+                            <ul>
+                                <li>Over 6 million PoS terminals in India</li>
+                                <li>Enable digital payments at retail outlets</li>
+                                <li>MPOS (Mobile PoS) for small merchants</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-vault"></i> Currency Chests</h4>
+                            <p>RBI-approved facilities where banks store cash to meet liquidity needs.</p>
+                            <ul>
+                                <li>Maintain currency distribution network</li>
+                                <li>Facilitate cash management for banks</li>
+                                <li>Help in soiled note processing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-lock"></i> Safe Deposit Lockers</h4>
+                            <p>Secure storage facilities for customers' valuables and important documents.</p>
+                            <ul>
+                                <li>Available in most bank branches</li>
+                                <li>Different sizes for various needs</li>
+                                <li>Annual rental fee structure</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Digital & Technological Infrastructure Section -->
+                <section class="infra-section">
+                    <h3><i class="fas fa-laptop-code"></i> 2. Digital & Technological Infrastructure</h3>
+                    <p>The systems and platforms that power modern banking operations and digital services:</p>
+                    
+                    <div class="tech-diagram">
+                        <h4><i class="fas fa-project-diagram"></i> Banking Technology Stack</h4>
+                        <div class="tech-flow">
+                            <div class="tech-layer">
+                                <div class="tech-box primary">
+                                    <i class="fas fa-users"></i> Customer Channels
+                                </div>
+                            </div>
+                            <div class="tech-connector"></div>
+                            <div class="tech-layer">
+                                <div class="tech-box secondary">
+                                    <i class="fas fa-mobile-alt"></i> Mobile Banking
+                                </div>
+                                <div class="tech-box secondary">
+                                    <i class="fas fa-globe"></i> Internet Banking
+                                </div>
+                                <div class="tech-box secondary">
+                                    <i class="fas fa-tablet-alt"></i> Banking Apps
+                                </div>
+                            </div>
+                            <div class="tech-connector"></div>
+                            <div class="tech-layer">
+                                <div class="tech-box primary">
+                                    <i class="fas fa-server"></i> Core Banking Solution (CBS)
+                                </div>
+                            </div>
+                            <div class="tech-connector"></div>
+                            <div class="tech-layer">
+                                <div class="tech-box secondary">
+                                    <i class="fas fa-exchange-alt"></i> Payment Systems
+                                </div>
+                                <div class="tech-box secondary">
+                                    <i class="fas fa-database"></i> Data Warehousing
+                                </div>
+                                <div class="tech-box secondary">
+                                    <i class="fas fa-shield-alt"></i> Security Systems
+                                </div>
+                            </div>
+                            <div class="tech-connector"></div>
+                            <div class="tech-layer">
+                                <div class="tech-box primary">
+                                    <i class="fas fa-network-wired"></i> Interbank Networks
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="infra-grid">
+                        <div class="infra-card">
+                            <h4><i class="fas fa-server"></i> Core Banking Solution (CBS)</h4>
+                            <p>Centralized software that connects all branches for real-time transactions.</p>
+                            <ul>
+                                <li>Enables anytime-anywhere banking</li>
+                                <li>Integrates all banking operations</li>
+                                <li>Provides single customer view</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-exchange-alt"></i> Payment Systems</h4>
+                            <p>NEFT, RTGS, IMPS, UPI, and other electronic fund transfer mechanisms.</p>
+                            <ul>
+                                <li>UPI processed 8 billion+ transactions/month</li>
+                                <li>RTGS for high-value transactions</li>
+                                <li>IMPS for instant transfers 24x7</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-mobile"></i> Mobile & Internet Banking</h4>
+                            <p>Platforms enabling customers to bank online via web and mobile apps.</p>
+                            <ul>
+                                <li>Over 300 million digital banking users</li>
+                                <li>Feature-rich apps with biometric login</li>
+                                <li>Paperless account opening</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-credit-card"></i> Card Networks</h4>
+                            <p>Visa, Mastercard, RuPay systems facilitating debit/credit card transactions.</p>
+                            <ul>
+                                <li>RuPay has 60%+ market share in India</li>
+                                <li>Contactless payment technology</li>
+                                <li>Tokenization for secure payments</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-link"></i> Blockchain & DLT</h4>
+                            <p>Emerging tech for secure and transparent transactions.</p>
+                            <ul>
+                                <li>Used for trade finance and remittances</li>
+                                <li>RBI exploring CBDC (Digital Rupee)</li>
+                                <li>Reduces settlement times</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-code"></i> API Banking</h4>
+                            <p>Allows third-party apps to integrate with banking services (Open Banking).</p>
+                            <ul>
+                                <li>Account Aggregator framework</li>
+                                <li>Enables fintech innovations</li>
+                                <li>PSU banks offering 200+ APIs</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Regulatory & Security Infrastructure Section -->
+                <section class="infra-section">
+                    <h3><i class="fas fa-shield-alt"></i> 3. Regulatory & Security Infrastructure</h3>
+                    <p>Systems and frameworks ensuring compliance, security, and fraud prevention:</p>
+                    
+                    <div class="regulatory-framework">
+                        <h3><i class="fas fa-balance-scale"></i> Banking Security Framework</h3>
+                        
+                        <div class="framework-item">
+                            <h4><i class="fas fa-user-check"></i> KYC (Know Your Customer) Systems</h4>
+                            <p>For identity verification and fraud prevention using Aadhaar, PAN, and biometric authentication.</p>
+                        </div>
+                        
+                        <div class="framework-item">
+                            <h4><i class="fas fa-search-dollar"></i> Anti-Money Laundering (AML) Systems</h4>
+                            <p>Monitor suspicious transactions and report to Financial Intelligence Unit (FIU-IND).</p>
+                        </div>
+                        
+                        <div class="framework-item">
+                            <h4><i class="fas fa-lock"></i> Cybersecurity Frameworks</h4>
+                            <p>Protect against hacking, phishing, and data breaches with firewalls, encryption, and monitoring.</p>
+                        </div>
+                        
+                        <div class="framework-item">
+                            <h4><i class="fas fa-fingerprint"></i> Biometric Authentication</h4>
+                            <p>Fingerprint, iris, and facial recognition for secure access to banking services.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="infra-grid">
+                        <div class="infra-card">
+                            <h4><i class="fas fa-user-shield"></i> Fraud Monitoring Systems</h4>
+                            <p>Real-time detection of unusual transaction patterns and potential fraud.</p>
+                            <ul>
+                                <li>AI-based anomaly detection</li>
+                                <li>Transaction velocity checks</li>
+                                <li>Geo-fencing controls</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-robot"></i> AI & Machine Learning</h4>
+                            <p>Used for credit scoring, chatbots, and personalized banking services.</p>
+                            <ul>
+                                <li>Predictive analytics for risk</li>
+                                <li>Virtual assistants for support</li>
+                                <li>Automated loan processing</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-cloud"></i> Cloud Banking</h4>
+                            <p>Secure cloud infrastructure for banking operations and data storage.</p>
+                            <ul>
+                                <li>Hybrid cloud adoption growing</li>
+                                <li>RBI's regulatory guidelines</li>
+                                <li>Disaster recovery benefits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Interbank & Clearing Infrastructure Section -->
+                <section class="infra-section">
+                    <h3><i class="fas fa-network-wired"></i> 4. Interbank & Clearing Infrastructure</h3>
+                    <p>Systems that facilitate transactions between different banks and financial institutions:</p>
+                    
+                    <div class="infra-grid">
+                        <div class="infra-card">
+                            <h4><i class="fas fa-rupee-sign"></i> National Payments Corporation of India (NPCI)</h4>
+                            <p>Manages UPI, IMPS, NACH, and other payment systems.</p>
+                            <ul>
+                                <li>UPI processed ₹12 trillion+ monthly</li>
+                                <li>Bharat BillPay for utility payments</li>
+                                <li>FASTag for toll collections</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-calculator"></i> Clearing Corporation of India Ltd. (CCIL)</h4>
+                            <p>Handles interbank settlements and forex transactions.</p>
+                            <ul>
+                                <li>Provides guaranteed settlement</li>
+                                <li>Manages government securities</li>
+                                <li>Forex clearing services</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-money-check-alt"></i> RTGS & NEFT Systems</h4>
+                            <p>High-value and bulk payment settlement systems.</p>
+                            <ul>
+                                <li>RTGS for >₹2 lakh transactions</li>
+                                <li>NEFT operates in hourly batches</li>
+                                <li>Now available 24x7</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Financial Inclusion Infrastructure Section -->
+                <section class="infra-section">
+                    <h3><i class="fas fa-hand-holding-heart"></i> 5. Financial Inclusion Infrastructure</h3>
+                    <p>Systems and services designed to bring banking to underserved populations:</p>
+                    
+                    <div class="infra-grid">
+                        <div class="infra-card">
+                            <h4><i class="fas fa-user-tie"></i> Business Correspondents (BCs)</h4>
+                            <p>Agents providing banking services in rural areas.</p>
+                            <ul>
+                                <li>Over 1.2 million BC outlets</li>
+                                <li>Enable last-mile banking</li>
+                                <li>Basic transactions in villages</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-tablet-alt"></i> Micro ATMs</h4>
+                            <p>Handheld devices for basic banking in remote locations.</p>
+                            <ul>
+                                <li>Aadhaar-enabled transactions</li>
+                                <li>Used by BCs and postal staff</li>
+                                <li>Low-cost alternative to ATMs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-id-card"></i> Aadhaar-Enabled Payment System (AePS)</h4>
+                            <p>Allows transactions using Aadhaar authentication.</p>
+                            <ul>
+                                <li>Biometric authentication</li>
+                                <li>No need for debit cards</li>
+                                <li>Over 100 million monthly transactions</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="infra-card">
+                            <h4><i class="fas fa-wifi"></i> India Stack</h4>
+                            <p>Digital infrastructure enabling paperless, presence-less services.</p>
+                            <ul>
+                                <li>Aadhaar for identity</li>
+                                <li>UPI for payments</li>
+                                <li>DigiLocker for documents</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Takeaways Section -->
+                <section class="content-section" style="background-color: #002366; color: white; padding: 2rem; border-radius: 8px;">
+                    <h3 style="color: #FFD700;"><i class="fas fa-lightbulb"></i> Key Takeaways</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                        <div style="background: rgba(255,215,0,0.1); padding: 1rem; border-radius: 6px; border-left: 3px solid #FFD700;">
+                            <h4 style="color: #FFD700; margin-top: 0;">Physical Infrastructure</h4>
+                            <p style="color: white;">Branch network and ATMs remain crucial despite digital growth, with over 150,000 branches and 250,000+ ATMs nationwide.</p>
+                        </div>
+                        <div style="background: rgba(255,215,0,0.1); padding: 1rem; border-radius: 6px; border-left: 3px solid #FFD700;">
+                            <h4 style="color: #FFD700; margin-top: 0;">Digital Transformation</h4>
+                            <p style="color: white;">India leads in digital payments with UPI processing 8+ billion transactions monthly and 300M+ digital banking users.</p>
+                        </div>
+                        <div style="background: rgba(255,215,0,0.1); padding: 1rem; border-radius: 6px; border-left: 3px solid #FFD700;">
+                            <h4 style="color: #FFD700; margin-top: 0;">Security Focus</h4>
+                            <p style="color: white;">RBI mandates strict cybersecurity frameworks, fraud monitoring, and biometric authentication for secure banking.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA3.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA5.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/infra-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/infra-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

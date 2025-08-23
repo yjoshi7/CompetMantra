@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Initiatives in Banking | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Digital Initiatives Page */
+        .initiative-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #FFD700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .initiative-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .initiative-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .initiative-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .initiative-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .initiative-feature {
+            background: #f5f7fa;
+            padding: 20px;
+            border-radius: 6px;
+            border-top: 3px solid #002366;
+            height: 100%;
+        }
+        
+        .initiative-feature h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .initiative-feature h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .timeline-container.digital {
+            margin: 40px 0;
+        }
+        
+        .timeline-item.digital {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #002366;
+        }
+        
+        .timeline-year.digital {
+            color: #002366;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-year.digital i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #eaeaea;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #002366;
+            margin: 10px 0;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table.digital {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table.digital th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table.digital td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table.digital tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table.digital tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .benefits-section {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+        
+        .challenges-section {
+            margin-top: 40px;
+        }
+        
+        .challenge-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #002366;
+        }
+        
+        .challenge-item h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .challenge-item h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        @media (max-width: 768px) {
+            .initiative-grid, .stat-grid, .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li class="active"><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Digital Initiatives in Banking</h1>
+                <p class="content-subtitle">Transforming banking through technology and innovation</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-digital-tachograph"></i> Digital Banking Revolution</h3>
+                    <p>The Indian banking sector has undergone a massive digital transformation over the past decade. Driven by technological advancements, changing consumer expectations, and regulatory support, digital initiatives have revolutionized how banking services are delivered and consumed.</p>
+                    
+                    <div class="stat-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">89%</div>
+                            <div class="stat-label">of transactions are now digital</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">500M+</div>
+                            <div class="stat-label">UPI transactions daily</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">80%</div>
+                            <div class="stat-label">of Indians use mobile banking</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">₹7,422 Cr</div>
+                            <div class="stat-label">Digital lending market (2023)</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Initiatives Timeline -->
+                <section class="content-section">
+                    <h3><i class="fas fa-history"></i> Evolution of Digital Banking Initiatives</h3>
+                    <p>The journey of digital banking in India has been marked by several key initiatives that have progressively transformed the banking landscape:</p>
+                    
+                    <div class="timeline-container digital">
+                        <div class="timeline-item digital">
+                            <div class="timeline-year digital"><i class="fas fa-calendar-alt"></i> 2000s</div>
+                            <div class="timeline-content">
+                                <h5>Core Banking Solutions (CBS)</h5>
+                                <p>Introduction of centralized banking operations allowing customers to access their accounts from any branch. This was the foundation of modern digital banking.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item digital">
+                            <div class="timeline-year digital"><i class="fas fa-calendar-alt"></i> 2010-2014</div>
+                            <div class="timeline-content">
+                                <h5>Internet and Mobile Banking</h5>
+                                <p>Banks launched online portals and mobile apps, enabling customers to perform basic transactions remotely. IMPS (Immediate Payment Service) was introduced in 2010.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item digital">
+                            <div class="timeline-year digital"><i class="fas fa-calendar-alt"></i> 2016</div>
+                            <div class="timeline-content">
+                                <h5>Unified Payments Interface (UPI)</h5>
+                                <p>NPCI launched UPI, revolutionizing peer-to-peer and merchant payments. This became the backbone of India's digital payment ecosystem.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item digital">
+                            <div class="timeline-year digital"><i class="fas fa-calendar-alt"></i> 2016-2019</div>
+                            <div class="timeline-content">
+                                <h5>Aadhaar Enabled Systems</h5>
+                                <p>AePS (Aadhaar Enabled Payment System) allowed biometric authentication for banking transactions, promoting financial inclusion.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item digital">
+                            <div class="timeline-year digital"><i class="fas fa-calendar-alt"></i> 2020-Present</div>
+                            <div class="timeline-content">
+                                <h5>API Banking and Ecosystems</h5>
+                                <p>Open banking, API integrations, and banking-as-a-service models have emerged, allowing seamless integration of banking services with third-party applications.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Major Digital Initiatives -->
+                <section class="content-section">
+                    <h3><i class="fas fa-star"></i> Key Digital Initiatives</h3>
+                    <p>The Reserve Bank of India, Government, and banking institutions have launched several transformative digital initiatives:</p>
+                    
+                    <div class="initiative-card">
+                        <h3><i class="fas fa-money-bill-wave"></i> Unified Payments Interface (UPI)</h3>
+                        <p>A system that powers multiple bank accounts into a single mobile application, merging several banking features, seamless fund routing, and merchant payments.</p>
+                        
+                        <div class="initiative-grid">
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-check-circle"></i> Key Features</h4>
+                                <ul>
+                                    <li>Instant money transfer 24/7</li>
+                                    <li>Single identifier for payments</li>
+                                    <li>QR code-based payments</li>
+                                    <li>Interoperable across banks</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-chart-line"></i> Impact</h4>
+                                <ul>
+                                    <li>Processed over 10 billion transactions monthly</li>
+                                    <li>Reduced cash dependency</li>
+                                    <li>Enabled small merchants to accept digital payments</li>
+                                    <li>Global model for instant payments</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-mobile-alt"></i> Popular UPI Apps</h4>
+                                <ul>
+                                    <li>Google Pay</li>
+                                    <li>PhonePe</li>
+                                    <li>Paytm</li>
+                                    <li>BHIM</li>
+                                    <li>Bank-specific UPI apps</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="initiative-card">
+                        <h3><i class="fas fa-address-card"></i> Aadhaar Enabled Payment System (AePS)</h3>
+                        <p>A bank-led model that allows online financial transactions at Point-of-Sale (PoS) or micro ATMs through the business correspondent of any bank using Aadhaar authentication.</p>
+                        
+                        <div class="initiative-grid">
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-fingerprint"></i> Services Offered</h4>
+                                <ul>
+                                    <li>Cash withdrawal</li>
+                                    <li>Cash deposit</li>
+                                    <li>Balance inquiry</li>
+                                    <li>Aadhaar to Aadhaar fund transfer</li>
+                                    <li>Authentication</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-users"></i> Benefits</h4>
+                                <ul>
+                                    <li>No need for physical card</li>
+                                    <li>Interoperable across banks</li>
+                                    <li>Promotes financial inclusion</li>
+                                    <li>Secure biometric authentication</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="initiative-card">
+                        <h3><i class="fas fa-file-invoice"></i> Bharat Bill Payment System (BBPS)</h3>
+                        <p>An integrated bill payment system that offers interoperable and accessible bill payment service to customers through a network of agents.</p>
+                        
+                        <div class="initiative-grid">
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-bolt"></i> Bill Categories</h4>
+                                <ul>
+                                    <li>Electricity</li>
+                                    <li>Telephone</li>
+                                    <li>Water</li>
+                                    <li>Gas</li>
+                                    <li>Direct-to-Home (DTH)</li>
+                                    <li>Insurance premiums</li>
+                                    <li>Loan repayments</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-check-double"></i> Advantages</h4>
+                                <ul>
+                                    <li>Standardized bill payment experience</li>
+                                    <li>Instant confirmation of payments</li>
+                                    <li>Multiple payment modes</li>
+                                    <li>Centralized customer grievance redressal</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="initiative-card">
+                        <h3><i class="fas fa-university"></i> Account Aggregator Framework</h3>
+                        <p>A data access and sharing framework that allows individuals to share their financial data securely from one financial institution to another in a consolidated manner.</p>
+                        
+                        <div class="initiative-grid">
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-database"></i> Data That Can Be Shared</h4>
+                                <ul>
+                                    <li>Bank deposits</li>
+                                    <li>Mutual fund holdings</li>
+                                    <li>Equity holdings</li>
+                                    <li>Insurance policies</li>
+                                    <li>Pension accounts</li>
+                                    <li>GST returns</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="initiative-feature">
+                                <h4><i class="fas fa-shield-alt"></i> Key Principles</h4>
+                                <ul>
+                                    <li>Data belongs to the customer</li>
+                                    <li>Explicit consent required for data sharing</li>
+                                    <li>Purpose limitation</li>
+                                    <li>Data is encrypted during transfer</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Benefits Section -->
+                <section class="content-section benefits-section">
+                    <h3><i class="fas fa-award"></i> Benefits of Digital Banking Initiatives</h3>
+                    <p>Digital initiatives have transformed banking for customers, institutions, and the economy:</p>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-user-clock"></i></div>
+                            <h4>Convenience</h4>
+                            <p>24/7 access to banking services from anywhere</p>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-money-bill"></i></div>
+                            <h4>Cost Reduction</h4>
+                            <p>Lower transaction costs for banks and customers</p>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <h4>Efficiency</h4>
+                            <p>Faster processing and reduced paperwork</p>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                            <h4>Financial Inclusion</h4>
+                            <p>Banking services reach unbanked populations</p>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+                            <h4>Transparency</h4>
+                            <p>Clear records and reduced corruption</p>
+                        </div>
+                        
+                        <div class="benefit-card">
+                            <div class="benefit-icon"><i class="fas fa-rupee-sign"></i></div>
+                            <h4>Cashless Economy</h4>
+                            <p>Reduced dependency on physical cash</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Challenges Section -->
+                <section class="content-section challenges-section">
+                    <h3><i class="fas fa-exclamation-triangle"></i> Challenges and Concerns</h3>
+                    <p>Despite significant progress, digital banking initiatives face several challenges:</p>
+                    
+                    <div class="challenge-item">
+                        <h4><i class="fas fa-shield-alt"></i> Cybersecurity Risks</h4>
+                        <p>Increased digital transactions have led to sophisticated cyber threats, phishing attacks, and financial frauds requiring robust security measures.</p>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <h4><i class="fas fa-digital-divide"></i> Digital Divide</h4>
+                        <p>Limited digital literacy, smartphone access, and internet connectivity in rural areas create exclusion despite technological advancements.</p>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <h4><i class="fas fa-user-secret"></i> Data Privacy Concerns</h4>
+                        <p>Collection and use of customer data raise privacy issues, requiring strong data protection frameworks and regulations.</p>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <h4><i class="fas fa-cogs"></i> Technology Infrastructure</h4>
+                        <p>Maintaining robust, scalable technology infrastructure that can handle massive transaction volumes without downtime remains a challenge.</p>
+                    </div>
+                    
+                    <div class="challenge-item">
+                        <h4><i class="fas fa-balance-scale"></i> Regulatory Compliance</h4>
+                        <p>Rapid technological changes often outpace regulatory frameworks, creating compliance challenges for financial institutions.</p>
+                    </div>
+                </section>
+
+                <!-- Future Trends -->
+                <section class="content-section">
+                    <h3><i class="fas fa-crystal-ball"></i> Future Trends in Digital Banking</h3>
+                    <p>The evolution of digital banking continues with emerging technologies shaping its future:</p>
+                    
+                    <div class="initiative-grid">
+                        <div class="initiative-feature">
+                            <h4><i class="fas fa-robot"></i> AI and Machine Learning</h4>
+                            <ul>
+                                <li>Personalized banking experiences</li>
+                                <li>Advanced fraud detection systems</li>
+                                <li>Chatbots and virtual assistants</li>
+                                <li>Predictive analytics for customer needs</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="initiative-feature">
+                            <h4><i class="fas fa-link"></i> Blockchain Technology</h4>
+                            <ul>
+                                <li>Faster cross-border payments</li>
+                                <li>Smart contracts for lending</li>
+                                <li>Enhanced security and transparency</li>
+                                <li>Reduced settlement times</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="initiative-feature">
+                            <h4><i class="fas fa-cloud"></i> Cloud Banking</h4>
+                            <ul>
+                                <li>Scalable infrastructure</li>
+                                <li>Reduced IT costs</li>
+                                <li>Enhanced collaboration</li>
+                                <li>Disaster recovery capabilities</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="initiative-feature">
+                            <h4><i class="fas fa-mobile-alt"></i> Embedded Finance</h4>
+                            <ul>
+                                <li>Banking services within non-financial apps</li>
+                                <li>Contextual financial products</li>
+                                <li>Seamless customer experiences</li>
+                                <li>New revenue streams for businesses</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA26.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA28.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/digital-initiatives-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/digital-initiatives-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

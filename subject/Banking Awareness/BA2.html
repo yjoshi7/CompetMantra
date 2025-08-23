@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - RBI History | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* RBI Specific Styles */
+        .rbi-hero {
+            background: linear-gradient(135deg, #002366 0%, #003399 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .rbi-hero::before {
+            content: "";
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+        }
+        
+        .rbi-hero::after {
+            content: "";
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 50%;
+        }
+        
+        .rbi-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .rbi-logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .rbi-logo-evolution {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .rbi-logo-evolution h4 {
+            color: #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .logo-comparison {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .logo-item {
+            text-align: center;
+        }
+        
+        .logo-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+        
+        .rbi-logo {
+            width: 120px;
+            height: 120px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        .rbi-mission {
+            background-color: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #FFD700;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+        
+        .rbi-mission h4 {
+            color: #FFD700;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-align: center;
+        }
+        
+        .rbi-mission h4 i {
+            font-size: 1.2rem;
+        }
+        
+        .rbi-functions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .rbi-function-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid #FFD700;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .rbi-function-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .rbi-function-card h4 {
+            color: #002366;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .rbi-function-card i {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        .rbi-governors {
+            margin: 3rem 0;
+        }
+        
+        .governors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .governor-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            display: flex;
+            transition: transform 0.3s;
+        }
+        
+        .governor-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .governor-special {
+            border: 2px solid #FFD700;
+        }
+        
+        .governor-image {
+            width: 120px;
+            background-color: #f5f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .governor-image img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFD700;
+        }
+        
+        .governor-details {
+            flex: 1;
+            padding: 1.5rem;
+            border-left: 1px solid #eaeaea;
+        }
+        
+        .governor-tenure {
+            background-color: #002366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+        
+        .governor-name {
+            color: #002366;
+            margin: 0 0 0.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .governor-achievements {
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        .current-leadership {
+            background-color: #f5f7fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .leader-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        
+        .leader-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #FFD700;
+            margin-bottom: 1rem;
+        }
+        
+        .leader-name {
+            color: #002366;
+            margin: 0.5rem 0;
+            font-weight: 600;
+        }
+        
+        .leader-position {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .leader-tenure {
+            color: #002366;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .rbi-milestones {
+            margin: 3rem 0;
+        }
+        
+        .milestone-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .milestone-year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #FFD700;
+            color: #002366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .milestone-content {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #002366;
+        }
+        
+        .milestone-content h4 {
+            margin-top: 0;
+            color: #002366;
+        }
+        
+        .rbi-structure {
+            margin: 3rem 0;
+        }
+        
+        .structure-diagram {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+        
+        .structure-diagram img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .rbi-policy {
+            background-color: #f5f7fa;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .policy-tabs {
+            display: flex;
+            border-bottom: 1px solid #eaeaea;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .policy-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        .policy-tab.active {
+            color: #002366;
+            border-bottom-color: #FFD700;
+        }
+        
+        .policy-content {
+            display: none;
+        }
+        
+        .policy-content.active {
+            display: block;
+        }
+        
+        .rbi-international {
+            background-color: #002366;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        
+        .rbi-international h3 {
+            color: #FFD700;
+        }
+        
+        .rbi-international p {
+            color: white;
+        }
+
+        .country-card {
+            background-color: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            color: white;
+        }
+
+        .country-card p {
+        color: white; /* Explicitly set paragraph text to white */
+        margin-bottom: 0;
+        }
+        
+        .country-card h4 {
+            color: #FFD700;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        @media (max-width: 768px) {
+            .governor-card {
+                flex-direction: column;
+            }
+            
+            .governor-image {
+                width: 100%;
+                padding: 1.5rem 0;
+            }
+            
+            .governor-details {
+                border-left: none;
+                border-top: 1px solid #eaeaea;
+            }
+            
+            .rbi-hero {
+                padding: 2rem 1.5rem;
+            }
+            
+            .logo-comparison {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+               <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li class="active"><a href="BA2.html?topic=trends">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul> 
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>History & Evolution of Reserve Bank of India (RBI) <span class="topic-tag">Important Topic</span></h1>
+            </div>
+
+            <article class="banking-content">
+                <!-- RBI Hero Section -->
+                <section class="rbi-hero">
+                    <div class="rbi-hero-content">
+                        <div class="rbi-logo-container">
+                            <img src="images/RBI logo.webp" alt="RBI Logo" class="rbi-logo">
+                            <div>
+                                <h2>Reserve Bank of India</h2>
+                                <p>The central bank of India and the regulatory body for the Indian banking system</p>
+                            </div>
+                        </div>
+                        
+                        <div class="rbi-mission">
+                            <h4><i class="fas fa-bullseye"></i> RBI Mission</h4>
+                            <p>"To regulate the issue of Bank notes and the keeping of reserves with a view to securing monetary stability in India and generally to operate the currency and credit system of the country to its advantage."</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RBI Logo Evolution -->
+                <section class="content-section rbi-logo-evolution">
+                    <h3><i class="fas fa-image"></i> RBI Logo Evolution</h3>
+                    <p>The RBI logo has undergone changes reflecting India's history and sovereignty. The current logo features a palm tree and a tiger, replacing the original lion symbol from the British era.</p>
+                    
+                    <div class="logo-comparison">
+                        <div class="logo-item">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/1200px-Emblem_of_India.svg.png" alt="Original RBI Logo">
+                            <p>Original Logo (Lion)</p>
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/RBI logo.webp" alt="Current RBI Logo">
+                            <p>Current Logo (Tiger)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Core Functions Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-cogs"></i> Core Functions of RBI</h3>
+                    <p>The Reserve Bank of India performs several critical functions that form the backbone of India's financial system:</p>
+                    
+                    <div class="rbi-functions-grid">
+                        <div class="rbi-function-card">
+                            <h4><i class="fas fa-university"></i> Banker's Bank</h4>
+                            <p>RBI acts as a bank for all commercial banks, maintaining their cash reserves and providing them financial assistance when needed.</p>
+                        </div>
+                        
+                        <div class="rbi-function-card">
+                            <h4><i class="fas fa-money-bill-wave"></i> Currency Management</h4>
+                            <p>RBI has the sole right to issue currency notes in India (except one rupee notes and coins which are issued by Ministry of Finance).</p>
+                        </div>
+                        
+                        <div class="rbi-function-card">
+                            <h4><i class="fas fa-chart-line"></i> Monetary Policy</h4>
+                            <p>Formulates and implements monetary policy to maintain price stability while keeping in mind the objective of growth.</p>
+                        </div>
+                        
+                        <div class="rbi-function-card">
+                            <h4><i class="fas fa-globe"></i> Custodian of Foreign Investments</h4>
+                            <p>Manages the Foreign Exchange Management Act (FEMA) and maintains foreign exchange reserves of the country.</p>
+                        </div>
+                        
+                        <div class="rbi-function-card">
+                            <h4><i class="fas fa-chart-pie"></i> Economic Growth</h4>
+                            <p>Plays a developmental role to support national objectives through various financial inclusion and priority sector lending initiatives.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- International Role Section -->
+                <section class="content-section rbi-international">
+                    <h3><i class="fas fa-globe-asia"></i> RBI's International Role</h3>
+                    <p>RBI served as the central bank for two other countries before they established their own central banks:</p>
+                    
+                    <div class="country-card">
+                        <h4><i class="fas fa-flag"></i> Pakistan</h4>
+                        <p>RBI acted as Pakistan's central bank until June 1948, helping establish the State Bank of Pakistan.</p>
+                    </div>
+                    
+                    <div class="country-card">
+                        <h4><i class="fas fa-flag"></i> Myanmar (Burma)</h4>
+                        <p>RBI served as Burma's central bank until April 1947 (except during Japanese occupation from 1942-45).</p>
+                    </div>
+                </section>
+
+                <!-- Current Leadership Section -->
+                <section class="content-section current-leadership">
+                    <h3><i class="fas fa-users"></i> Current RBI Leadership</h3>
+                    <p>The RBI is governed by a central board of directors with the following key leadership positions:</p>
+                    
+                    <div class="leadership-grid">
+                        <div class="leader-card">
+                            <img src="images/Sanjay_Malhotra.jpg" alt="Sanjay Malhotra">
+                            <h4 class="leader-name">Sanjay Malhotra</h4>
+                            <p class="leader-position">Governor</p>
+                            <p class="leader-tenure">26th Governor (December 11, 2024 - Present)</p>
+                            <p>Tenure: 3 years (renewable)</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <img src="images/poonam gupta-source LinkedIn.webp" alt="Dr. Punam Gupta">
+                            <h4 class="leader-name">Dr. Punam Gupta </h4>
+                            <p class="leader-position">Deputy Governor - <i>first female governer in RBI History</i> </p>
+                            <p class="leader-tenure">May 2, 2024</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <img src="images/T Rabi Shankar.jpg" alt="T. Rabi Sankar">
+                            <h4 class="leader-name">T. Rabi Sankar</h4>
+                            <p class="leader-position">Deputy Governor</p>
+                            <p class="leader-tenure">Since May 2021, then in May 2024, he was granted a one-year extension.</p>
+                        </div>
+                        
+                        <div class="leader-card">
+                            <img src="images/M Rajeshwar Rao.jpg" alt="M. Rajeshwar Rao">
+                            <h4 class="leader-name">M. Rajeshwar Rao</h4>
+                            <p class="leader-position">Deputy Governor</p>
+                            <p class="leader-tenure">Since 2024</p>
+                        </div>
+
+                        <div class="leader-card">
+                            <img src="images/Swaminathan J.jpg" alt="Swaminathan J">
+                            <h4 class="leader-name">Swaminathan J</h4>
+                            <p class="leader-position">Deputy Governor</p>
+                            <p class="leader-tenure">Since 20 June, 2023</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Historical Background Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-history"></i> Historical Background</h3>
+                    
+                    <div class="timeline-container">
+                        <div class="era">
+                            <h4>Pre-Independence Era (1926-1947)</h4>
+                            <div class="timeline-items">
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1926</div>
+                                    <div class="timeline-content">
+                                        <h5>Hilton Young Commission or Royal Commission</h5>
+                                        <ul>
+                                            <li>Hilton Young Commission or Royal Commission on Indian Currency and Finance recommended creation of central bank</li>
+                                            <li>Suggested name "Reserve Bank of India"</li>
+                                            <li>Proposed functions: regulate currency and credit, maintain reserves</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1934</div>
+                                    <div class="timeline-content">
+                                        <h5>RBI Act Passed</h5>
+                                        <ul>
+                                            <li>RBI Act passed in 1934 based on recommendations</li>
+                                            <li>Initially conceived as private shareholders' bank</li>
+                                            <li>Capital of ₹5 crores divided into shares of ₹100 each</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1935</div>
+                                    <div class="timeline-content">
+                                        <h5>RBI Established</h5>
+                                        <ul>
+                                            <li>Commencement of operations on April 1, 1935</li>
+                                            <li>Headquarters in Calcutta (moved to Mumbai in 1937)</li>
+                                            <li>First Governor: Sir Osborne Smith</li>
+                                            <li>Initially focused on maintaining monetary stability</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1947</div>
+                                    <div class="timeline-content">
+                                        <h5>End of Role for Myanmar</h5>
+                                        <p>RBI ceased to function as central bank for Myanmar (Burma) in April 1947</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="era">
+                            <h4>Post-Independence Era (1947-Present)</h4>
+                            <div class="timeline-items">
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1948</div>
+                                    <div class="timeline-content">
+                                        <h5>End of Role for Pakistan</h5>
+                                        <p>RBI ceased to function as central bank for Pakistan in June 1948</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1949</div>
+                                    <div class="timeline-content">
+                                        <h5>Nationalization of RBI</h5>
+                                        <ul>
+                                            <li>RBI was nationalized on January 1, 1949</li>
+                                            <li>Became fully owned by Government of India</li>
+                                            <li>RBI Act 1949 enacted to govern its operations</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1955</div>
+                                    <div class="timeline-content">
+                                        <h5>Imperial Bank to SBI</h5>
+                                        <p>Imperial Bank of India was nationalized and became State Bank of India (SBI), with RBI acquiring controlling interest</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1969</div>
+                                    <div class="timeline-content">
+                                        <h5>Bank Nationalization</h5>
+                                        <ul>
+                                            <li>14 major commercial banks nationalized</li>
+                                            <li>RBI's regulatory role expanded significantly</li>
+                                            <li>Greater focus on priority sector lending</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">1991</div>
+                                    <div class="timeline-content">
+                                        <h5>Economic Reforms</h5>
+                                        <ul>
+                                            <li>Liberalization of Indian economy</li>
+                                            <li>RBI shifted focus to market-based monetary policy</li>
+                                            <li>Introduction of new private sector banks</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2016</div>
+                                    <div class="timeline-content">
+                                        <h5>Monetary Policy Committee</h5>
+                                        <ul>
+                                            <li>MPC framework established for inflation targeting</li>
+                                            <li>Inflation target set at 4% (±2%)</li>
+                                            <li>Increased transparency in policy decisions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Governors Section -->
+                <section class="content-section rbi-governors">
+                    <h3><i class="fas fa-user-tie"></i> Notable RBI Governors</h3>
+                    <p>The Reserve Bank of India has been led by distinguished economists and bankers who have shaped India's monetary policy and financial system.</p>
+                    
+                    <div class="governors-grid">
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/Osborne Smith.webp" alt="Sir Osborne Smith">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">1935-1937</div>
+                                <h3 class="governor-name">Sir Osborne Smith</h3>
+                                <p class="governor-achievements">1st Governor of RBI. British banker with experience in Australia. Previously worked with Bank of New South Wales.</p>
+                            </div>
+                        </div>
+
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/James Braid Taylor.png" alt="Sir James Braid Taylor">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">1937-1943</div>
+                                <h3 class="governor-name">Sir James Braid Taylor</h3>
+                                <p class="governor-achievements">2nd Governor of RBI. British civil servant in India. Served as Deputy Governor under Sir Osborne Smith.</p>
+                            </div>
+                        </div>
+
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/CD deshmukh.jpg" alt="Sir C.D. Deshmukh">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">1943-1949</div>
+                                <h3 class="governor-name">Sir C.D. Deshmukh</h3>
+                                <p class="governor-achievements">3rd Governor of RBI. First Indian Governor. Played key role in nationalization of RBI in 1949.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="governor-card governor-special">
+                            <div class="governor-image">
+                                <img src="images/Sir Benegal Rama Rau.jpg" alt="Sir Benegal Rama Rau">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">1949-1957</div>
+                                <h3 class="governor-name">Sir Benegal Rama Rau</h3>
+                                <p class="governor-achievements">4th Governor with the longest tenure (7 years, 197 days). Played crucial role in post-independence economic planning.</p>
+                            </div>
+                        </div>
+
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/Dr Manmohan Singh.jpg" alt="Dr. Manmohan Singh">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">1982-1985</div>
+                                <h3 class="governor-name">Dr. Manmohan Singh</h3>
+                                <p class="governor-achievements">15th Governor and the Best financialist. Later became Finance Minister and Prime Minister of India. Initiated financial sector reforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="governor-card governor-special">
+                            <div class="governor-image">
+                                <img src="images/Sir Amitav Ghosh.jpg" alt="Amitav Ghosh">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">1985 (20 days)</div>
+                                <h3 class="governor-name">Amitav Ghosh</h3>
+                                <p class="governor-achievements">16th Governor with the shortest tenure (only 20 days). Served from January 15 to February 4, 1985.</p>
+                            </div>
+                        </div>
+
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/Duvvuri Subbarao.jpg" alt="Duvvuri Subbarao">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">2009 - 2013</div>
+                                <h3 class="governor-name">Duvvuri Subbarao</h3>
+                                <p class="governor-achievements">22nd Governor. First IITain who oppointed as RBI Govrnor.</p>
+                            </div>
+                        </div>
+
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/Dr. Urjit Patel.jpg" alt="Dr. Urjit Patel">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">2016-2018</div>
+                                <h3 class="governor-name">Dr. Urjit Patel</h3>
+                                <p class="governor-achievements">24th Governor. Introduced inflation targeting framework. Strengthened banking regulation and promoted financial inclusion.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/Shaktikanta Das.jpg" alt="Shaktikanta Das">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">2018-Present</div>
+                                <h3 class="governor-name">Shaktikanta Das</h3>
+                                <p class="governor-achievements">25th Governor. Managed economy during COVID-19 pandemic. Focused on digital payments and financial stability.</p>
+                            </div>
+                        </div>
+
+                        <div class="governor-card">
+                            <div class="governor-image">
+                                <img src="images/Sanjay_Malhotra.jpg" alt="Sanjay Malhotra">
+                            </div>
+                            <div class="governor-details">
+                                <div class="governor-tenure">December 11, 2024 - Present</div>
+                                <h3 class="governor-name">Sanjay Malhotra</h3>
+                                <p class="governor-achievements">26th and current Governor.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Key Milestones Section -->
+                <section class="content-section rbi-milestones">
+                    <h3><i class="fas fa-landmark"></i> Key Milestones in RBI's Evolution</h3>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-year">1935</div>
+                        <div class="milestone-content">
+                            <h4>Establishment of RBI</h4>
+                            <p>RBI commenced operations on April 1, 1935, as a private shareholders' bank with a paid-up capital of ₹5 crores. Initially headquartered in Calcutta, it moved to Mumbai in 1937.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-year">1949</div>
+                        <div class="milestone-content">
+                            <h4>Nationalization of RBI</h4>
+                            <p>The Reserve Bank was nationalized on January 1, 1949, under the Reserve Bank (Transfer to Public Ownership) Act, 1948. All shares were transferred to the Central Government.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-year">1966</div>
+                        <div class="milestone-content">
+                            <h4>Agricultural Credit Department</h4>
+                            <p>Established the Agricultural Credit Department to focus on rural finance and agricultural credit, marking RBI's commitment to India's agricultural development.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-year">1985</div>
+                        <div class="milestone-content">
+                            <h4>Department of Banking Operations</h4>
+                            <p>Created to strengthen supervision of commercial banks following the nationalization of banks in 1969 and 1980.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-year">1994</div>
+                        <div class="milestone-content">
+                            <h4>Liberalization Measures</h4>
+                            <p>Following economic reforms of 1991, RBI introduced new guidelines allowing private sector banks, leading to establishment of banks like HDFC, ICICI, and Axis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-year">2016</div>
+                        <div class="milestone-content">
+                            <h4>Monetary Policy Framework</h4>
+                            <p>Introduced inflation targeting framework with the establishment of the Monetary Policy Committee (MPC) to bring transparency in interest rate decisions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Structure of RBI Section -->
+                <section class="content-section rbi-structure">
+                    <h3><i class="fas fa-sitemap"></i> Organizational Structure of RBI</h3>
+                    <p>The Reserve Bank of India has a hierarchical structure with the Central Board of Directors at the apex. The organization is divided into various departments and offices that handle different functions.</p>
+                    
+                    <div class="structure-diagram">
+                        <!-- This would typically be an image or SVG diagram -->
+                        <img src="https://www.rbi.org.in/Scripts/bs_viewcontent.aspx?Id=2016" alt="RBI Organizational Structure">
+                        <p class="caption">Simplified organizational structure of the Reserve Bank of India</p>
+                    </div>
+                    
+                    <h4>Key Departments:</h4>
+                    <ul>
+                        <li><strong>Central Board of Directors:</strong> The main governing body, appointed by Government of India</li>
+                        <li><strong>Departments:</strong> Banking Regulation, Currency Management, Economic Policy Research, Financial Markets, etc.</li>
+                        <li><strong>Regional Offices:</strong> Located across major cities in India</li>
+                        <li><strong>Training Establishments:</strong> RBI Academy, College of Agricultural Banking, etc.</li>
+                    </ul>
+                </section>
+
+                <!-- Policy Framework Section -->
+                <section class="content-section rbi-policy">
+                    <h3><i class="fas fa-chart-line"></i> RBI's Policy Framework</h3>
+                    
+                    <div class="policy-tabs">
+                        <div class="policy-tab active" data-tab="monetary">Monetary Policy</div>
+                        <div class="policy-tab" data-tab="regulatory">Regulatory Policy</div>
+                        <div class="policy-tab" data-tab="developmental">Developmental Role</div>
+                    </div>
+                    
+                    <div class="policy-content active" id="monetary">
+                        <h4>Monetary Policy</h4>
+                        <p>The primary objective of monetary policy is to maintain price stability while keeping in mind the objective of growth. Price stability is a necessary precondition to sustainable growth.</p>
+                        
+                        <h5>Key Tools:</h5>
+                        <ul>
+                            <li><strong>Repo Rate:</strong> The rate at which RBI lends to commercial banks</li>
+                            <li><strong>Reverse Repo Rate:</strong> The rate at which RBI borrows from commercial banks</li>
+                            <li><strong>Cash Reserve Ratio (CRR):</strong> Percentage of deposits banks must keep with RBI</li>
+                            <li><strong>Statutory Liquidity Ratio (SLR):</strong> Percentage of deposits banks must invest in government securities</li>
+                            <li><strong>Open Market Operations (OMO):</strong> Buying/selling of government securities</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-content" id="regulatory">
+                        <h4>Regulatory Policy</h4>
+                        <p>RBI regulates and supervises the financial system to ensure stability and public confidence in the banking system.</p>
+                        
+                        <h5>Key Functions:</h5>
+                        <ul>
+                            <li>Licensing of banks and branch expansion</li>
+                            <li>Prescribing capital adequacy norms (Basel norms)</li>
+                            <li>Inspection and supervision of banks</li>
+                            <li>Regulation of non-banking financial companies (NBFCs)</li>
+                            <li>Foreign exchange management under FEMA</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="policy-content" id="developmental">
+                        <h4>Developmental Role</h4>
+                        <p>RBI performs various developmental functions to support national objectives and promote economic growth.</p>
+                        
+                        <h5>Key Initiatives:</h5>
+                        <ul>
+                            <li>Promotion of financial inclusion through Pradhan Mantri Jan Dhan Yojana</li>
+                            <li>Support for priority sector lending (agriculture, MSMEs, etc.)</li>
+                            <li>Development of financial infrastructure (payment systems, credit bureaus)</li>
+                            <li>Promotion of digital payments (UPI, IMPS, NEFT, RTGS)</li>
+                            <li>Financial literacy programs</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Story Section -->
+                <section class="content-section story-section">
+                    <h3><i class="fas fa-book-open"></i> The RBI Story: From 1935 to Digital India</h3>
+                    
+                    <div class="story-chapter">
+                        <h4>Chapter 1: The Birth of a Central Bank (1926-1935)</h4>
+                        <p><strong>Once upon a time in British India...</strong></p>
+                        <ul>
+                            <li>No central bank existed - currency issued by government, banking was chaotic</li>
+                            <li>1926: Hilton Young Commission recommended creating RBI</li>
+                            <li>1934: RBI Act passed by British Parliament</li>
+                            <li><strong>April 1, 1935:</strong> RBI opened its doors in Calcutta with ₹5 crore capital</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="story-chapter">
+                        <h4>Chapter 2: Early Challenges (1935-1947)</h4>
+                        <ul>
+                            <li>World War II: Managed war financing for British government</li>
+                            <li>Partition (1947): Handled massive currency exchange during India-Pakistan division</li>
+                            <li>Faced skepticism - would it serve British or Indian interests?</li>
+                            <li>Served as central bank for Pakistan (until 1948) and Myanmar (until 1947)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="story-chapter">
+                        <h4>Chapter 3: Becoming India's Own (1947-1969)</h4>
+                        <ul>
+                            <li><strong>1949:</strong> Nationalized - became fully government-owned</li>
+                            <li>1950s: Focused on building banking infrastructure in rural areas</li>
+                            <li>1960s: Started priority sector lending to agriculture and small industries</li>
+                            <li><strong>1969:</strong> 14 major banks nationalized - RBI's regulatory role expanded</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="story-chapter">
+                        <h4>Chapter 4: Economic Reforms & Modernization (1991-2010)</h4>
+                        <ul>
+                            <li>1991 crisis: RBI managed balance of payments emergency</li>
+                            <li>Introduced market-based reforms: Liberalized interest rates, allowed private banks</li>
+                            <li>1998: Focus on payment systems modernization (RTGS in 2004)</li>
+                            <li>2008 global crisis: Protected Indian banking system from worst effects</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="story-chapter">
+                        <h4>Chapter 5: Digital Transformation (2010-Present)</h4>
+                        <ul>
+                            <li>2016: Demonetization - RBI managed currency replacement</li>
+                            <li>Promoted UPI - now world's largest real-time payment system</li>
+                            <li>Financial inclusion: Jan Dhan, Aadhaar, Mobile (JAM) trinity</li>
+                            <li>2020s: Focus on digital currency (CBDC) and climate finance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-recap">
+                        <h4>RBI Timeline Recap</h4>
+                        <div class="responsive-table">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Year</th>
+                                        <th>Event</th>
+                                        <th>Significance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1935</strong></td>
+                                        <td>RBI Established</td>
+                                        <td>India gets its central bank</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1949</strong></td>
+                                        <td>Nationalization</td>
+                                        <td>Became government-owned</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1969</strong></td>
+                                        <td>Bank Nationalization</td>
+                                        <td>Expanded regulatory role</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1991</strong></td>
+                                        <td>Economic Reforms</td>
+                                        <td>Market-based policies</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2016</strong></td>
+                                        <td>MPC Framework</td>
+                                        <td>Inflation targeting</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="final-lesson">
+                        <h4>Why RBI Matters?</h4>
+                        <ul>
+                            <li><strong>Stability:</strong> Protects value of rupee and banking system</li>
+                            <li><strong>Growth:</strong> Ensures credit flows to productive sectors</li>
+                            <li><strong>Innovation:</strong> Drives financial technology advancements</li>
+                            <li><strong>Protection:</strong> Safeguards depositors' interests</li>
+                        </ul>
+                        
+                        <div class="activity-box">
+                            <h5>Think About:</h5>
+                            <p>How would India's economy function without RBI? What challenges might arise?</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA1.html?topic=trends" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA3.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/rbi-history-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/rbi-history-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Policy Tab Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.policy-tab');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs and contents
+                    document.querySelectorAll('.policy-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.policy-content').forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

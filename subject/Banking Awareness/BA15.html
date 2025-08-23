@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking Awareness - Money Market | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for Money Market Page */
+        .market-overview {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .market-structure {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        .structure-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-top: 4px solid #002366;
+            transition: transform 0.3s ease;
+        }
+        
+        .structure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .structure-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .structure-card h4 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .instrument-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .instrument-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #FFD700;
+            transition: all 0.3s ease;
+        }
+        
+        .instrument-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        
+        .instrument-card h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .instrument-card h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .feature-highlight {
+            background-color: #f0f4f8;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-highlight i {
+            color: #FFD700;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .comparison-section {
+            margin-top: 40px;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .market-visual {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .visual-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .flow-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .flow-level {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 15px 0;
+        }
+        
+        .flow-node {
+            background-color: white;
+            border: 2px solid #002366;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 0 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #002366;
+            box-shadow: 0 2px 8px rgba(0,35,102,0.1);
+            position: relative;
+        }
+        
+        .flow-node.rbi {
+            background-color: #002366;
+            color: white;
+            font-size: 1.1rem;
+            padding: 15px 25px;
+        }
+        
+        .flow-node.participant {
+            border-color: #FFD700;
+            background-color: #fffae6;
+        }
+        
+        .flow-connector {
+            position: absolute;
+            width: 2px;
+            background-color: #002366;
+            height: 15px;
+            bottom: -15px;
+            left: 50%;
+        }
+        
+        .rbi-role {
+            background-color: #002366;
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+        
+        .rbi-role h4 {
+            color: #FFD700;
+            margin-top: 0;
+        }
+        
+        .key-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .key-feature i {
+            color: #FFD700;
+            font-size: 1.2em;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .market-structure, .instrument-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .flow-level {
+                flex-wrap: wrap;
+            }
+            
+            .flow-node {
+                margin: 5px;
+                font-size: 0.9rem;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li class="active"><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Money Market in India</h1>
+                <p class="content-subtitle">Understanding the short-term debt instruments and their role in the financial system</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-coins"></i> Money Market Overview</h3>
+                    <p>The money market is a segment of the financial market where financial instruments with high liquidity and very short maturities are traded. It is used by participants as a means for borrowing and lending in the short term, from several days to just under a year.</p>
+                    
+                    <div class="market-overview">
+                        <h4><i class="fas fa-info-circle"></i> Key Characteristics of Money Market</h4>
+                        <div class="market-structure">
+                            <div class="structure-card">
+                                <h4><i class="fas fa-clock"></i> Short-Term Nature</h4>
+                                <p>Instruments have maturities ranging from overnight to one year, providing short-term funding solutions.</p>
+                            </div>
+                            <div class="structure-card">
+                                <h4><i class="fas fa-shield-alt"></i> High Safety</h4>
+                                <p>Instruments are generally issued by entities with high credit ratings, ensuring low default risk.</p>
+                            </div>
+                            <div class="structure-card">
+                                <h4><i class="fas fa-tachometer-alt"></i> High Liquidity</h4>
+                                <p>Money market instruments can be quickly converted to cash with minimal price impact.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Instruments Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-chart-line"></i> Money Market Instruments</h3>
+                    <p>The Indian money market consists of various instruments that cater to different short-term funding needs of financial institutions, corporations, and the government.</p>
+                    
+                    <div class="instrument-grid">
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-file-invoice-dollar"></i> Treasury Bills (T-Bills)</h4>
+                            <p>Short-term instruments issued by the Government of India to finance its short-term requirements.</p>
+                            <div class="feature-highlight">
+                                <i class="fas fa-calendar"></i>
+                                <span>Maturities: 91, 182, and 364 days</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-rupee-sign"></i>
+                                <span>Issued at discount and redeemed at face value</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-handshake"></i> Commercial Paper (CP)</h4>
+                            <p>Unsecured money market instrument issued in the form of a promissory note by corporate entities.</p>
+                            <div class="feature-highlight">
+                                <i class="fas fa-calendar"></i>
+                                <span>Maturity: 7 days to 1 year</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-star"></i>
+                                <span>Minimum credit rating of A2 required</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-file-signature"></i> Certificate of Deposit (CD)</h4>
+                            <p>Negotiable money market instrument issued by banks and financial institutions.</p>
+                            <div class="feature-highlight">
+                                <i class="fas fa-calendar"></i>
+                                <span>Maturity: 7 days to 1 year</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-university"></i>
+                                <span>Issued at discount to face value</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-exchange-alt"></i> Commercial Bill</h4>
+                            <p>Short-term, negotiable, and self-liquidating instrument with low risk.</p>
+                            <div class="feature-highlight">
+                                <i class="fas fa-calendar"></i>
+                                <span>Maturity: 90 days (typically)</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-file-invoice"></i>
+                                <span>Arises from trade transactions</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-hand-holding-usd"></i> Call Money</h4>
+                            <p>Short-term finance repayable on demand, with a maturity period of 1 to 14 days.</p>
+                            <div class="feature-highlight">
+                                <i class="fas fa-clock"></i>
+                                <span>Overnight to 14 days maturity</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-bank"></i>
+                                <span>Inter-bank market for short-term funds</span>
+                            </div>
+                        </div>
+                        
+                        <div class="instrument-card">
+                            <h4><i class="fas fa-money-bill-wave"></i> Notice Money</h4>
+                            <p>Money borrowed or lent for a period between 2 days and 14 days.</p>
+                            <div class="feature-highlight">
+                                <i class="fas fa-bell"></i>
+                                <span>Requires 2-14 days notice for withdrawal</span>
+                            </div>
+                            <div class="feature-highlight">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Maturity beyond call money but short-term</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Participants Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-users"></i> Money Market Participants</h3>
+                    <p>The money market consists of various participants who either supply funds or borrow funds for short durations.</p>
+                    
+                    <div class="market-visual">
+                        <h4><i class="fas fa-project-diagram"></i> Money Market Flow</h4>
+                        <div class="visual-container">
+                            <div class="flow-chart">
+                                <!-- Level 1: RBI -->
+                                <div class="flow-level">
+                                    <div class="flow-node rbi">
+                                        Reserve Bank of India (RBI)
+                                        <div class="flow-connector"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Level 2: Major Participants -->
+                                <div class="flow-level">
+                                    <div class="flow-node participant">
+                                        Commercial Banks
+                                        <div class="flow-connector"></div>
+                                    </div>
+                                    <div class="flow-node participant">
+                                        Financial Institutions
+                                        <div class="flow-connector"></div>
+                                    </div>
+                                    <div class="flow-node participant">
+                                        Mutual Funds
+                                        <div class="flow-connector"></div>
+                                    </div>
+                                    <div class="flow-node participant">
+                                        Corporations
+                                        <div class="flow-connector"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Level 3: Instruments -->
+                                <div class="flow-level">
+                                    <div class="flow-node">
+                                        T-Bills
+                                    </div>
+                                    <div class="flow-node">
+                                        Commercial Paper
+                                    </div>
+                                    <div class="flow-node">
+                                        Certificate of Deposit
+                                    </div>
+                                    <div class="flow-node">
+                                        Call Money
+                                    </div>
+                                    <div class="flow-node">
+                                        Notice Money
+                                    </div>
+                                    <div class="flow-node">
+                                        Commercial Bills
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="rbi-role">
+                            <h4><i class="fas fa-tasks"></i> RBI's Role in Money Market</h4>
+                            <div class="key-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Regulator:</strong> Oversees and regulates money market operations and participants
+                                </div>
+                            </div>
+                            <div class="key-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Lender of Last Resort:</strong> Provides emergency funding to banks facing temporary liquidity shortages
+                                </div>
+                            </div>
+                            <div class="key-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Conducts OMOs:</strong> Uses Open Market Operations to manage liquidity in the system
+                                </div>
+                            </div>
+                            <div class="key-feature">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>Issuer of T-Bills:</strong> Issues Treasury Bills on behalf of the government
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Comparison Section -->
+                <section class="content-section comparison-section">
+                    <h3><i class="fas fa-balance-scale"></i> Money Market vs. Capital Market</h3>
+                    <p>While both money market and capital market are components of the financial market, they serve different purposes and have distinct characteristics.</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Money Market</th>
+                                <th>Capital Market</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Time Horizon</td>
+                                <td>Short-term (up to 1 year)</td>
+                                <td>Long-term (over 1 year)</td>
+                            </tr>
+                            <tr>
+                                <td>Instruments</td>
+                                <td>T-bills, Commercial Paper, CDs, etc.</td>
+                                <td>Stocks, Bonds, Debentures, etc.</td>
+                            </tr>
+                            <tr>
+                                <td>Liquidity</td>
+                                <td>High liquidity</td>
+                                <td>Relatively less liquid</td>
+                            </tr>
+                            <tr>
+                                <td>Risk Factor</td>
+                                <td>Low risk</td>
+                                <td>Higher risk</td>
+                            </tr>
+                            <tr>
+                                <td>Purpose</td>
+                <td>Short-term funding needs</td>
+                                <td>Long-term investment</td>
+                            </tr>
+                            <tr>
+                                <td>Return on Investment</td>
+                                <td>Lower returns</td>
+                                <td>Higher potential returns</td>
+                            </tr>
+                            <tr>
+                                <td>Participants</td>
+                                <td>Banks, financial institutions, corporations</td>
+                                <td>Investors, companies, institutions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Functions & Importance -->
+                <section class="content-section">
+                    <h3><i class="fas fa-cogs"></i> Functions and Importance of Money Market</h3>
+                    <p>The money market plays several crucial roles in the financial system and overall economy.</p>
+                    
+                    <div class="market-structure">
+                        <div class="structure-card">
+                            <h4><i class="fas fa-balance-scale"></i> Liquidity Management</h4>
+                            <p>Helps banks and financial institutions manage their short-term liquidity needs efficiently.</p>
+                        </div>
+                        <div class="structure-card">
+                            <h4><i class="fas fa-tools"></i> Implementation of Monetary Policy</h4>
+                            <p>Provides the platform for central banks to implement monetary policy through various operations.</p>
+                        </div>
+                        <div class="structure-card">
+                            <h4><i class="fas fa-money-check"></i> Short-Term Funding</h4>
+                            <p>Enables governments and corporations to meet their short-term funding requirements at competitive rates.</p>
+                        </div>
+                        <div class="structure-card">
+                            <h4><i class="fas fa-chart-line"></i> Economic Indicator</h4>
+                            <p>Money market rates serve as important indicators of overall economic health and liquidity conditions.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA14.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA16.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/money-market-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/money-market-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

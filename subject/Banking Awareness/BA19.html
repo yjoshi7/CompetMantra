@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foreign Exchange Management (FEMA) | Banking Awareness | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* FEMA Specific Styles */
+        .fema-timeline {
+            background: linear-gradient(to right, #f5f7fa, #f9f9f9);
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fema-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #FFD700;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 45%;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-item:nth-child(odd) {
+            margin-left: auto;
+        }
+        
+        .timeline-item:nth-child(even) {
+            margin-right: auto;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #002366;
+            border: 3px solid #FFD700;
+        }
+        
+        .timeline-item:nth-child(odd)::before {
+            left: -35px;
+        }
+        
+        .timeline-item:nth-child(even)::before {
+            right: -35px;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #002366;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .timeline-year i {
+            margin-right: 8px;
+            color: #FFD700;
+        }
+        
+        .regulation-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #002366;
+        }
+        
+        .regulation-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .regulation-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .regulation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .regulation-point {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .regulation-point h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .regulation-point h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .fema-comparison {
+            margin-top: 40px;
+            overflow-x: auto;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .comparison-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .case-study {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .case-study h3 {
+            color: #002366;
+            margin-top: 0;
+        }
+        
+        .case-content {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .case-point {
+            flex: 1;
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .case-point h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .case-point h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+        }
+        
+        @media (max-width: 992px) {
+            .fema-timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                width: 80%;
+                margin-left: 60px !important;
+                margin-right: 0 !important;
+            }
+            
+            .timeline-item:nth-child(odd)::before,
+            .timeline-item:nth-child(even)::before {
+                left: -35px;
+            }
+            
+            .regulation-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .case-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .timeline-item {
+                width: 85%;
+                margin-left: 45px !important;
+            }
+            
+            .fema-timeline {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li class="active"><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA20.html">Foreign Exchange Management Deep Dive</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Foreign Exchange Management Act (FEMA)</h1>
+                <p class="content-subtitle">Understanding India's framework for foreign exchange transactions</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-globe"></i> FEMA Overview</h3>
+                    <p>The Foreign Exchange Management Act (FEMA) is a comprehensive legislation passed by the Indian Parliament in 1999 that replaced the Foreign Exchange Regulation Act (FERA). FEMA aims to facilitate external trade and payments and promote the orderly development and maintenance of the foreign exchange market in India.</p>
+                </section>
+
+                <!-- Historical Timeline -->
+                <section class="content-section fema-timeline">
+                    <h3><i class="fas fa-history"></i> Evolution of Foreign Exchange Regulation in India</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year"><i class="fas fa-calendar-alt"></i> 1947</div>
+                        <div class="timeline-content">
+                            <h4>Foreign Exchange Regulation Act (FERA)</h4>
+                            <p>Enacted to conserve India's scarce foreign exchange reserves and prevent their misuse. FERA had a restrictive approach with stringent regulations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year"><i class="fas fa-calendar-alt"></i> 1973</div>
+                        <div class="timeline-content">
+                            <h4>FERA Amendment</h4>
+                            <p>Significant amendments made FERA even more restrictive with harsh penalties, including imprisonment for violations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year"><i class="fas fa-calendar-alt"></i> 1991</div>
+                        <div class="timeline-content">
+                            <h4>Economic Liberalization</h4>
+                            <p>India's economic reforms began, necessitating a shift from a restrictive to a facilitative foreign exchange regime.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year"><i class="fas fa-calendar-alt"></i> 1999</div>
+                        <div class="timeline-content">
+                            <h4>FEMA Enactment</h4>
+                            <p>FEMA replaced FERA with a more liberal framework aligned with India's evolving economic policies and WTO commitments.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year"><i class="fas fa-calendar-alt"></i> 2000</div>
+                        <div class="timeline-content">
+                            <h4>FEMA Implementation</h4>
+                            <p>FEMA came into force on June 1, 2000, marking a paradigm shift in India's foreign exchange management approach.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year"><i class="fas fa-calendar-alt"></i> 2004-2015</div>
+                        <div class="timeline-content">
+                            <h4>Liberalization Amendments</h4>
+                            <p>Multiple amendments liberalized various provisions, reflecting India's growing integration with the global economy.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year"><i class="fas fa-calendar-alt"></i> 2015-Present</div>
+                        <div class="timeline-content">
+                            <h4>Further Reforms</h4>
+                            <p>Ongoing reforms to simplify procedures, enhance ease of doing business, and align with global best practices.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Key Objectives Section -->
+                <section class="content-section">
+                    <div class="regulation-card">
+                        <h3><i class="fas fa-bullseye"></i> Key Objectives of FEMA</h3>
+                        <p>FEMA was designed with specific goals to support India's economic development while maintaining regulatory oversight:</p>
+                        
+                        <div class="regulation-grid">
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-exchange-alt"></i> Facilitate External Trade</h4>
+                                <p>Simplify and streamline foreign exchange processes for import and export activities.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-chart-line"></i> Promote Foreign Investment</h4>
+                                <p>Create an enabling environment for foreign direct and portfolio investment in India.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-coins"></i> Maintain Forex Market</h4>
+                                <p>Ensure orderly development and maintenance of the foreign exchange market.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-shield-alt"></i> Protect National Interest</h4>
+                                <p>Safeguard national interests while promoting economic liberalization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FEMA vs FERA Comparison -->
+                <section class="content-section">
+                    <div class="regulation-card">
+                        <h3><i class="fas fa-balance-scale"></i> FEMA vs FERA: Key Differences</h3>
+                        
+                        <div class="fema-comparison">
+                            <table class="comparison-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>FERA (1973)</th>
+                                        <th>FEMA (1999)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Philosophy</td>
+                                        <td>Restrictive and regulatory</td>
+                                        <td>Facilitative and promotional</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Number of Sections</td>
+                                        <td>81 sections</td>
+                                        <td>49 sections</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nature of Violation</td>
+                                        <td>Criminal offense</td>
+                                        <td>Civil offense</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Punishment</td>
+                                        <td>Imprisonment (mandatory)</td>
+                                        <td>Penalty (monetary)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Presumption of Innocence</td>
+                                        <td>Guilty until proven innocent</td>
+                                        <td>Innocent until proven guilty</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Approach</td>
+                                        <td>Exchange control</td>
+                                        <td>Exchange management</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Forex Regulation</td>
+                                        <td>Stringent controls</td>
+                                        <td>Managed flexibility</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Important Provisions -->
+                <section class="content-section">
+                    <div class="regulation-card">
+                        <h3><i class="fas fa-gavel"></i> Important Provisions of FEMA</h3>
+                        
+                        <div class="regulation-grid">
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-ban"></i> Regulation of Activities</h4>
+                                <p>FEMA regulates dealings in foreign exchange and foreign securities, payments to non-residents, and export/import of currency.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-home"></i> Residential Status</h4>
+                                <p>Different rules apply to persons resident in India and persons resident outside India as defined in the Act.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-hand-holding-usd"></i> Current Account Transactions</h4>
+                                <p>Most current account transactions are free, with some requiring RBI approval or subject to government guidelines.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-building"></i> Capital Account Transactions</h4>
+                                <p>Capital account transactions are regulated, with RBI having the power to prescribe permissible transactions and limits.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-industry"></i> Foreign Direct Investment</h4>
+                                <p>FEMA provides the legal framework for FDI policy, with regulations covering various sectors and investment routes.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-chart-bar"></i> External Commercial Borrowings</h4>
+                                <p>ECBs are regulated under FEMA, with guidelines on eligible borrowers, lenders, end-use, and reporting requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Case Study -->
+                <section class="content-section">
+                    <div class="case-study">
+                        <h3><i class="fas fa-book-open"></i> Case Study: FEMA in Action</h3>
+                        <p>How FEMA facilitates foreign investment while maintaining regulatory oversight:</p>
+                        
+                        <div class="case-content">
+                            <div class="case-point">
+                                <h4><i class="fas fa-project-diagram"></i> Scenario</h4>
+                                <p>A US-based technology company wants to establish a subsidiary in India and invest $10 million.</p>
+                            </div>
+                            
+                            <div class="case-point">
+                                <h4><i class="fas fa-tasks"></i> FEMA Process</h4>
+                                <p>The investment follows the automatic route for sectors allowing 100% FDI, with reporting to RBI through authorized dealer banks.</p>
+                            </div>
+                            
+                            <div class="case-point">
+                                <h4><i class="fas fa-check-circle"></i> Outcome</h4>
+                                <p>The investment is completed smoothly, contributing to India's foreign exchange reserves and economic growth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Enforcement and Penalties -->
+                <section class="content-section">
+                    <div class="regulation-card">
+                        <h3><i class="fas fa-balance-scale"></i> Enforcement and Penalties</h3>
+                        
+                        <div class="regulation-grid">
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Adjudicating Authority</h4>
+                                <p>Special officers appointed by the Central Government to determine penalties for contraventions.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-gavel"></i> Appellate Tribunal</h4>
+                                <p>FEMA provides for an Appellate Tribunal to hear appeals against orders of the Adjudicating Authority.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-money-bill-wave"></i> Penalties</h4>
+                                <p>Penalties up to three times the sum involved in contravention where amount quantifiable, or up to ₹2 lakhs where not quantifiable.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-lock"></i> Enforcement Directorate</h4>
+                                <p>ED is responsible for investigating suspected contraventions of FEMA provisions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Developments -->
+                <section class="content-section">
+                    <div class="regulation-card">
+                        <h3><i class="fas fa-sync-alt"></i> Recent Developments</h3>
+                        
+                        <div class="regulation-grid">
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-mobile-alt"></i> Liberalized Remittance Scheme (LRS)</h4>
+                                <p>Enhanced limits and simplified procedures for resident individuals to remit funds abroad.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-rupee-sign"></i> ODI Regulations</h4>
+                                <p>Simplified regulations for Overseas Direct Investment by Indian companies.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-briefcase"></i> FDI Reforms</h4>
+                                <p>Continued liberalization of FDI policies across various sectors to attract foreign investment.</p>
+                            </div>
+                            
+                            <div class="regulation-point">
+                                <h4><i class="fas fa-digital-tachograph"></i> Digital Initiatives</h4>
+                                <p>Online reporting systems and simplified compliance procedures through technology adoption.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA18.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA21.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/fema-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/fema-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>

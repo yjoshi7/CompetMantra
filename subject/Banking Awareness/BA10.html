@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Insurance and Credit Guarantee Corporation (DICGC) | CompeteMantra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../main/header.css">
+    <link rel="stylesheet" href="../../main/footer.css">
+    <link rel="stylesheet" href="css/BA.css">
+    <script src="../../main/header.js" defer></script>
+    <script src="../../main/footer.js" defer></script>
+    <script src="js/BA.js" defer></script>
+    <style>
+        /* Custom Styles for DICGC Page */
+        .coverage-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-left: 4px solid #FFD700;
+        }
+        
+        .coverage-card h3 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .coverage-card h3 i {
+            margin-right: 10px;
+            color: #FFD700;
+        }
+        
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .coverage-item {
+            background: #f5f7fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-top: 3px solid #002366;
+        }
+        
+        .coverage-item h4 {
+            color: #002366;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .coverage-item h4 i {
+            margin-right: 8px;
+            color: #FFD700;
+            font-size: 0.9em;
+        }
+        
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            margin: 30px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            background-color: #FFD700;
+        }
+        
+        .process-step {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 30px;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: -8px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #FFD700;
+            border: 3px solid #002366;
+        }
+        
+        .process-content {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .premium-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .premium-table th {
+            background-color: #002366;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .premium-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .premium-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .premium-table tr:hover {
+            background-color: #f0f4f8;
+        }
+        
+        .timeline-milestone {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #002366;
+        }
+        
+        .milestone-year {
+            font-weight: bold;
+            color: #002366;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .coverage-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo" style="text-decoration: none;">Compete<span>Mantra</span></a>
+            
+            <nav class="nav-desktop">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../../index.html" class="nav-link" style="text-decoration: none;">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../subject.html" class="nav-link active" style="text-decoration: none;">Subject</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../tests/test.html" class="nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="nav-mobile" id="mobileNav">
+            <div class="mobile-nav-header">
+                <span>Menu</span>
+                <button class="close-mobile-menu" id="closeMobileMenu">×</button>
+            </div>
+            <ul class="mobile-nav-list">
+                <li class="mobile-nav-item">
+                    <a href="../../index.html" class="mobile-nav-link" style="text-decoration: none;">Home</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../subject.html" class="mobile-nav-link active" style="text-decoration: none;">Subject</a>
+                </li>
+                <li class="mobile-nav-item">
+                    <a href="../../tests/test.html" class="mobile-nav-link" style="text-decoration: none;">Mock Test/Exam</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="ba-container">
+        <!-- Curriculum Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Banking Awareness</h3>
+            </div>
+            <nav class="syllabus-nav">
+                <h4>Syllabus</h4>
+                <ul>
+                    <li><a href="BA1.html">History & Evolution of Banking in India</a></li>
+                    <li><a href="BA2.html">History of Reserve Bank of India (RBI)</a></li>
+                    <li><a href="BA3.html">Types of Banks</a></li>
+                    <li><a href="BA4.html">Banking Infrastructure</a></li>
+                    <li><a href="BA5.html">Deposits</a></li>
+                    <li><a href="BA6.html">Loans</a></li>
+                    <li><a href="BA7.html">Cards & Instruments</a></li>
+                    <li><a href="BA9.html">Regulation of Banks & NBFCs</a></li>
+                    <li class="active"><a href="BA10.html">Deposit Insurance and Credit Guarantee Corporation (DICGC)</a></li>
+                    <li><a href="BA11.html">National Housing Bank (NHB)</a></li>
+                    <li><a href="BA12.html">Banking Codes and Standards Board of India (BCSBI)</a></li>
+                    <li><a href="BA13.html">Consumer Grievance Redressal - Banking Ombudsman</a></li>
+                    <li><a href="BA14.html">Monetary Policy Tools</a></li>
+                    <li><a href="BA15.html">Money Market</a></li>
+                    <li><a href="BA16.html">Capital Market</a></li>
+                    <li><a href="BA17.html">Financial Institutions</a></li>
+                    <li><a href="BA18.html">FIMMDA & CCIL</a></li>
+                    <li><a href="BA19.html">Foreign Exchange Management (FEMA)</a></li>
+                    <li><a href="BA21.html">Basel Norms (I, II, III)</a></li>
+                    <li><a href="BA22.html">Credit Information & Scoring</a></li>
+                    <li><a href="BA23.html">Bank Performance & Evaluation</a></li>
+                    <li><a href="BA24.html">NPCI Tools</a></li>
+                    <li><a href="BA25.html">Payment & Settlement Systems</a></li>
+                    <li><a href="BA26.html">Narasimham Committee II (all 9-11 suggestions in detail)</a></li>
+                    <li><a href="BA27.html">Digital Initiatives in Banking</a></li>
+                    <li><a href="BA28.html">Financial Inclusion & Schemes</a></li>
+                    <li><a href="BA29.html">Recent Trends in Banking</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="content-area">
+            <div class="content-header">
+                <h2>Banking Awareness</h2>
+                <h1>Deposit Insurance and Credit Guarantee Corporation (DICGC)</h1>
+                <p class="content-subtitle">Protecting depositors and strengthening the banking system</p>
+            </div>
+
+            <article class="banking-content">
+                <!-- Introduction Section -->
+                <section class="content-section">
+                    <h3><i class="fas fa-shield-alt"></i> Introduction to DICGC</h3>
+                    <p>The Deposit Insurance and Credit Guarantee Corporation (DICGC) is a wholly-owned subsidiary of the Reserve Bank of India (RBI) established under the DICGC Act, 1961. It provides insurance coverage for bank deposits and guarantees credit facilities to protect depositors and strengthen the banking system.</p>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">1961</div>
+                        <p>DICGC was established through the enactment of the Deposit Insurance Corporation Act, 1961.</p>
+                    </div>
+                    
+                    <div class="timeline-milestone">
+                        <div class="milestone-year">1978</div>
+                        <p>The Corporation was renamed to Deposit Insurance and Credit Guarantee Corporation (DICGC) after merging the Credit Guarantee Corporation of India with it.</p>
+                    </div>
+                </section>
+
+                <!-- Functions and Objectives -->
+                <section class="content-section">
+                    <div class="coverage-card">
+                        <h3><i class="fas fa-tasks"></i> Functions and Objectives</h3>
+                        
+                        <div class="coverage-grid">
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-user-shield"></i> Deposit Insurance</h4>
+                                <p>Providing insurance coverage for bank deposits to protect small depositors in the event of bank failure.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-hand-holding-usd"></i> Credit Guarantee</h4>
+                                <p>Offering guarantees for credit facilities extended to certain categories of small borrowers, primarily to encourage lending to priority sectors.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-chart-line"></i> Risk Monitoring</h4>
+                                <p>Monitoring the risk profile of insured banks and taking appropriate measures to mitigate potential losses to the Deposit Insurance Fund.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-graduation-cap"></i> Awareness Creation</h4>
+                                <p>Creating awareness among depositors about the deposit insurance system and its benefits.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Coverage Details -->
+                <section class="content-section">
+                    <div class="coverage-card">
+                        <h3><i class="fas fa-coverage-thin"></i> Insurance Coverage Details</h3>
+                        <p>DICGC provides insurance coverage for deposits held in different types of banks. The coverage is automatic and doesn't require any application from depositors.</p>
+                        
+                        <div class="coverage-grid">
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-rupee-sign"></i> Coverage Limit</h4>
+                                <p>Each depositor is insured up to <strong>₹5,00,000</strong> (₹5 lakh) for both principal and interest amounts across all accounts in the same bank.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-building"></i> Covered Banks</h4>
+                                <p>All commercial banks, regional rural banks, local area banks, and cooperative banks are insured by DICGC.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-university"></i> Types of Deposits</h4>
+                                <p>Coverage includes savings, fixed, current, recurring deposits, and accrued interest.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-times-circle"></i> Non-Covered Items</h4>
+                                <p>Deposits of foreign governments, deposits of central/state governments, and inter-bank deposits are not insured.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Premium Structure -->
+                <section class="content-section">
+                    <div class="coverage-card">
+                        <h3><i class="fas fa-money-bill-wave"></i> Premium Structure</h3>
+                        <p>Banks pay insurance premium to DICGC based on their assessable deposits. The premium rates are determined by the Corporation with approval from RBI.</p>
+                        
+                        <table class="premium-table">
+                            <thead>
+                                <tr>
+                                    <th>Period</th>
+                                    <th>Premium Rate (per ₹100 of assessable deposits)</th>
+                                    <th>Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1962-1968</td>
+                                    <td>0.05 paise (₹0.0005)</td>
+                                    <td>Initial rate</td>
+                                </tr>
+                                <tr>
+                                    <td>1968-1971</td>
+                                    <td>0.06 paise (₹0.0006)</td>
+                                    <td>First increase</td>
+                                </tr>
+                                <tr>
+                                    <td>1971-1993</td>
+                                    <td>0.08 paise (₹0.0008)</td>
+                                    <td>Second increase</td>
+                                </tr>
+                                <tr>
+                                    <td>1993-2005</td>
+                                    <td>0.10 paise (₹0.0010)</td>
+                                    <td>Third increase</td>
+                                </tr>
+                                <tr>
+                                    <td>2005-2020</td>
+                                    <td>0.10 paise (₹0.0010)</td>
+                                    <td>No change</td>
+                                </tr>
+                                <tr>
+                                    <td>2020-Present</td>
+                                    <td>0.12 paise (₹0.0012)</td>
+                                    <td>Increased after 15 years</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Claim Process -->
+                <section class="content-section">
+                    <div class="coverage-card">
+                        <h3><i class="fas fa-file-invoice"></i> Claim Process</h3>
+                        <p>When a bank fails, DICGC initiates the claim settlement process to compensate depositors up to the insured amount.</p>
+                        
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="process-content">
+                                    <h4>Step 1: Bank Failure Declaration</h4>
+                                    <p>RBI declares that the bank has failed and will not be able to repay its depositors.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="process-content">
+                                    <h4>Step 2: Data Collection</h4>
+                                    <p>DICGC collects information about depositors and their deposits from the failed bank.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="process-content">
+                                    <h4>Step 3: Claim Calculation</h4>
+                                    <p>DICGC calculates the insurance amount payable to each depositor (up to ₹5 lakh).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="process-content">
+                                    <h4>Step 4: Payment</h4>
+                                    <p>Insurance amount is paid either directly to depositors or through another bank appointed by RBI.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="process-content">
+                                    <h4>Step 5: Recovery</h4>
+                                    <p>DICGC attempts to recover the amount paid from the assets of the failed bank.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Recent Developments -->
+                <section class="content-section">
+                    <div class="coverage-card">
+                        <h3><i class="fas fa-sync-alt"></i> Recent Developments</h3>
+                        
+                        <div class="coverage-grid">
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-arrow-up"></i> Increased Coverage</h4>
+                                <p>In 2020, the insurance coverage was increased from ₹1,00,000 to ₹5,00,000 per depositor per bank.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-bullhorn"></i> Awareness Campaigns</h4>
+                                <p>DICGC has intensified its efforts to create awareness about deposit insurance among the public.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-tachometer-alt"></i> Premium Rate Adjustment</h4>
+                                <p>The premium rate was increased from 10 paise to 12 paise per ₹100 of assessable deposits in 2020.</p>
+                            </div>
+                            
+                            <div class="coverage-item">
+                                <h4><i class="fas fa-digital-tachograph"></i> Digital Initiatives</h4>
+                                <p>DICGC is working on digital systems for faster claim settlement and better monitoring of insured banks.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Final Lesson -->
+                <section class="content-section">
+                    <div class="final-lesson">
+                        <h4><i class="fas fa-lightbulb"></i> Key Takeaways</h4>
+                        <ul>
+                            <li>DICGC provides insurance coverage of up to ₹5 lakh per depositor per bank</li>
+                            <li>Coverage is automatic and doesn't require any application from depositors</li>
+                            <li>All commercial banks, RRBs, and cooperative banks are insured by DICGC</li>
+                            <li>The premium is paid by banks, not by depositors</li>
+                            <li>DICGC plays a crucial role in maintaining confidence in the banking system</li>
+                        </ul>
+                        
+                        <div class="activity-box">
+                            <h5>Did You Know?</h5>
+                            <p>Before the increase in 2020, the deposit insurance cover had remained at ₹1 lakh for nearly 27 years since 1993.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Navigation Buttons -->
+                <div class="content-navigation">
+                    <a href="BA9.html" class="nav-button prev-button">
+                        <i class="fas fa-arrow-left"></i> Previous Topic
+                    </a>
+                    <a href="BA11.html" class="nav-button next-button">
+                        Next Topic <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Language Videos Section -->
+                <section class="language-videos">
+                    <h3><i class="fas fa-language"></i> Watch Video Explanations in Your Language</h3>
+                    <div class="video-links">
+                        <a href="https://youtube.com/dicgc-hindi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Hindi Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-bengali" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Bengali Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-marathi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Marathi Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-telugu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Telugu Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-tamil" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Tamil Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-gujarati" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Gujarati Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-urdu" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Urdu Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-kannada" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Kannada Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-odia" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Odia Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-malayalam" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Malayalam Explanation
+                        </a>
+                        <a href="https://youtube.com/dicgc-punjabi" class="video-link" target="_blank">
+                            <i class="fas fa-play-circle"></i> Punjabi Explanation
+                        </a>
+                    </div>
+                </section>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-container">
+            <!-- Brand Section -->
+            <div class="footer-brand">
+                <div class="footer-logo">Compete<span>Mantra</span></div>
+                <p class="footer-tagline">Empowering your competitive journey with quality education</p>
+            </div>
+            
+            <!-- Navigation Section -->
+            <div class="footer-nav">
+                <div class="nav-column">
+                    <h3 class="nav-title">Explore</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../index.html" class="footer-nav-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/about.html" class="footer-nav-link">About Us</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/courses.html" class="footer-nav-link">Courses</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/explore/features.html" class="footer-nav-link">Features</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Resources</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/blog.html" class="footer-nav-link">Blog</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/FAQs.html" class="footer-nav-link">FAQs</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/support.html" class="footer-nav-link">Support</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/resources/contact.html" class="footer-nav-link">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="nav-column">
+                    <h3 class="nav-title">Legal</h3>
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/privacy.html" class="footer-nav-link">Privacy Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/services.html" class="footer-nav-link">Terms of Service</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/cookie.html" class="footer-nav-link">Cookie Policy</a></li>
+                        <li class="footer-nav-item"><a href="../../main/footer/legal/GDPR.html" class="footer-nav-link">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Social Section -->
+            <div class="footer-social">
+                <h3 class="nav-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p class="copyright">© 2023 CompeteMantra. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <span>Back to Top</span>
+                <span>↑</span>
+            </button>
+        </div>
+    </footer>
+</body>
+</html>
